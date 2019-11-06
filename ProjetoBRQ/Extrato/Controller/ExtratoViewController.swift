@@ -8,23 +8,50 @@
 
 import UIKit
 
-class ExtratoViewController: UIViewController {
+class ExtratoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    //MARK: - Variaveis/Constantes
+    
+    var listaLancamentos: Array<Lancamento> = []
+    var saldoTotal: Double!
+    
+    //MARK: - Outlets
+    
+    @IBOutlet weak var viewExtrato: UIView!
+    @IBOutlet weak var somaSaldos: UILabel!
+    
+    //MARK: - Actions
+    
+    @IBAction func voltar(_ sender: Any) {
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //MARK: - Métodos
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewExtrato.layer.cornerRadius = 8
     }
-    */
-
+    
+    //MARK: - TableView
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return listaLancamentos.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let celulaExtrato = tableView.dequeueReusableCell(withIdentifier: "celulaExtrato", for: indexPath) as! ExtratoTableViewCell
+        
+        let lancamentoAtual = listaLancamentos[indexPath.item]
+        saldoTotal += lancamentoAtual.valor
+        
+        celulaExtrato.labelLancamentos.text = lancamentoAtual.nome
+        celulaExtrato.labelDatas.text = lancamentoAtual.data
+        celulaExtrato.labelValores.text = "R$ \(lancamentoAtual.valor)"
+        self.somaSaldos.text = "R$ \(String(describing: saldoTotal))"
+        
+        return celulaExtrato
+    }
+    
+    
+    
 }

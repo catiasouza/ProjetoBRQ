@@ -18,6 +18,8 @@
 		BAFD3C11237307CD006D4C72 /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD3C10237307CD006D4C72 /* CadastroViewController.swift */; };
 		BAFD3C13237307E2006D4C72 /* ListaContaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD3C12237307E2006D4C72 /* ListaContaViewController.swift */; };
 		BAFD3C15237307F0006D4C72 /* ExtratoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD3C14237307F0006D4C72 /* ExtratoViewController.swift */; };
+		BAFD3C18237348BF006D4C72 /* ExtratoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD3C17237348BF006D4C72 /* ExtratoTableViewCell.swift */; };
+		BAFD3C1B237356D3006D4C72 /* Lancamento.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD3C1A237356D3006D4C72 /* Lancamento.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		BAFD3C10237307CD006D4C72 /* CadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
 		BAFD3C12237307E2006D4C72 /* ListaContaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContaViewController.swift; sourceTree = "<group>"; };
 		BAFD3C14237307F0006D4C72 /* ExtratoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtratoViewController.swift; sourceTree = "<group>"; };
+		BAFD3C17237348BF006D4C72 /* ExtratoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtratoTableViewCell.swift; sourceTree = "<group>"; };
+		BAFD3C1A237356D3006D4C72 /* Lancamento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lancamento.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +176,8 @@
 		BAFD3C0B23730765006D4C72 /* Extrato */ = {
 			isa = PBXGroup;
 			children = (
+				BAFD3C19237356B5006D4C72 /* Model */,
+				BAFD3C162373471C006D4C72 /* View */,
 				BAFD3C0C23730775006D4C72 /* Controller */,
 			);
 			path = Extrato;
@@ -207,6 +213,22 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BAFD3C162373471C006D4C72 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BAFD3C17237348BF006D4C72 /* ExtratoTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BAFD3C19237356B5006D4C72 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BAFD3C1A237356D3006D4C72 /* Lancamento.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,8 +364,10 @@
 			files = (
 				7556FD062373012300AF5FF1 /* AppDelegate.swift in Sources */,
 				BAFD3C13237307E2006D4C72 /* ListaContaViewController.swift in Sources */,
+				BAFD3C18237348BF006D4C72 /* ExtratoTableViewCell.swift in Sources */,
 				BAFD3C15237307F0006D4C72 /* ExtratoViewController.swift in Sources */,
 				7556FD082373012300AF5FF1 /* SceneDelegate.swift in Sources */,
+				BAFD3C1B237356D3006D4C72 /* Lancamento.swift in Sources */,
 				BAFD3C11237307CD006D4C72 /* CadastroViewController.swift in Sources */,
 				7556FD102373012300AF5FF1 /* ProjetoBRQ.xcdatamodeld in Sources */,
 			);
