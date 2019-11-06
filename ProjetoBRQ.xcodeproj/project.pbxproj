@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		7556FD062373012300AF5FF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD052373012300AF5FF1 /* AppDelegate.swift */; };
 		7556FD082373012300AF5FF1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD072373012300AF5FF1 /* SceneDelegate.swift */; };
-		7556FD0A2373012300AF5FF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD092373012300AF5FF1 /* ViewController.swift */; };
 		7556FD0D2373012300AF5FF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7556FD0B2373012300AF5FF1 /* Main.storyboard */; };
 		7556FD102373012300AF5FF1 /* ProjetoBRQ.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD0E2373012300AF5FF1 /* ProjetoBRQ.xcdatamodeld */; };
 		7556FD122373012500AF5FF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7556FD112373012500AF5FF1 /* Assets.xcassets */; };
 		7556FD152373012500AF5FF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7556FD132373012500AF5FF1 /* LaunchScreen.storyboard */; };
 		7556FD202373012500AF5FF1 /* ProjetoBRQTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD1F2373012500AF5FF1 /* ProjetoBRQTests.swift */; };
 		7556FD2B2373012500AF5FF1 /* ProjetoBRQUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD2A2373012500AF5FF1 /* ProjetoBRQUITests.swift */; };
+		BAFD3C11237307CD006D4C72 /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD3C10237307CD006D4C72 /* CadastroViewController.swift */; };
+		BAFD3C13237307E2006D4C72 /* ListaContaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD3C12237307E2006D4C72 /* ListaContaViewController.swift */; };
+		BAFD3C15237307F0006D4C72 /* ExtratoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD3C14237307F0006D4C72 /* ExtratoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +41,6 @@
 		7556FD022373012300AF5FF1 /* ProjetoBRQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjetoBRQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7556FD052373012300AF5FF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7556FD072373012300AF5FF1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7556FD092373012300AF5FF1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7556FD0C2373012300AF5FF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7556FD0F2373012300AF5FF1 /* ProjetoBRQ.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProjetoBRQ.xcdatamodel; sourceTree = "<group>"; };
 		7556FD112373012500AF5FF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +52,9 @@
 		7556FD262373012500AF5FF1 /* ProjetoBRQUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjetoBRQUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7556FD2A2373012500AF5FF1 /* ProjetoBRQUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetoBRQUITests.swift; sourceTree = "<group>"; };
 		7556FD2C2373012500AF5FF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAFD3C10237307CD006D4C72 /* CadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
+		BAFD3C12237307E2006D4C72 /* ListaContaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContaViewController.swift; sourceTree = "<group>"; };
+		BAFD3C14237307F0006D4C72 /* ExtratoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtratoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +105,12 @@
 		7556FD042373012300AF5FF1 /* ProjetoBRQ */ = {
 			isa = PBXGroup;
 			children = (
+				BAFD3C0D237307A2006D4C72 /* Cadastro */,
+				BAFD3C0B23730765006D4C72 /* Extrato */,
+				BAFD3C0823730732006D4C72 /* ListaConta */,
+				BAFD3C0723730721006D4C72 /* Model */,
 				7556FD052373012300AF5FF1 /* AppDelegate.swift */,
 				7556FD072373012300AF5FF1 /* SceneDelegate.swift */,
-				7556FD092373012300AF5FF1 /* ViewController.swift */,
 				7556FD0B2373012300AF5FF1 /* Main.storyboard */,
 				7556FD112373012500AF5FF1 /* Assets.xcassets */,
 				7556FD132373012500AF5FF1 /* LaunchScreen.storyboard */,
@@ -129,6 +136,77 @@
 				7556FD2C2373012500AF5FF1 /* Info.plist */,
 			);
 			path = ProjetoBRQUITests;
+			sourceTree = "<group>";
+		};
+		BAFD3C0723730721006D4C72 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BAFD3C0823730732006D4C72 /* ListaConta */ = {
+			isa = PBXGroup;
+			children = (
+				BAFD3C0A23730756006D4C72 /* View */,
+				BAFD3C092373074B006D4C72 /* Controller */,
+			);
+			path = ListaConta;
+			sourceTree = "<group>";
+		};
+		BAFD3C092373074B006D4C72 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BAFD3C12237307E2006D4C72 /* ListaContaViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BAFD3C0A23730756006D4C72 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BAFD3C0B23730765006D4C72 /* Extrato */ = {
+			isa = PBXGroup;
+			children = (
+				BAFD3C0C23730775006D4C72 /* Controller */,
+			);
+			path = Extrato;
+			sourceTree = "<group>";
+		};
+		BAFD3C0C23730775006D4C72 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BAFD3C14237307F0006D4C72 /* ExtratoViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BAFD3C0D237307A2006D4C72 /* Cadastro */ = {
+			isa = PBXGroup;
+			children = (
+				BAFD3C0F237307B5006D4C72 /* View */,
+				BAFD3C0E237307AD006D4C72 /* Controller */,
+			);
+			path = Cadastro;
+			sourceTree = "<group>";
+		};
+		BAFD3C0E237307AD006D4C72 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BAFD3C10237307CD006D4C72 /* CadastroViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BAFD3C0F237307B5006D4C72 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +340,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7556FD0A2373012300AF5FF1 /* ViewController.swift in Sources */,
 				7556FD062373012300AF5FF1 /* AppDelegate.swift in Sources */,
+				BAFD3C13237307E2006D4C72 /* ListaContaViewController.swift in Sources */,
+				BAFD3C15237307F0006D4C72 /* ExtratoViewController.swift in Sources */,
 				7556FD082373012300AF5FF1 /* SceneDelegate.swift in Sources */,
+				BAFD3C11237307CD006D4C72 /* CadastroViewController.swift in Sources */,
 				7556FD102373012300AF5FF1 /* ProjetoBRQ.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
