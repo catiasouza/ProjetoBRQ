@@ -11,6 +11,8 @@ import UIKit
 class ContaCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var celulaTexto: UILabel!
+    @IBOutlet weak var celulaView: UIView!
+    
     
     
 }

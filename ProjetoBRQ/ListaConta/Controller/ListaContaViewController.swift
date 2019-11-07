@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListaContaViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ListaContaViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     
 
@@ -26,6 +26,7 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionListaContas.dataSource = self
+        collectionListaContas.delegate = self
         
     }
     
@@ -42,7 +43,9 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
         print("entrou")
         let celula = collectionView.dequeueReusableCell(withReuseIdentifier: "celulaPadrao", for: indexPath) as! ContaCollectionViewCell
         celula.celulaTexto.text = String(indexPath.row)
-        celula.backgroundColor = UIColor(named: "Blue")
+        celula.celulaView.backgroundColor = UIColor(red: 250, green: 250, blue: 250, alpha: 1)
+        celula.layer.cornerRadius = 10
+        
         return celula
     }
     
