@@ -14,7 +14,7 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var listaLancamentos: [Lancamento] = [
         Lancamento(nome: "Mc Donalds", data: "06-11-2019", valor: 21.99),
-        Lancamento(nome: "Americanas", data: "06-11-2019", valor: 75.50),
+        Lancamento(nome: "Lojas Americanas", data: "06-11-2019", valor: 75.50),
         Lancamento(nome: "Samsung", data: "07-11-2019", valor: 8999.99)
     ]
     var saldoTotal: Double = 0
