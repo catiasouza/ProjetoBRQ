@@ -33,6 +33,23 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     
     //MARK: - Métodos
 
+    @objc func exibeAlerta(recognizer: UILongPressGestureRecognizer) {
+        
+        if (recognizer.state == UIGestureRecognizer.State.began) {
+            let celula = recognizer.view  as! UICollectionViewCell
+            
+            if let indexPath = collectionListaContas.indexPath(for: celula) {
+                let row = indexPath.row
+                 
+                AlertaRemoveConta(controller: self).alerta(controller: self) { (action) in
+                    self.teste.remove(at: row)
+                    self.collectionListaContas.reloadData()
+                    print("Conta excluida com sucesso")
+                }
+            }
+        }
+    }
+    
     
     //MARK: - CollectionView
     
@@ -49,7 +66,10 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
         celula.celulaTexto.text = teste[ indexPath.row ]
         celula.celulaView.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
         
-        celula.layer.cornerRadius = 10
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector( exibeAlerta ) )
+        celula.addGestureRecognizer(longPress)
+        
+        celula.layer.cornerRadius = 8
         
         return celula
     }
@@ -58,33 +78,18 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let largura = collectionView.bounds.width
-        let altura: CGFloat = 160 
-        
+        let altura: CGFloat = 160
         return CGSize(width: largura, height: altura)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        AlertaRemoveConta(controller: self).alerta(controller: self) { (action) in
-            self.teste.remove(at: indexPath.row )
-            self.collectionListaContas.reloadData()
-        }
-        
-//        let alerta = UIAlertController(title: "Remover Conta", message: "Deseja remover esta conta?", preferredStyle: .alert)
-//        let cancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
-//        //let deletar = UIAlertAction(title: "Deletar", style: .destructive,handler: nil)
-//
-//        let deletar = UIAlertAction(title: "Deletar", style: .destructive) { (action) in
-//            self.teste.remove(at: indexPath.row)
-//            self.collectionListaContas.reloadData()
-//        }
-//
-//        alerta.addAction(cancelar)
-//        alerta.addAction(deletar)
-//        present(alerta, animated: true, completion: nil)
+        print("conta selecionada")
         
     }
+    
 
     //MARK: - Navigation
 
+    
 }
