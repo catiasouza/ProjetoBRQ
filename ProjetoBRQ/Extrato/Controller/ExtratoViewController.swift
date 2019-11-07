@@ -8,17 +8,23 @@
 
 import UIKit
 
-class ExtratoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     //MARK: - Variaveis/Constantes
     
-    var listaLancamentos: Array<Lancamento> = []
-    var saldoTotal: Double!
+    var listaLancamentos: [Lancamento] = [
+        Lancamento(nome: "Mc Donalds", data: "06-11-2019", valor: 21.99),
+        Lancamento(nome: "Americanas", data: "06-11-2019", valor: 75.50),
+        Lancamento(nome: "Samsung", data: "07-11-2019", valor: 8999.99)
+    ]
+    var saldoTotal: Double = 0
     
     //MARK: - Outlets
     
     @IBOutlet weak var viewExtrato: UIView!
     @IBOutlet weak var somaSaldos: UILabel!
+    @IBOutlet weak var labelExtratoApelido: UILabel!
+    @IBOutlet weak var extratoTableView: UITableView!
     
     //MARK: - Actions
     
@@ -29,10 +35,22 @@ class ExtratoViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        extratoTableView.dataSource = self
+        extratoTableView.delegate = self
         viewExtrato.layer.cornerRadius = 8
+        
+        for i in listaLancamentos {
+            let valorLista = i
+            saldoTotal += valorLista.valor
+        }
+        
     }
     
     //MARK: - TableView
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listaLancamentos.count
@@ -41,17 +59,13 @@ class ExtratoViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let celulaExtrato = tableView.dequeueReusableCell(withIdentifier: "celulaExtrato", for: indexPath) as! ExtratoTableViewCell
         
-        let lancamentoAtual = listaLancamentos[indexPath.item]
-        saldoTotal += lancamentoAtual.valor
+        let lancamentoAtual = listaLancamentos[indexPath.row]
         
         celulaExtrato.labelLancamentos.text = lancamentoAtual.nome
         celulaExtrato.labelDatas.text = lancamentoAtual.data
-        celulaExtrato.labelValores.text = "R$ \(lancamentoAtual.valor)"
+        celulaExtrato.labelValores.text = "R$ \(String(describing: lancamentoAtual.valor))"
         self.somaSaldos.text = "R$ \(String(describing: saldoTotal))"
-        
+                
         return celulaExtrato
     }
-    
-    
-    
 }

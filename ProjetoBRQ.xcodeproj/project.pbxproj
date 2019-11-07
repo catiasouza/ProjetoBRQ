@@ -15,6 +15,7 @@
 		7556FD152373012500AF5FF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7556FD132373012500AF5FF1 /* LaunchScreen.storyboard */; };
 		7556FD202373012500AF5FF1 /* ProjetoBRQTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD1F2373012500AF5FF1 /* ProjetoBRQTests.swift */; };
 		7556FD2B2373012500AF5FF1 /* ProjetoBRQUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD2A2373012500AF5FF1 /* ProjetoBRQUITests.swift */; };
+		BADED5B7237448CC007811C5 /* LancamentosDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADED5B6237448CC007811C5 /* LancamentosDAO.swift */; };
 		BAFD3C11237307CD006D4C72 /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD3C10237307CD006D4C72 /* CadastroViewController.swift */; };
 		BAFD3C13237307E2006D4C72 /* ListaContaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD3C12237307E2006D4C72 /* ListaContaViewController.swift */; };
 		BAFD3C15237307F0006D4C72 /* ExtratoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD3C14237307F0006D4C72 /* ExtratoViewController.swift */; };
@@ -54,6 +55,7 @@
 		7556FD262373012500AF5FF1 /* ProjetoBRQUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjetoBRQUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7556FD2A2373012500AF5FF1 /* ProjetoBRQUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetoBRQUITests.swift; sourceTree = "<group>"; };
 		7556FD2C2373012500AF5FF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BADED5B6237448CC007811C5 /* LancamentosDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LancamentosDAO.swift; sourceTree = "<group>"; };
 		BAFD3C10237307CD006D4C72 /* CadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
 		BAFD3C12237307E2006D4C72 /* ListaContaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContaViewController.swift; sourceTree = "<group>"; };
 		BAFD3C14237307F0006D4C72 /* ExtratoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtratoViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				BAFD3C1A237356D3006D4C72 /* Lancamento.swift */,
+				BADED5B6237448CC007811C5 /* LancamentosDAO.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 			files = (
 				7556FD062373012300AF5FF1 /* AppDelegate.swift in Sources */,
 				BAFD3C13237307E2006D4C72 /* ListaContaViewController.swift in Sources */,
+				BADED5B7237448CC007811C5 /* LancamentosDAO.swift in Sources */,
 				BAFD3C18237348BF006D4C72 /* ExtratoTableViewCell.swift in Sources */,
 				BAFD3C15237307F0006D4C72 /* ExtratoViewController.swift in Sources */,
 				7556FD082373012300AF5FF1 /* SceneDelegate.swift in Sources */,
