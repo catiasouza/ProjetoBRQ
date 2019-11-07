@@ -19,7 +19,7 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     
     //MARK: - Variaveis
     
-    var teste = ["Teste1", "Teste2", "Teste3", "Teste4"]
+    var teste = ["Teste1", "Teste2", "Teste3", "Teste4", "Teste5"]
     
     
     //MARK: - ViewDidLoad
@@ -65,18 +65,23 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let alerta = UIAlertController(title: "Remover Conta", message: "Deseja remover esta conta?", preferredStyle: .alert)
-        let cancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
-        //let deletar = UIAlertAction(title: "Deletar", style: .destructive,handler: nil)
-        
-        let deletar = UIAlertAction(title: "Deletar", style: .destructive) { (action) in
-            self.teste.remove(at: indexPath.row)
+        AlertaRemoveConta(controller: self).alerta(controller: self) { (action) in
+            self.teste.remove(at: indexPath.row )
             self.collectionListaContas.reloadData()
         }
         
-        alerta.addAction(cancelar)
-        alerta.addAction(deletar)
-        present(alerta, animated: true, completion: nil)
+//        let alerta = UIAlertController(title: "Remover Conta", message: "Deseja remover esta conta?", preferredStyle: .alert)
+//        let cancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+//        //let deletar = UIAlertAction(title: "Deletar", style: .destructive,handler: nil)
+//
+//        let deletar = UIAlertAction(title: "Deletar", style: .destructive) { (action) in
+//            self.teste.remove(at: indexPath.row)
+//            self.collectionListaContas.reloadData()
+//        }
+//
+//        alerta.addAction(cancelar)
+//        alerta.addAction(deletar)
+//        present(alerta, animated: true, completion: nil)
         
     }
 
