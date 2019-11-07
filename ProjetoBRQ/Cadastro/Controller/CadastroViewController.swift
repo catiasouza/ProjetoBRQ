@@ -1,20 +1,36 @@
-//
-//  CadastroViewController.swift
-//  ProjetoBRQ
-//
-//  Created by Marcello Pontes Domingos on 06/11/19.
-//  Copyright © 2019 Catia Miranda de Souza. All rights reserved.
-//
+
 
 import UIKit
 
-class CadastroViewController: UIViewController {
-
+class CadastroViewController: UIViewController, UIPickerViewDelegate {
+    
+    
+    @IBOutlet weak var botaoAdicionar: UIButton!
+    
+    @IBAction func botaoAdicionarAcao(_ sender: UIButton) {
+    }
+    
+    @IBOutlet weak var listaBanco: UIPickerView!
+    
+    @IBOutlet weak var listaAgencia: UIPickerView!
+    
+    @IBOutlet weak var viewCadastro: UIView!
+    
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+       
+        self.botaoAdicionar.layer.cornerRadius = 12
+        self.botaoAdicionar.layer.masksToBounds = true
+        self.viewCadastro.layer.cornerRadius = 8
+        
     }
+    
+    
+    
+  
     
 
     /*
