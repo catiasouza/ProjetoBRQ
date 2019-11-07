@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AEA1079237358120066B187 /* ContaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEA1078237358120066B187 /* ContaCollectionViewCell.swift */; };
 		7556FD062373012300AF5FF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD052373012300AF5FF1 /* AppDelegate.swift */; };
 		7556FD082373012300AF5FF1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD072373012300AF5FF1 /* SceneDelegate.swift */; };
 		7556FD0D2373012300AF5FF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7556FD0B2373012300AF5FF1 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0AEA1078237358120066B187 /* ContaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContaCollectionViewCell.swift; path = ProjetoBRQ/ListaConta/Controller/ContaCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		7556FD022373012300AF5FF1 /* ProjetoBRQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjetoBRQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7556FD052373012300AF5FF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7556FD072373012300AF5FF1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 		BAFD3C0A23730756006D4C72 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0AEA1078237358120066B187 /* ContaCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				7556FD082373012300AF5FF1 /* SceneDelegate.swift in Sources */,
 				BAFD3C11237307CD006D4C72 /* CadastroViewController.swift in Sources */,
 				7556FD102373012300AF5FF1 /* ProjetoBRQ.xcdatamodeld in Sources */,
+				0AEA1079237358120066B187 /* ContaCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

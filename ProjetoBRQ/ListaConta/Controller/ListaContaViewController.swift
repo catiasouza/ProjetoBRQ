@@ -8,23 +8,53 @@
 
 import UIKit
 
-class ListaContaViewController: UIViewController {
+class ListaContaViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //MARK: - Outlets
+    
+    @IBOutlet weak var collectionListaContas: UICollectionView!
+    
+    
+    //MARK: - Variaveis
+    
+    
+    
+    //MARK: - ViewDidLoad
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        collectionListaContas.dataSource = self
+        
     }
-    */
+    
+    //MARK: - Métodos
+
+    
+    //MARK: - CollectionView
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print("entrou")
+        let celula = collectionView.dequeueReusableCell(withReuseIdentifier: "celulaPadrao", for: indexPath) as! ContaCollectionViewCell
+        celula.celulaTexto.text = String(indexPath.row)
+        celula.backgroundColor = UIColor(named: "Blue")
+        return celula
+    }
+    
+    //configura o tamanho da exibição de cada celula
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let largura = collectionView.bounds.width
+        let altura: CGFloat = 160 
+        
+        return CGSize(width: largura, height: altura)
+    }
+
+    //MARK: - Navigation
 
 }
