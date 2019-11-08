@@ -29,6 +29,7 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
     //MARK: - Actions
     
     @IBAction func voltar(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     //MARK: - Métodos
