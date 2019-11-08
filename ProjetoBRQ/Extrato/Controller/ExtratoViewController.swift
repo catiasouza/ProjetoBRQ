@@ -39,6 +39,7 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         extratoTableView.dataSource = self
         extratoTableView.delegate = self
         viewExtrato.layer.cornerRadius = 8
+        labelExtratoApelido.text = "Apelido da conta"
         
         for i in listaLancamentos {
             let valorLista = i
