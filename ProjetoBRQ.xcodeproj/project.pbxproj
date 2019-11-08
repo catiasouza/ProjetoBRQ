@@ -16,6 +16,7 @@
 		7556FD202373012500AF5FF1 /* ProjetoBRQTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD1F2373012500AF5FF1 /* ProjetoBRQTests.swift */; };
 		7556FD2B2373012500AF5FF1 /* ProjetoBRQUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD2A2373012500AF5FF1 /* ProjetoBRQUITests.swift */; };
 		7556FD7E23748FDC00AF5FF1 /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD7D23748FDC00AF5FF1 /* CadastroViewController.swift */; };
+		756E30F02375D7F000597987 /* ScrollViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756E30EF2375D7F000597987 /* ScrollViewViewController.swift */; };
 		BAFD3C13237307E2006D4C72 /* ListaContaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD3C12237307E2006D4C72 /* ListaContaViewController.swift */; };
 		BAFD3C15237307F0006D4C72 /* ExtratoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD3C14237307F0006D4C72 /* ExtratoViewController.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +54,7 @@
 		7556FD2A2373012500AF5FF1 /* ProjetoBRQUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetoBRQUITests.swift; sourceTree = "<group>"; };
 		7556FD2C2373012500AF5FF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7556FD7D23748FDC00AF5FF1 /* CadastroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CadastroViewController.swift; path = ../../../../../../.Trash/CadastroViewController.swift; sourceTree = "<group>"; };
+		756E30EF2375D7F000597987 /* ScrollViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScrollViewViewController.swift; path = ProjetoBRQ/Extrato/Controller/ScrollViewViewController.swift; sourceTree = SOURCE_ROOT; };
 		BAFD3C12237307E2006D4C72 /* ListaContaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContaViewController.swift; sourceTree = "<group>"; };
 		BAFD3C14237307F0006D4C72 /* ExtratoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtratoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -205,6 +207,7 @@
 		BAFD3C0F237307B5006D4C72 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				756E30EF2375D7F000597987 /* ScrollViewViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7556FD062373012300AF5FF1 /* AppDelegate.swift in Sources */,
+				756E30F02375D7F000597987 /* ScrollViewViewController.swift in Sources */,
 				BAFD3C13237307E2006D4C72 /* ListaContaViewController.swift in Sources */,
 				BAFD3C15237307F0006D4C72 /* ExtratoViewController.swift in Sources */,
 				7556FD082373012300AF5FF1 /* SceneDelegate.swift in Sources */,
