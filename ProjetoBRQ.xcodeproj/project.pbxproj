@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AD1633323743FC600264748 /* AlertaRemoveConta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD1633223743FC600264748 /* AlertaRemoveConta.swift */; };
+		0AEA1079237358120066B187 /* ContaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEA1078237358120066B187 /* ContaCollectionViewCell.swift */; };
 		7556FD062373012300AF5FF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD052373012300AF5FF1 /* AppDelegate.swift */; };
 		7556FD082373012300AF5FF1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD072373012300AF5FF1 /* SceneDelegate.swift */; };
 		7556FD0D2373012300AF5FF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7556FD0B2373012300AF5FF1 /* Main.storyboard */; };
@@ -15,7 +17,7 @@
 		7556FD152373012500AF5FF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7556FD132373012500AF5FF1 /* LaunchScreen.storyboard */; };
 		7556FD202373012500AF5FF1 /* ProjetoBRQTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD1F2373012500AF5FF1 /* ProjetoBRQTests.swift */; };
 		7556FD2B2373012500AF5FF1 /* ProjetoBRQUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD2A2373012500AF5FF1 /* ProjetoBRQUITests.swift */; };
-		BAFD3C11237307CD006D4C72 /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD3C10237307CD006D4C72 /* CadastroViewController.swift */; };
+		7556FD7E23748FDC00AF5FF1 /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD7D23748FDC00AF5FF1 /* CadastroViewController.swift */; };
 		BAFD3C13237307E2006D4C72 /* ListaContaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD3C12237307E2006D4C72 /* ListaContaViewController.swift */; };
 		BAFD3C15237307F0006D4C72 /* ExtratoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD3C14237307F0006D4C72 /* ExtratoViewController.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0AD1633223743FC600264748 /* AlertaRemoveConta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertaRemoveConta.swift; path = ProjetoBRQ/ListaConta/AlertaRemoveConta.swift; sourceTree = SOURCE_ROOT; };
+		0AEA1078237358120066B187 /* ContaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContaCollectionViewCell.swift; path = ProjetoBRQ/ListaConta/Controller/ContaCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		7556FD022373012300AF5FF1 /* ProjetoBRQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjetoBRQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7556FD052373012300AF5FF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7556FD072373012300AF5FF1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +56,7 @@
 		7556FD262373012500AF5FF1 /* ProjetoBRQUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjetoBRQUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7556FD2A2373012500AF5FF1 /* ProjetoBRQUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetoBRQUITests.swift; sourceTree = "<group>"; };
 		7556FD2C2373012500AF5FF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BAFD3C10237307CD006D4C72 /* CadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
+		7556FD7D23748FDC00AF5FF1 /* CadastroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CadastroViewController.swift; path = ../../../../../../.Trash/CadastroViewController.swift; sourceTree = "<group>"; };
 		BAFD3C12237307E2006D4C72 /* ListaContaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContaViewController.swift; sourceTree = "<group>"; };
 		BAFD3C14237307F0006D4C72 /* ExtratoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtratoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,6 +169,8 @@
 		BAFD3C0A23730756006D4C72 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0AEA1078237358120066B187 /* ContaCollectionViewCell.swift */,
+				0AD1633223743FC600264748 /* AlertaRemoveConta.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,7 +203,7 @@
 		BAFD3C0E237307AD006D4C72 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BAFD3C10237307CD006D4C72 /* CadastroViewController.swift */,
+				7556FD7D23748FDC00AF5FF1 /* CadastroViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -344,8 +350,10 @@
 				BAFD3C13237307E2006D4C72 /* ListaContaViewController.swift in Sources */,
 				BAFD3C15237307F0006D4C72 /* ExtratoViewController.swift in Sources */,
 				7556FD082373012300AF5FF1 /* SceneDelegate.swift in Sources */,
-				BAFD3C11237307CD006D4C72 /* CadastroViewController.swift in Sources */,
 				7556FD102373012300AF5FF1 /* ProjetoBRQ.xcdatamodeld in Sources */,
+				0AD1633323743FC600264748 /* AlertaRemoveConta.swift in Sources */,
+				0AEA1079237358120066B187 /* ContaCollectionViewCell.swift in Sources */,
+				7556FD7E23748FDC00AF5FF1 /* CadastroViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
