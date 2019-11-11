@@ -15,7 +15,16 @@ class CadastroViewController: UIViewController,UIPickerViewDataSource, UIPickerV
     
     @IBAction func botaoAdicionarAcao(_ sender: UIButton) {
         
+        dismiss(animated: true, completion: nil)
+        
     }
+    
+    @IBAction func botaoVoltar(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
     
     @IBOutlet weak var viewCadastro: UIView!
     
