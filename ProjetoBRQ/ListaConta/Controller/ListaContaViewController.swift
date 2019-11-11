@@ -6,25 +6,99 @@
 //  Copyright © 2019 Catia Miranda de Souza. All rights reserved.
 //
 
+// Projeto oficial que vai subir pro git
+
 import UIKit
 
-class ListaContaViewController: UIViewController {
+class ListaContaViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
+    
+
+    //MARK: - Outlets
+    
+    @IBOutlet weak var collectionListaContas: UICollectionView!
+    
+    
+    //MARK: - Variaveis
+    
+    var teste = ["Conta 1", "Conta 2", "Conta 3", "Conta 4", "Conta 5"]
+    
+    
+    //MARK: - Exibicao
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionListaContas.dataSource = self
+        collectionListaContas.delegate = self
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    //MARK: - Métodos
 
-        // Do any additional setup after loading the view.
+    @objc func exibeAlerta(recognizer: UILongPressGestureRecognizer) {
+        
+        if (recognizer.state == UIGestureRecognizer.State.began) {
+            let celula = recognizer.view  as! UICollectionViewCell
+            
+            if let indexPath = collectionListaContas.indexPath(for: celula) {
+                let row = indexPath.row
+                 
+                AlertaRemoveConta(controller: self).alerta(controller: self) { (action) in
+                    self.teste.remove(at: row)
+                    self.collectionListaContas.reloadData()
+                    print("Conta excluida com sucesso")
+                }
+            }
+        }
+    }
+    
+    
+    //MARK: - CollectionView
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return teste.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        print("entrou")
+        
+        let celula = collectionView.dequeueReusableCell(withReuseIdentifier: "celulaPadrao", for: indexPath) as! ContaCollectionViewCell
+        
+        celula.celulaTexto.text = teste[ indexPath.row ]
+        celula.celulaView.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
+        
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector( exibeAlerta ) )
+        celula.addGestureRecognizer(longPress)
+        
+        celula.layer.cornerRadius = 8
+        
+        return celula
+    }
+    
+    //configura o tamanho da exibição de cada celula
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let largura = collectionView.bounds.width
+        let altura: CGFloat = 160
+        return CGSize(width: largura, height: altura)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        print("conta selecionada")
+        
+        
     }
     
 
-    /*
-    // MARK: - Navigation
+    //MARK: - Navegação
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    //MARK: - Search Bar
+    
 }
