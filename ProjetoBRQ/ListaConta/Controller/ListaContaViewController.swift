@@ -6,6 +6,8 @@
 //  Copyright © 2019 Catia Miranda de Souza. All rights reserved.
 //
 
+// Projeto oficial que vai subir pro git
+
 import UIKit
 
 class ListaContaViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -19,16 +21,20 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     
     //MARK: - Variaveis
     
-    var teste = ["Teste1", "Teste2", "Teste3", "Teste4", "Teste5"]
+    var teste = ["Conta 1", "Conta 2", "Conta 3", "Conta 4", "Conta 5"]
     
     
-    //MARK: - ViewDidLoad
+    //MARK: - Exibicao
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionListaContas.dataSource = self
         collectionListaContas.delegate = self
         
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     //MARK: - Métodos
@@ -86,10 +92,13 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
         
         print("conta selecionada")
         
+        
     }
     
 
-    //MARK: - Navigation
+    //MARK: - Navegação
 
+    
+    //MARK: - Search Bar
     
 }

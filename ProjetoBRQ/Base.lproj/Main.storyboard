@@ -130,14 +130,19 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cae-QP-tIP">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_brq" translatesAutoresizingMaskIntoConstraints="NO" id="XYU-YW-oG9">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_brq" translatesAutoresizingMaskIntoConstraints="NO" id="XYU-YW-oG9">
                                         <rect key="frame" x="10" y="30" width="120" height="70"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="glH-ZH-fRk"/>
+                                            <constraint firstAttribute="height" constant="70" id="jOL-QE-36L"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.19215686274509802" green="0.24313725490196078" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="Aga-Y3-pEY"/>
+                                    <constraint firstAttribute="bottom" secondItem="XYU-YW-oG9" secondAttribute="bottom" constant="10" id="LOJ-hB-yt0"/>
+                                    <constraint firstItem="XYU-YW-oG9" firstAttribute="leading" secondItem="Cae-QP-tIP" secondAttribute="leading" constant="10" id="fRv-kA-b7A"/>
                                 </constraints>
                             </view>
                         </subviews>
