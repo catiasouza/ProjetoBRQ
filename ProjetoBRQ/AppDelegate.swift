@@ -1,10 +1,4 @@
-//
-//  AppDelegate.swift
-//  ProjetoBRQ
-//
-//  Created by Catia Miranda de Souza on 06/11/19.
-//  Copyright © 2019 Catia Miranda de Souza. All rights reserved.
-//
+
 
 import UIKit
 import CoreData

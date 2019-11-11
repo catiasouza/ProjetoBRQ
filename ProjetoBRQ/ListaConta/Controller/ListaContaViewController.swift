@@ -90,7 +90,9 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        print("conta selecionada")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "extratoID") as! ExtratoViewController
+        present(controller, animated: true, completion: nil)
         
         
     }
@@ -98,6 +100,13 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
 
     //MARK: - Navegação
 
+    @IBAction func botaoAdicionar(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "cadastroID") as! CadastroViewController
+        present(controller, animated: true, completion: nil)
+        
+    }
     
     //MARK: - Search Bar
     
