@@ -116,16 +116,16 @@
                                                         </constraints>
                                                     </pickerView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="FIT-Sq-lUP">
-                                                        <rect key="frame" x="0.0" y="248" width="374" height="187"/>
+                                                        <rect key="frame" x="0.0" y="248" width="374" height="213.66666666666663"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agencia:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZA-6X-KiO">
-                                                                <rect key="frame" x="0.0" y="80" width="174.66666666666666" height="27.333333333333329"/>
+                                                                <rect key="frame" x="0.0" y="93.333333333333371" width="174.66666666666666" height="27.333333333333329"/>
                                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5909" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6a-xc-Skv">
-                                                                <rect key="frame" x="199.66666666666663" y="83.333333333333371" width="174.33333333333337" height="20.333333333333329"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2365" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6a-xc-Skv">
+                                                                <rect key="frame" x="199.66666666666663" y="96.666666666666629" width="174.33333333333337" height="20.333333333333329"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -133,16 +133,16 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="RmY-XH-REf">
-                                                        <rect key="frame" x="0.0" y="459" width="374" height="50"/>
+                                                        <rect key="frame" x="0.0" y="485.66666666666663" width="374" height="23.333333333333314"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conta:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTq-aM-7dj">
-                                                                <rect key="frame" x="0.0" y="0.0" width="175" height="50"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="175" height="23.333333333333332"/>
                                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Far-Ud-t3T">
-                                                                <rect key="frame" x="199" y="0.0" width="175" height="50"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="97654-0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Far-Ud-t3T">
+                                                                <rect key="frame" x="199" y="0.0" width="175" height="23.333333333333332"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -171,14 +171,21 @@
                                             <constraint firstItem="4gh-tB-B0S" firstAttribute="leading" secondItem="Myb-3w-Ezr" secondAttribute="leading" constant="10" id="RVW-Pz-mG8"/>
                                             <constraint firstItem="4gh-tB-B0S" firstAttribute="top" secondItem="Myb-3w-Ezr" secondAttribute="top" constant="10" id="Ur0-xv-Jla"/>
                                             <constraint firstAttribute="bottom" secondItem="4gh-tB-B0S" secondAttribute="bottom" constant="10" id="aPA-RQ-pTD"/>
+                                            <constraint firstAttribute="height" constant="529" id="gay-mg-hYI"/>
                                             <constraint firstAttribute="trailing" secondItem="4gh-tB-B0S" secondAttribute="trailing" constant="10" id="uMw-Me-ZHE"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Myb-3w-Ezr" firstAttribute="leading" secondItem="ieU-rL-SMc" secondAttribute="leading" constant="10" id="3OF-kV-Krb"/>
+                                    <constraint firstItem="ieU-rL-SMc" firstAttribute="trailing" secondItem="Myb-3w-Ezr" secondAttribute="trailing" constant="10" id="47u-HY-XM7"/>
+                                    <constraint firstItem="Myb-3w-Ezr" firstAttribute="leading" secondItem="ieU-rL-SMc" secondAttribute="leading" constant="10" id="Yab-2a-7no"/>
+                                    <constraint firstItem="Myb-3w-Ezr" firstAttribute="width" secondItem="9vB-rc-iBB" secondAttribute="width" multiplier="0.951691" id="a1g-J1-yVW"/>
                                     <constraint firstItem="Myb-3w-Ezr" firstAttribute="top" secondItem="ieU-rL-SMc" secondAttribute="top" constant="10" id="b0g-eW-V1t"/>
+                                    <constraint firstItem="Myb-3w-Ezr" firstAttribute="top" secondItem="ieU-rL-SMc" secondAttribute="top" constant="10" id="eL2-TD-PcK"/>
+                                    <constraint firstAttribute="height" constant="549" id="mJr-nm-C8o"/>
                                     <constraint firstItem="ieU-rL-SMc" firstAttribute="bottom" secondItem="Myb-3w-Ezr" secondAttribute="bottom" constant="10" id="rzp-KL-XG6"/>
+                                    <constraint firstItem="ieU-rL-SMc" firstAttribute="bottom" secondItem="Myb-3w-Ezr" secondAttribute="bottom" constant="10" id="vff-r2-but"/>
                                     <constraint firstItem="ieU-rL-SMc" firstAttribute="trailing" secondItem="Myb-3w-Ezr" secondAttribute="trailing" constant="10" id="yQo-1l-Mmf"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="6KJ-Ig-xWe"/>
