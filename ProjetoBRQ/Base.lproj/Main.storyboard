@@ -67,19 +67,19 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lançamentos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Zq-Rz-iB7">
                                                         <rect key="frame" x="0.0" y="0.0" width="113" height="23.5"/>
-                                                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Datas" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ze6-hi-GNY">
                                                         <rect key="frame" x="113" y="0.0" width="113" height="23.5"/>
-                                                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valores" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqf-JL-M7u">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valores" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqf-JL-M7u">
                                                         <rect key="frame" x="226" y="0.0" width="113" height="23.5"/>
-                                                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -101,19 +101,19 @@
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4t-Yx-Jeq">
                                                                             <rect key="frame" x="0.0" y="0.0" width="113" height="22.5"/>
-                                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                                                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
                                                                             <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OcY-bb-g0X">
                                                                             <rect key="frame" x="113" y="0.0" width="113" height="22.5"/>
-                                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                                                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
                                                                             <color key="textColor" red="0.4392099679" green="0.43921270969999998" blue="0.43921983240000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqB-uy-eRM">
                                                                             <rect key="frame" x="226" y="0.0" width="113" height="22.5"/>
-                                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                                                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
                                                                             <color key="textColor" red="0.4392099679" green="0.43921270969999998" blue="0.43921983240000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -209,15 +209,21 @@
                                     <constraint firstItem="Nt0-JQ-XOO" firstAttribute="leading" secondItem="08c-Jd-dzT" secondAttribute="leading" constant="10" id="x6Q-m3-k4M"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VT8-Qf-IUV">
+                                <rect key="frame" x="347.5" y="120" width="17.5" height="22"/>
+                                <state key="normal" image="pencil" catalog="system"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="FYo-RN-7Zc" firstAttribute="trailing" secondItem="VT8-Qf-IUV" secondAttribute="trailing" constant="10" id="0dd-ie-N0H"/>
                             <constraint firstItem="FYo-RN-7Zc" firstAttribute="trailing" secondItem="xec-k9-cje" secondAttribute="trailing" constant="10" id="3z6-Jt-W75"/>
                             <constraint firstItem="08c-Jd-dzT" firstAttribute="top" secondItem="UOb-RB-1Pt" secondAttribute="top" id="7vb-49-zXE"/>
                             <constraint firstItem="xec-k9-cje" firstAttribute="top" secondItem="ipL-LV-Ini" secondAttribute="bottom" constant="5" id="9Hq-iS-gLh"/>
                             <constraint firstItem="FYo-RN-7Zc" firstAttribute="bottom" secondItem="xec-k9-cje" secondAttribute="bottom" constant="10" id="Ktm-WR-DqZ"/>
                             <constraint firstItem="ipL-LV-Ini" firstAttribute="centerX" secondItem="UOb-RB-1Pt" secondAttribute="centerX" id="Sge-cT-acX"/>
                             <constraint firstItem="08c-Jd-dzT" firstAttribute="leading" secondItem="FYo-RN-7Zc" secondAttribute="leading" id="Wzo-nz-GyH"/>
+                            <constraint firstItem="VT8-Qf-IUV" firstAttribute="top" secondItem="08c-Jd-dzT" secondAttribute="bottom" constant="10" id="acx-e6-usr"/>
                             <constraint firstItem="ipL-LV-Ini" firstAttribute="top" secondItem="08c-Jd-dzT" secondAttribute="bottom" constant="28" id="heI-4i-vaM"/>
                             <constraint firstItem="0eT-u6-yfd" firstAttribute="leading" secondItem="FYo-RN-7Zc" secondAttribute="leading" constant="8" id="hw8-9I-0G6"/>
                             <constraint firstItem="xec-k9-cje" firstAttribute="leading" secondItem="FYo-RN-7Zc" secondAttribute="leading" constant="10" id="tWI-zi-CZk"/>
@@ -242,5 +248,6 @@
     <resources>
         <image name="lessthan" catalog="system" width="64" height="54"/>
         <image name="logo_brq" width="600" height="400"/>
+        <image name="pencil" catalog="system" width="64" height="56"/>
     </resources>
 </document>
