@@ -17,7 +17,10 @@
 		7556FD152373012500AF5FF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7556FD132373012500AF5FF1 /* LaunchScreen.storyboard */; };
 		7556FD202373012500AF5FF1 /* ProjetoBRQTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD1F2373012500AF5FF1 /* ProjetoBRQTests.swift */; };
 		7556FD2B2373012500AF5FF1 /* ProjetoBRQUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD2A2373012500AF5FF1 /* ProjetoBRQUITests.swift */; };
-		BAFD3C11237307CD006D4C72 /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD3C10237307CD006D4C72 /* CadastroViewController.swift */; };
+		756E30F22379E02000597987 /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756E30F12379E02000597987 /* CadastroViewController.swift */; };
+		BAC72BEE2379E391004BF47F /* ExtratoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC72BEA2379E391004BF47F /* ExtratoTableViewCell.swift */; };
+		BAC72BEF2379E391004BF47F /* Lancamento.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC72BEC2379E391004BF47F /* Lancamento.swift */; };
+		BAC72BF02379E391004BF47F /* LancamentosDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC72BED2379E391004BF47F /* LancamentosDAO.swift */; };
 		BAFD3C13237307E2006D4C72 /* ListaContaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD3C12237307E2006D4C72 /* ListaContaViewController.swift */; };
 		BAFD3C15237307F0006D4C72 /* ExtratoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD3C14237307F0006D4C72 /* ExtratoViewController.swift */; };
 /* End PBXBuildFile section */
@@ -56,7 +59,10 @@
 		7556FD262373012500AF5FF1 /* ProjetoBRQUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjetoBRQUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7556FD2A2373012500AF5FF1 /* ProjetoBRQUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetoBRQUITests.swift; sourceTree = "<group>"; };
 		7556FD2C2373012500AF5FF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BAFD3C10237307CD006D4C72 /* CadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
+		756E30F12379E02000597987 /* CadastroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CadastroViewController.swift; path = ProjetoBRQ/CadastroViewController.swift; sourceTree = SOURCE_ROOT; };
+		BAC72BEA2379E391004BF47F /* ExtratoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtratoTableViewCell.swift; sourceTree = "<group>"; };
+		BAC72BEC2379E391004BF47F /* Lancamento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lancamento.swift; sourceTree = "<group>"; };
+		BAC72BED2379E391004BF47F /* LancamentosDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LancamentosDAO.swift; sourceTree = "<group>"; };
 		BAFD3C12237307E2006D4C72 /* ListaContaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContaViewController.swift; sourceTree = "<group>"; };
 		BAFD3C14237307F0006D4C72 /* ExtratoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtratoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,6 +148,25 @@
 			path = ProjetoBRQUITests;
 			sourceTree = "<group>";
 		};
+		BAC72BE92379E391004BF47F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BAC72BEA2379E391004BF47F /* ExtratoTableViewCell.swift */,
+			);
+			name = View;
+			path = ../../../../../Downloads/BKP/ProjetoBRQ/Extrato/View;
+			sourceTree = "<group>";
+		};
+		BAC72BEB2379E391004BF47F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BAC72BEC2379E391004BF47F /* Lancamento.swift */,
+				BAC72BED2379E391004BF47F /* LancamentosDAO.swift */,
+			);
+			name = Model;
+			path = ../../../../../Downloads/BKP/ProjetoBRQ/Extrato/Model;
+			sourceTree = "<group>";
+		};
 		BAFD3C0723730721006D4C72 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +203,8 @@
 		BAFD3C0B23730765006D4C72 /* Extrato */ = {
 			isa = PBXGroup;
 			children = (
+				BAC72BEB2379E391004BF47F /* Model */,
+				BAC72BE92379E391004BF47F /* View */,
 				BAFD3C0C23730775006D4C72 /* Controller */,
 			);
 			path = Extrato;
@@ -203,7 +230,7 @@
 		BAFD3C0E237307AD006D4C72 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BAFD3C10237307CD006D4C72 /* CadastroViewController.swift */,
+				756E30F12379E02000597987 /* CadastroViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -349,11 +376,14 @@
 				7556FD062373012300AF5FF1 /* AppDelegate.swift in Sources */,
 				BAFD3C13237307E2006D4C72 /* ListaContaViewController.swift in Sources */,
 				BAFD3C15237307F0006D4C72 /* ExtratoViewController.swift in Sources */,
+				BAC72BEF2379E391004BF47F /* Lancamento.swift in Sources */,
 				7556FD082373012300AF5FF1 /* SceneDelegate.swift in Sources */,
-				BAFD3C11237307CD006D4C72 /* CadastroViewController.swift in Sources */,
 				7556FD102373012300AF5FF1 /* ProjetoBRQ.xcdatamodeld in Sources */,
+				BAC72BF02379E391004BF47F /* LancamentosDAO.swift in Sources */,
 				0AD1633323743FC600264748 /* AlertaRemoveConta.swift in Sources */,
 				0AEA1079237358120066B187 /* ContaCollectionViewCell.swift in Sources */,
+				BAC72BEE2379E391004BF47F /* ExtratoTableViewCell.swift in Sources */,
+				756E30F22379E02000597987 /* CadastroViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
