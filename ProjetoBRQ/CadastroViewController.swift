@@ -4,6 +4,8 @@ import UIKit
 
 class CadastroViewController: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     
+        // MARK: - Outlets
+    
     @IBOutlet weak var pickerConta: UIPickerView!
     var conta: [String] = []
     
@@ -11,7 +13,7 @@ class CadastroViewController: UIViewController,UIPickerViewDataSource, UIPickerV
     var agencia: [String] = []
     
     
-    @IBOutlet weak var botaoAdsicionar: UIButton!
+    @IBOutlet weak var botaoAdicionar: UIButton!
     
     @IBAction func botaoAdicionarAcao(_ sender: UIButton) {
         
@@ -29,6 +31,8 @@ class CadastroViewController: UIViewController,UIPickerViewDataSource, UIPickerV
     @IBOutlet weak var viewCadastro: UIView!
     
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    // MARK: - ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +54,9 @@ class CadastroViewController: UIViewController,UIPickerViewDataSource, UIPickerV
 
                 
     }
+    
+    // MARK: - PickerView
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
@@ -80,14 +87,19 @@ class CadastroViewController: UIViewController,UIPickerViewDataSource, UIPickerV
         
     }
     
-            func configuraBordas(){
-                
-                botaoAdsicionar.layer.cornerRadius = 8
-                botaoAdsicionar.layer.masksToBounds = true
-                viewCadastro.layer.cornerRadius = 8
-                viewCadastro.layer.masksToBounds = true
-                
-            }
+    // MARK: - Métodos
+    
+    func configuraBordas(){
+        
+        botaoAdicionar.layer.cornerRadius = 8
+        botaoAdicionar.layer.masksToBounds = true
+        viewCadastro.layer.cornerRadius = 8
+        viewCadastro.layer.masksToBounds = true
+        
+    }
+    
+    // MARK: - Scroll
+    
     @objc func scroll(notification: Notification){
         self.scrollView.contentSize = CGSize(width: self.scrollView.frame.width, height: self.scrollView.frame.height + 750)
     }
