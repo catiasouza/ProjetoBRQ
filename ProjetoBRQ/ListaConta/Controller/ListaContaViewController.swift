@@ -21,7 +21,7 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     
     //MARK: - Variaveis
     
-    var teste = ["Conta 1", "Conta 2", "Conta 3", "Conta 4", "Conta 5"]
+    var teste = ["Conta 1"]
     
     
     //MARK: - Exibicao
@@ -67,7 +67,7 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
         
         let celula = collectionView.dequeueReusableCell(withReuseIdentifier: "celulaPadrao", for: indexPath) as! ContaCollectionViewCell
         
-        celula.celulaTexto.text = teste[ indexPath.row ]
+   //     celula.celulaTexto.text = teste[ indexPath.row ]
         celula.celulaView.backgroundColor = UIColor.white
         
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector( exibeAlerta ) )

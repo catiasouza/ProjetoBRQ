@@ -30,32 +30,103 @@
                                         <rect key="frame" x="0.0" y="54" width="394" height="606"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="U3S-1S-wiR">
-                                            <size key="itemSize" width="204" height="87"/>
+                                            <size key="itemSize" width="285" height="144"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="celulaPadrao" layoutMarginsFollowReadableWidth="YES" reuseIdentifier="celulaPadrao" id="MEP-ba-phW" customClass="ContaCollectionViewCell" customModule="ProjetoBRQ" customModuleProvider="target">
-                                                <rect key="frame" x="95" y="0.0" width="204" height="87"/>
+                                                <rect key="frame" x="18.666666666666668" y="0.0" width="357" height="175"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="KhO-X4-CUm">
-                                                    <rect key="frame" x="0.0" y="0.0" width="204" height="87"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="357" height="175"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQt-1t-mlU">
-                                                            <rect key="frame" x="0.0" y="0.0" width="204" height="87"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="357" height="175"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23D-Bz-fSe">
-                                                                    <rect key="frame" x="81.333333333333329" y="33.333333333333336" width="41.666666666666671" height="20.333333333333336"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="Pur-1S-h4a">
+                                                                    <rect key="frame" x="10" y="10" width="337" height="155"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apelido da Conta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcV-Ka-O62">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="337" height="24.666666666666668"/>
+                                                                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="24"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="7pk-ae-ysG">
+                                                                            <rect key="frame" x="0.0" y="43.666666666666664" width="337" height="24.333333333333336"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Banco" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1VL-uZ-v1A">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="103.66666666666667" height="24.333333333333332"/>
+                                                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                                                    <color key="textColor" red="0.1355253458" green="0.21741086239999999" blue="0.30981531740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agência" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gr-Rn-Itx">
+                                                                                    <rect key="frame" x="116.66666666666666" y="0.0" width="103.66666666666666" height="24.333333333333332"/>
+                                                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                                                    <color key="textColor" red="0.1355253458" green="0.21741086239999999" blue="0.30981531740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1l-Xa-BbH">
+                                                                                    <rect key="frame" x="233.33333333333334" y="0.0" width="103.66666666666666" height="24.333333333333332"/>
+                                                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                                                    <color key="textColor" red="0.1355253458" green="0.21741086239999999" blue="0.30981531740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="jSg-b5-8fZ">
+                                                                            <rect key="frame" x="0.0" y="87" width="337" height="24.666666666666671"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bbbbb" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bg-9e-Ktw">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="103.66666666666667" height="24.666666666666668"/>
+                                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxxx" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63i-j5-CHJ">
+                                                                                    <rect key="frame" x="116.66666666666666" y="0.0" width="103.66666666666666" height="24.666666666666668"/>
+                                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="yyyy-y" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ruy-2n-kO9">
+                                                                                    <rect key="frame" x="233.33333333333334" y="0.0" width="103.66666666666666" height="24.666666666666668"/>
+                                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3Rh-Nu-Gzy">
+                                                                            <rect key="frame" x="0.0" y="130.66666666666666" width="337" height="24.333333333333343"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saldo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATL-YA-Ulr">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="168.66666666666666" height="24.333333333333332"/>
+                                                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                                                    <color key="textColor" red="0.1355253458" green="0.21741086239999999" blue="0.30981531740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 1234,56" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGm-Ng-DN6">
+                                                                                    <rect key="frame" x="168.66666666666663" y="0.0" width="168.33333333333337" height="24.333333333333332"/>
+                                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                    </subviews>
+                                                                </stackView>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="23D-Bz-fSe" firstAttribute="centerY" secondItem="kQt-1t-mlU" secondAttribute="centerY" id="U91-9J-OJk"/>
-                                                                <constraint firstItem="23D-Bz-fSe" firstAttribute="centerX" secondItem="kQt-1t-mlU" secondAttribute="centerX" id="sMQ-VL-KCs"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Pur-1S-h4a" secondAttribute="trailing" constant="10" id="Tqp-EH-nrc"/>
+                                                                <constraint firstAttribute="bottom" secondItem="Pur-1S-h4a" secondAttribute="bottom" constant="10" id="bId-D4-kLL"/>
+                                                                <constraint firstItem="Pur-1S-h4a" firstAttribute="top" secondItem="kQt-1t-mlU" secondAttribute="top" constant="10" id="p3U-he-tus"/>
+                                                                <constraint firstItem="Pur-1S-h4a" firstAttribute="width" secondItem="kQt-1t-mlU" secondAttribute="width" multiplier="0.943978" id="ryy-wp-WZe"/>
+                                                                <constraint firstItem="Pur-1S-h4a" firstAttribute="leading" secondItem="kQt-1t-mlU" secondAttribute="leading" constant="10" id="vIF-rp-KyE"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
@@ -66,9 +137,8 @@
                                                         <constraint firstItem="kQt-1t-mlU" firstAttribute="top" secondItem="KhO-X4-CUm" secondAttribute="top" id="tPx-ht-lVb"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
-                                                <size key="customSize" width="204" height="87"/>
+                                                <size key="customSize" width="357" height="175"/>
                                                 <connections>
-                                                    <outlet property="celulaTexto" destination="23D-Bz-fSe" id="AE0-j1-ttT"/>
                                                     <outlet property="celulaView" destination="kQt-1t-mlU" id="KMX-uf-rts"/>
                                                 </connections>
                                             </collectionViewCell>
@@ -167,7 +237,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130.40000000000001" y="100.29985007496252"/>
+            <point key="canvasLocation" x="128.98550724637681" y="99.776785714285708"/>
         </scene>
         <!--Cadastro View Controller-->
         <scene sceneID="PbK-RH-YYb">
