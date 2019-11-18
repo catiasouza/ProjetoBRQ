@@ -2,19 +2,18 @@
 
 import UIKit
 
-class CadastroViewController: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
+class CadastroViewController: UIViewController{
+
+    
+     // MARK: - Variaveis/Constantes
+    var conta: [String] = []
+    var dropDown = dropDownBtn()
     
         // MARK: - Outlets
     
-    @IBOutlet weak var pickerConta: UIPickerView!
-    var conta: [String] = []
-    
-    @IBOutlet weak var pickerAgencia: UIPickerView!
-    var agencia: [String] = []
-    
-    
+    @IBOutlet weak var viewAmbienteCadastro: UIView!
     @IBOutlet weak var botaoAdicionar: UIButton!
-    
+    @IBOutlet weak var viewCadastro: UIView!
     @IBAction func botaoAdicionarAcao(_ sender: UIButton) {
         
         dismiss(animated: true, completion: nil)
@@ -28,80 +27,33 @@ class CadastroViewController: UIViewController,UIPickerViewDataSource, UIPickerV
     }
     
     
-    @IBOutlet weak var viewCadastro: UIView!
-    
-    @IBOutlet weak var scrollView: UIScrollView!
-    
     // MARK: - ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       
+    
         configuraBordas()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(scroll(notification: )), name: UIResponder.keyboardWillShowNotification ,object: nil)
-        
-                conta.append("Itau")
-                conta.append("Santander")
-                conta.append("C6")
-                conta.append("Nubank")
-                conta.append("Safra")
-                
-                
-                pickerConta.dataSource = self
-                pickerConta.delegate = self
-
+        viewCadastro.layer.masksToBounds = true
+        dropDown = dropDownBtn.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        dropDown.setTitle("Selecione banco", for: .normal)
+        dropDown.translatesAutoresizingMaskIntoConstraints = false
+        self.viewAmbienteCadastro.addSubview(dropDown)
+        dropDown.centerXAnchor.constraint(equalTo: self.viewAmbienteCadastro.centerXAnchor).isActive = true
+        dropDown.topAnchor.constraint(equalTo: self.viewAmbienteCadastro.topAnchor, constant: 10).isActive = true
+        dropDown.widthAnchor.constraint(equalToConstant: 255).isActive = true
+        dropDown.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        dropDown.dropView.dropDownOptions = ["Bradesco", "Santander", "Itau", "NuBank", "Caixa Economica"]
+       
                 
     }
-    
-    // MARK: - PickerView
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView == pickerAgencia{
-            return conta.count
-        }
-        
-        return conta.count
-        
-    }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) ->String{
-        
-        if pickerView == pickerAgencia{
-            return conta[row]
-            
-        }
-        
-        return conta[row]
-        
-    }
-    
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow: Int, inComponent component: Int){
-        
-    }
-    
-    // MARK: - Métodos
-    
     func configuraBordas(){
-        
         botaoAdicionar.layer.cornerRadius = 8
         botaoAdicionar.layer.masksToBounds = true
         viewCadastro.layer.cornerRadius = 8
-        viewCadastro.layer.masksToBounds = true
-        
     }
     
-    // MARK: - Scroll
+   
     
-    @objc func scroll(notification: Notification){
-        self.scrollView.contentSize = CGSize(width: self.scrollView.frame.width, height: self.scrollView.frame.height + 750)
-    }
+    
 }
 

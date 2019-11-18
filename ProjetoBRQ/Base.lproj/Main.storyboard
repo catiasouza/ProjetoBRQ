@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ad6-Xf-OpS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
@@ -206,7 +206,7 @@
                                     <action selector="botaoVoltar:" destination="ad6-Xf-OpS" eventType="touchUpInside" id="UoF-L1-3zQ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cadastre sua conta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3a-5R-gDq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cadastre sua conta:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3a-5R-gDq">
                                 <rect key="frame" x="10" y="146.33333333333334" width="394" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Dqh-Xb-5pm"/>
@@ -430,6 +430,8 @@
                     </view>
                     <connections>
                         <outlet property="botaoAdicionar" destination="O7a-dP-BqK" id="Jia-F0-Mg3"/>
+                        <outlet property="viewAmbienteCadastro" destination="psK-Ro-DpN" id="GiD-XD-hW3"/>
+                        <outlet property="viewCadastro" destination="PEu-cL-9Oi" id="RDW-ga-K08"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JPD-gR-A0w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
