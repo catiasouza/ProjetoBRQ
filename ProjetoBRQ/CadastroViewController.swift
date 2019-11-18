@@ -11,6 +11,14 @@ class CadastroViewController: UIViewController{
     
         // MARK: - Outlets
     
+   
+    
+    
+    @IBOutlet weak var textAgencia: UITextField!
+    @IBOutlet weak var textConta: UITextField!
+    @IBOutlet weak var textApelidoConta: UITextField!
+    @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var viewAmbienteCadastro: UIView!
     @IBOutlet weak var botaoAdicionar: UIButton!
     @IBOutlet weak var viewCadastro: UIView!
@@ -44,16 +52,45 @@ class CadastroViewController: UIViewController{
         dropDown.heightAnchor.constraint(equalToConstant: 50).isActive = true
         dropDown.dropView.dropDownOptions = ["Bradesco", "Santander", "Itau", "NuBank", "Caixa Economica"]
        
-                
+        NotificationCenter.default.addObserver(self, selector: #selector(scroll(notification: )), name: UIResponder.keyboardWillShowNotification ,object: nil)
+        
     }
     func configuraBordas(){
         botaoAdicionar.layer.cornerRadius = 8
         botaoAdicionar.layer.masksToBounds = true
         viewCadastro.layer.cornerRadius = 8
+        backView.layer.cornerRadius = 8
     }
     
-   
+    // MARK: - Scroll
+    @objc func scroll(notification: Notification){
+        self.scrollView.contentSize = CGSize(width: self.scrollView.frame.width, height: self.scrollView.frame.height + 150)
+    }
+    // MARK: - Teclado
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textConta.resignFirstResponder()
+        textAgencia.resignFirstResponder()
+        textApelidoConta.resignFirstResponder()
+        return true
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     
 }
 
+// LIMITAR CARACTERE
+
+//extension CadastroViewController:UITextFieldDelegate {
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        guard let textFieldText = textField.text,
+//        let rangeOfTextToReplace = Range(range, in: textFieldText) else {
+//                return false
+//        }
+//
+//        let substringToReplace = textFieldText[rangeOfTextToReplace]
+//        let count = textFieldText.count - substringToReplace.count + string.count
+//        return count <= 10
+//    }
+//}

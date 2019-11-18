@@ -37,7 +37,12 @@ class  dropDownBtn: UIButton, dropDownProtocol{
         self.dismissDropDown()
         
     }
+    
     override func didMoveToSuperview(){
+        
+    }
+    
+    override func draw(_ rect: CGRect) {
         self.superview?.addSubview(dropView)
         self.superview?.bringSubviewToFront(dropView)
         dropView.topAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
@@ -45,6 +50,7 @@ class  dropDownBtn: UIButton, dropDownProtocol{
         dropView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         height = dropView.heightAnchor.constraint(equalToConstant: 0)
     }
+  
      override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             if isOpen == false{
                 
@@ -74,7 +80,7 @@ class  dropDownBtn: UIButton, dropDownProtocol{
            self.height.constant = 0
            NSLayoutConstraint.activate([self.height])
            
-           UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 0.1, initialSpringVelocity: 0.1, options: .curveEaseInOut, animations: {}, completion: nil)
+            UIView.animate(withDuration: 0.1, delay: 0.1, usingSpringWithDamping: 0.1, initialSpringVelocity: 0.1, options: .curveEaseInOut, animations: {}, completion: nil)
         }
     }
 
