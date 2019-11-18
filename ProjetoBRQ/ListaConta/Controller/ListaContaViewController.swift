@@ -68,7 +68,7 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
         let celula = collectionView.dequeueReusableCell(withReuseIdentifier: "celulaPadrao", for: indexPath) as! ContaCollectionViewCell
         
         celula.celulaTexto.text = teste[ indexPath.row ]
-        celula.celulaView.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
+        celula.celulaView.backgroundColor = UIColor.white
         
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector( exibeAlerta ) )
         celula.addGestureRecognizer(longPress)
@@ -91,7 +91,6 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "extratoID") as! ExtratoViewController
         present(controller, animated: true, completion: nil)
-        
         
     }
     
