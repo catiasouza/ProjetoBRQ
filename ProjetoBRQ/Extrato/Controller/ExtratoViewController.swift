@@ -13,12 +13,11 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
     //MARK: - Variaveis/Constantes
     
     var listaLancamentos: [Lancamento] = [
-        Lancamento(nome: "Mc Donalds", data: "06-11-2019", valor: 21.99),
-        Lancamento(nome: "Lojas Americanas", data: "06-11-2019", valor: 75.50),
-        Lancamento(nome: "Samsung", data: "07-11-2019", valor: 8999.99)
+        Lancamento(nome: "Mc Donalds", data: "06 NOV", valor: -21.99),
+        Lancamento(nome: "Lojas Americanas", data: "06 NOV", valor: -75.50),
+        Lancamento(nome: "Samsung", data: "07 NOV", valor: -8999.99)
     ]
     var saldoTotal: Double = 0
-    
     // dados recebidos da listaConta
     var apelidoRecebido: String?
     var id:Int?
@@ -29,12 +28,30 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var somaSaldos: UILabel!
     @IBOutlet weak var labelExtratoApelido: UILabel!
     @IBOutlet weak var extratoTableView: UITableView!
+    @IBOutlet weak var textDataInicio: UITextField!
+    @IBOutlet weak var textDataFim: UITextField!
+    
     
     //MARK: - Actions
     
     @IBAction func voltar(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    @IBAction func dataInicioEntrouFoco(_ sender: UITextField) {
+        let datePickerView = UIDatePicker()
+        datePickerView.datePickerMode = .date
+        sender.inputView = datePickerView
+        datePickerView.addTarget(self, action: #selector(exibeDataInicio), for: .valueChanged)
+    }
+    @IBAction func dataFimEntrouFoco(_ sender: UITextField) {
+        let datePickerView = UIDatePicker()
+        datePickerView.datePickerMode = .date
+        sender.inputView = datePickerView
+        datePickerView.addTarget(self, action: #selector(exibeDataFim), for: .valueChanged)
+    }
+    @IBAction func buscarExtrato(_ sender: Any) {
+    }
+    
     
     //MARK: - Métodos
     
@@ -50,7 +67,29 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
             let valorLista = i
             saldoTotal += valorLista.valor
         }
+    }
+    
+    @objc func exibeDataInicio(sender: UIDatePicker) {
+        let formatador = DateFormatter()
+        formatador.dateFormat = "dd/MM/yyyy"
+        self.textDataInicio.text = formatador.string(from: sender.date)
+    }
+    
+    @objc func exibeDataFim(sender: UIDatePicker) {
+        let formatador = DateFormatter()
+        formatador.dateFormat = "dd/MM/yyyy"
+        self.textDataFim.text = formatador.string(from: sender.date)
+    }
+    
+    func validaRangeDatas() -> Bool{
+        guard let dataInicio = textDataInicio.text as? Date else {return false}
+        guard let dataFim = textDataFim.text as? Date else {return false}
         
+        if dataInicio <= dataFim{
+            return true
+        }else{
+            return false
+        }
     }
     
     //MARK: - TableView
@@ -74,5 +113,16 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.somaSaldos.text = "R$ \(String(describing: saldoTotal))"
                 
         return celulaExtrato
+    }
+    
+    // MARK: - Teclado
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textDataInicio.resignFirstResponder()
+        textDataFim.resignFirstResponder()
+        return true
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 }
