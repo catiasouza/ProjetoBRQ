@@ -15,6 +15,8 @@ class  dropDownBtn: UIButton, dropDownProtocol{
     var height = NSLayoutConstraint()
     var isOpen = false
     
+    var bancoSelecionado:String?
+    
 
       //MARK: - Inicializadores
     override init(frame: CGRect) {
@@ -82,6 +84,8 @@ class  dropDownBtn: UIButton, dropDownProtocol{
            
             UIView.animate(withDuration: 0.1, delay: 0.1, usingSpringWithDamping: 0.1, initialSpringVelocity: 0.1, options: .curveEaseInOut, animations: {}, completion: nil)
         }
+    
+    
     }
 
 

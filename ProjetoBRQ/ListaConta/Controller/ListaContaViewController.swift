@@ -10,7 +10,7 @@
 
 import UIKit
 
-class ListaContaViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class ListaContaViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ContaDelegate {
 
     
 
@@ -21,7 +21,7 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     
     //MARK: - Variaveis
     
-    var teste = ["Conta 1", "Conta 2", "Conta 3", "Conta 4", "Conta 5"]
+    var contas = [ Conta(apelidoConta: "Conta Teste", banco: "BRQ", agencia: "01", contaNumero: "0001", contaDigito: "1", id: 1) ]
     
     
     //MARK: - Exibicao
@@ -31,6 +31,10 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
         collectionListaContas.dataSource = self
         collectionListaContas.delegate = self
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        collectionListaContas.reloadData()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -48,7 +52,7 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
                 let row = indexPath.row
                  
                 AlertaRemoveConta(controller: self).alerta(controller: self) { (action) in
-                    self.teste.remove(at: row)
+                    self.contas.remove(at: row)
                     self.collectionListaContas.reloadData()
                     print("Conta excluida com sucesso")
                 }
@@ -56,24 +60,38 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
         }
     }
     
+    //MARK: - Delegate
+    
+    func adicionaConta(conta:Conta) {
+        
+        self.contas.append(conta)
+        
+    }
+    
     
     //MARK: - CollectionView
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return teste.count
+        return contas.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let celula = collectionView.dequeueReusableCell(withReuseIdentifier: "celulaPadrao", for: indexPath) as! ContaCollectionViewCell
         
-        celula.celulaTexto.text = teste[ indexPath.row ]
-        celula.celulaView.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
+        let contaSelecionada = contas[ indexPath.row ]
+        
+        celula.labelApelidoConta.text = contaSelecionada.apelidoConta
+        celula.labelBanco.text = contaSelecionada.banco
+        celula.labelAgencia.text = contaSelecionada.agencia
+        celula.labelConta.text = contaSelecionada.contaNumero + "-" + contaSelecionada.contaDigito
+        
         
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector( exibeAlerta ) )
         celula.addGestureRecognizer(longPress)
         
         celula.layer.cornerRadius = 8
+        celula.celulaView.backgroundColor = UIColor.white
         
         return celula
     }
@@ -88,10 +106,15 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        let contaSelecionada = contas[ indexPath.row ]
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "extratoID") as! ExtratoViewController
-        present(controller, animated: true, completion: nil)
         
+        controller.apelidoRecebido = contaSelecionada.apelidoConta
+        controller.id = contaSelecionada.id
+        
+        present(controller, animated: true, completion: nil)
         
     }
     
@@ -102,6 +125,7 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "cadastroID") as! CadastroViewController
+        controller.delegate = self
         present(controller, animated: true, completion: nil)
         
     }

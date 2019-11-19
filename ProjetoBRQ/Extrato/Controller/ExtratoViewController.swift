@@ -19,6 +19,10 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
     ]
     var saldoTotal: Double = 0
     
+    // dados recebidos da listaConta
+    var apelidoRecebido: String?
+    var id:Int?
+    
     //MARK: - Outlets
     
     @IBOutlet weak var viewExtrato: UIView!
@@ -39,7 +43,8 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         extratoTableView.dataSource = self
         extratoTableView.delegate = self
         viewExtrato.layer.cornerRadius = 8
-        labelExtratoApelido.text = "Apelido da conta"
+        labelExtratoApelido.text = apelidoRecebido
+        
         
         for i in listaLancamentos {
             let valorLista = i

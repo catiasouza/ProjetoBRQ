@@ -2,17 +2,15 @@
 
 import UIKit
 
-class CadastroViewController: UIViewController{
+class CadastroViewController: UIViewController, UITextFieldDelegate {
 
     
      // MARK: - Variaveis/Constantes
     var conta: [String] = []
     var dropDown = dropDownBtn()
+    var delegate : ContaDelegate?
     
         // MARK: - Outlets
-    
-   
-    
     
     @IBOutlet weak var textAgencia: UITextField!
     @IBOutlet weak var textConta: UITextField!
@@ -22,8 +20,17 @@ class CadastroViewController: UIViewController{
     @IBOutlet weak var viewAmbienteCadastro: UIView!
     @IBOutlet weak var botaoAdicionar: UIButton!
     @IBOutlet weak var viewCadastro: UIView!
+    
+    
     @IBAction func botaoAdicionarAcao(_ sender: UIButton) {
         
+        if let del = delegate {
+            guard let apelido = textApelidoConta.text! as String? else { return }
+            guard let agencia = textAgencia.text! as String? else { return }
+            guard let contaNumero = textConta.text! as String? else { return }
+            let conta = Conta(apelidoConta: apelido, banco: "BRQ", agencia: agencia, contaNumero: contaNumero, contaDigito: "1", id: 1)
+            del.adicionaConta(conta: conta)
+        }
         dismiss(animated: true, completion: nil)
         
     }
@@ -39,6 +46,10 @@ class CadastroViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.textApelidoConta.delegate = self
+        self.textAgencia.delegate = self
+        self.textConta.delegate = self
     
         configuraBordas()
         viewCadastro.layer.masksToBounds = true
