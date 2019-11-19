@@ -10,7 +10,11 @@ import UIKit
 
 class ContaCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var celulaTexto: UILabel!
     @IBOutlet weak var celulaView: UIView!
+    
+    @IBOutlet weak var labelApelidoConta: UILabel!
+    @IBOutlet weak var labelBanco: UILabel!
+    @IBOutlet weak var labelAgencia: UILabel!
+    @IBOutlet weak var labelConta: UILabel!
     
 }

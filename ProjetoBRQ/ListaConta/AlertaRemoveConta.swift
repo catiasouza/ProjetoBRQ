@@ -20,7 +20,6 @@ class AlertaRemoveConta {
         
         let alerta = UIAlertController(title: "Exclusão Permanentemente", message: "Essa conta será excluida permanentemente, tem certeza que excluida?", preferredStyle: .alert)
         let cancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
-
         let deletar = UIAlertAction(title: "Excluir", style: .destructive, handler: handler)
 
         alerta.addAction(cancelar)
