@@ -88,20 +88,15 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
+      // MARK: - Validacao TextField
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let apelidoConta = textField.text ?? ""
+        guard let stringApelido = Range(range, in: apelidoConta)else{
+            return false
+        }
+        let updateApelidoConta = apelidoConta.replacingCharacters(in: stringApelido, with: string)
+        return updateApelidoConta.count < 26
+    }
 }
 
-// LIMITAR CARACTERE
-
-//extension CadastroViewController:UITextFieldDelegate {
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        guard let textFieldText = textField.text,
-//        let rangeOfTextToReplace = Range(range, in: textFieldText) else {
-//                return false
-//        }
-//
-//        let substringToReplace = textFieldText[rangeOfTextToReplace]
-//        let count = textFieldText.count - substringToReplace.count + string.count
-//        return count <= 10
-//    }
-//}
