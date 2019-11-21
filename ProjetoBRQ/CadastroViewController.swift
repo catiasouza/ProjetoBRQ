@@ -39,7 +39,8 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
             guard let apelido = textApelidoConta.text! as String? else { return }
             guard let agencia = textAgencia.text! as String? else { return }
             guard let contaNumero = textConta.text! as String? else { return }
-            let conta = Conta(apelidoConta: apelido, banco: "BRQ", agencia: agencia, contaNumero: contaNumero, contaDigito: "1", id: 1)
+            guard let banco = dropDown.titleLabel?.text else {return}
+            let conta = Conta(apelidoConta: apelido, banco: banco, agencia: agencia, contaNumero: contaNumero, contaDigito: "1", id: 1)
             del.adicionaConta(conta: conta)
         }
         dismiss(animated: true, completion: nil)
