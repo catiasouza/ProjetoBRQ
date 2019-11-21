@@ -24,11 +24,23 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func botaoAdicionarAcao(_ sender: UIButton) {
         
+        if textConta .text?.isEmpty ?? true {
+            self.toastMessage("Favor preencher todos campos!")
+            return;
+        }else{
+            print("Nao entrou")
+        }
+        
+        //TOAST PARA CONTA ADICIONADA
+        self.toastMessage("Conta adicionada com sucesso!")
+       
+        
         if let del = delegate {
             guard let apelido = textApelidoConta.text! as String? else { return }
             guard let agencia = textAgencia.text! as String? else { return }
             guard let contaNumero = textConta.text! as String? else { return }
-            let conta = Conta(apelidoConta: apelido, banco: "BRQ", agencia: agencia, contaNumero: contaNumero, contaDigito: "1", id: 1)
+            guard let banco = dropDown.titleLabel?.text else {return}
+            let conta = Conta(apelidoConta: apelido, banco: banco, agencia: agencia, contaNumero: contaNumero, contaDigito: "1", id: 1)
             del.adicionaConta(conta: conta)
         }
         dismiss(animated: true, completion: nil)
@@ -36,6 +48,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func botaoVoltar(_ sender: Any) {
+        
         
         dismiss(animated: true, completion: nil)
         
@@ -88,20 +101,15 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
+      // MARK: - Validacao TextField
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let apelidoConta = textField.text ?? ""
+        guard let stringApelido = Range(range, in: apelidoConta)else{
+            return false
+        }
+        let updateApelidoConta = apelidoConta.replacingCharacters(in: stringApelido, with: string)
+        return updateApelidoConta.count < 26
+    }
 }
 
-// LIMITAR CARACTERE
-
-//extension CadastroViewController:UITextFieldDelegate {
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        guard let textFieldText = textField.text,
-//        let rangeOfTextToReplace = Range(range, in: textFieldText) else {
-//                return false
-//        }
-//
-//        let substringToReplace = textFieldText[rangeOfTextToReplace]
-//        let count = textFieldText.count - substringToReplace.count + string.count
-//        return count <= 10
-//    }
-//}
