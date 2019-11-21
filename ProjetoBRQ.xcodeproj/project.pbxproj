@@ -23,6 +23,7 @@
 		75B86FBA2382E23200336AAF /* dropDownBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B86FB92382E23200336AAF /* dropDownBtn.swift */; };
 		75B86FBC2382E28600336AAF /* dropDownProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B86FBB2382E28600336AAF /* dropDownProtocol.swift */; };
 		75B86FBE2382E4DE00336AAF /* dropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B86FBD2382E4DE00336AAF /* dropDownView.swift */; };
+		75B86FEA2386BC4600336AAF /* NotificacoesCadastro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B86FE92386BC4600336AAF /* NotificacoesCadastro.swift */; };
 		BA0ED7662379E6E8004354FF /* Lancamento.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0ED7622379E6E8004354FF /* Lancamento.swift */; };
 		BA0ED7672379E6E8004354FF /* LancamentosDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0ED7632379E6E8004354FF /* LancamentosDAO.swift */; };
 		BA0ED7682379E6E8004354FF /* ExtratoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0ED7652379E6E8004354FF /* ExtratoTableViewCell.swift */; };
@@ -70,6 +71,7 @@
 		75B86FB92382E23200336AAF /* dropDownBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dropDownBtn.swift; sourceTree = "<group>"; };
 		75B86FBB2382E28600336AAF /* dropDownProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dropDownProtocol.swift; sourceTree = "<group>"; };
 		75B86FBD2382E4DE00336AAF /* dropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dropDownView.swift; sourceTree = "<group>"; };
+		75B86FE92386BC4600336AAF /* NotificacoesCadastro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificacoesCadastro.swift; sourceTree = "<group>"; };
 		BA0ED7622379E6E8004354FF /* Lancamento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lancamento.swift; sourceTree = "<group>"; };
 		BA0ED7632379E6E8004354FF /* LancamentosDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LancamentosDAO.swift; sourceTree = "<group>"; };
 		BA0ED7652379E6E8004354FF /* ExtratoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtratoTableViewCell.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 		BAFD3C0E237307AD006D4C72 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				75B86FE92386BC4600336AAF /* NotificacoesCadastro.swift */,
 				756E30F12379E02000597987 /* CadastroViewController.swift */,
 			);
 			path = Controller;
@@ -406,6 +409,7 @@
 				75B86FBC2382E28600336AAF /* dropDownProtocol.swift in Sources */,
 				0AD1633323743FC600264748 /* AlertaRemoveConta.swift in Sources */,
 				0AEA1079237358120066B187 /* ContaCollectionViewCell.swift in Sources */,
+				75B86FEA2386BC4600336AAF /* NotificacoesCadastro.swift in Sources */,
 				756E30F22379E02000597987 /* CadastroViewController.swift in Sources */,
 				75B86FBE2382E4DE00336AAF /* dropDownView.swift in Sources */,
 				0A99B2912384074900BD1BBB /* ContaDelegate.swift in Sources */,
