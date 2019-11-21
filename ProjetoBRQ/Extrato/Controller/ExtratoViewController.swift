@@ -43,7 +43,7 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
     var apelidoRecebido: String?
     var id:Int?
     
-    let validador: Bool?
+    var validador = false
     
     //MARK: - Outlets
     
@@ -72,7 +72,9 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         sender.inputView = datePickerView
         datePickerView.addTarget(self, action: #selector(exibeDataFim), for: .valueChanged)
     }
-    @IBAction func buscarExtrato(_ sender: Any) {
+    @IBAction func buscarExtrato(_ sender: UIButton) {
+        validador = true
+        self.extratoTableView.reloadData()
     }
     
     
@@ -141,9 +143,7 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        let validador = validaRangeDatas()
-        
+ 
         if validador{
             return listaLancamentos.count
         }else{
