@@ -73,8 +73,16 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         datePickerView.addTarget(self, action: #selector(exibeDataFim), for: .valueChanged)
     }
     @IBAction func buscarExtrato(_ sender: UIButton) {
-        validador = true
-        self.extratoTableView.reloadData()
+        if validaRangeDatas(){
+            validador = true
+            self.extratoTableView.reloadData()
+            view.endEditing(true)
+        }else{
+            toastMessage("Digite uma data valida")
+            validador = false
+            self.extratoTableView.reloadData()
+            view.endEditing(true)
+        }
     }
     
     
@@ -128,12 +136,11 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         guard let dataInicio = dataInicioDate else{return false}
         guard let dataFim = dataFimDate else{return false}
         
-        //        if dataInicio <= dataFim {
-        //            return true
-        //        }else{
-        //            return false
-        //        }
-        return true
+        if dataInicio <= dataFim {
+            return true
+        }else{
+            return false
+        }
     }
     
     //MARK: - TableView
