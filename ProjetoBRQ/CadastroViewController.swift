@@ -24,6 +24,17 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func botaoAdicionarAcao(_ sender: UIButton) {
         
+        if textConta .text?.isEmpty ?? true {
+            self.toastMessage("Favor preencher todos campos!")
+            return;
+        }else{
+            print("Nao entrou")
+        }
+        
+        //TOAST PARA CONTA ADICIONADA
+        self.toastMessage("Conta adicionada com sucesso!")
+       
+        
         if let del = delegate {
             guard let apelido = textApelidoConta.text! as String? else { return }
             guard let agencia = textAgencia.text! as String? else { return }
@@ -36,6 +47,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func botaoVoltar(_ sender: Any) {
+        
         
         dismiss(animated: true, completion: nil)
         
