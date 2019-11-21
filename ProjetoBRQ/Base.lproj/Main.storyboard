@@ -745,8 +745,7 @@
                                                 </constraints>
                                                 <state key="normal" image="icon_extrato"/>
                                                 <connections>
-                                                    <action selector="buscarExtrato:" destination="zxq-eF-uay" eventType="touchUpInside" id="qze-fY-Utg"/>
-                                                    <action selector="pesquisarIntervaloTempo:" destination="zxq-eF-uay" eventType="touchUpInside" id="1uR-Dh-PsM"/>
+                                                    <action selector="buscarExtrato:" destination="zxq-eF-uay" eventType="touchUpInside" id="ap6-fO-oCT"/>
                                                 </connections>
                                             </button>
                                         </subviews>
