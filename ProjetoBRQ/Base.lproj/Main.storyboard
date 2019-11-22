@@ -657,17 +657,17 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cU9-a0-j2m">
                                                 <rect key="frame" x="0.0" y="560" width="378" height="33"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saldo em conta:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhM-al-YKC">
-                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="33"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saldo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhM-al-YKC">
+                                                        <rect key="frame" x="0.0" y="0.0" width="73" height="33"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="175" id="wK9-HH-yeY"/>
+                                                            <constraint firstAttribute="width" constant="73" id="wK9-HH-yeY"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 0,00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dsb-zo-pPc">
-                                                        <rect key="frame" x="183" y="0.0" width="195" height="33"/>
+                                                        <rect key="frame" x="81" y="0.0" width="297" height="33"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
