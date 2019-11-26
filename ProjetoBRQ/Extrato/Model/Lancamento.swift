@@ -10,13 +10,17 @@ import UIKit
 
 class Lancamento: NSObject {
 
+    let id: Int
     let nome: String
-    let data: String
+    let dataOperacao: String
+    let tipoOperacao: String
     let valor: Double
     
-    init(nome: String, data: String, valor: Double) {
+    init(id: Int, nome: String, dataOperacao: String, tipoOperacao: String, valor: Double) {
+        self.id = id
         self.nome = nome
-        self.data = data
+        self.dataOperacao = dataOperacao
+        self.tipoOperacao = tipoOperacao
         self.valor = valor
     }
 }
