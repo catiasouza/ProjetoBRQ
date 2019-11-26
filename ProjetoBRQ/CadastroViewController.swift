@@ -55,11 +55,12 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    // MARK: - ViewDidLoad
+    // MARK: - Metodos
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        criarListaBancos()
         self.textApelidoConta.delegate = self
         self.textAgencia.delegate = self
         self.textConta.delegate = self
@@ -74,16 +75,25 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
         dropDown.topAnchor.constraint(equalTo: self.viewAmbienteCadastro.topAnchor, constant: 10).isActive = true
         dropDown.widthAnchor.constraint(equalToConstant: 255).isActive = true
         dropDown.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        dropDown.dropView.dropDownOptions = ["Bradesco", "Santander", "Itau", "NuBank", "Caixa Economica"]
+        //dropDown.dropView.dropDownOptions = ["Bradesco", "Santander", "Itau", "NuBank", "Caixa Economica"]
        
         NotificationCenter.default.addObserver(self, selector: #selector(scroll(notification: )), name: UIResponder.keyboardWillShowNotification ,object: nil)
         
     }
+    
     func configuraBordas(){
         botaoAdicionar.layer.cornerRadius = 8
         botaoAdicionar.layer.masksToBounds = true
         viewCadastro.layer.cornerRadius = 8
         backView.layer.cornerRadius = 8
+    }
+    
+    func criarListaBancos() {
+        CadastroService().acessarApi{ (bancos) in
+            //print(bancos)
+            self.dropDown.dropView.dropDownOptions = bancos
+            self.dropDown.dropView.tableView.reloadData()
+        }
     }
     
     // MARK: - Scroll
