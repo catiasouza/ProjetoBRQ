@@ -20,6 +20,7 @@
 		7556FD202373012500AF5FF1 /* ProjetoBRQTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD1F2373012500AF5FF1 /* ProjetoBRQTests.swift */; };
 		7556FD2B2373012500AF5FF1 /* ProjetoBRQUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD2A2373012500AF5FF1 /* ProjetoBRQUITests.swift */; };
 		756E30F22379E02000597987 /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756E30F12379E02000597987 /* CadastroViewController.swift */; };
+		75747ACF238D8B8600D996F3 /* CadastroService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75747ACE238D8B8600D996F3 /* CadastroService.swift */; };
 		75B86FBA2382E23200336AAF /* dropDownBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B86FB92382E23200336AAF /* dropDownBtn.swift */; };
 		75B86FBC2382E28600336AAF /* dropDownProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B86FBB2382E28600336AAF /* dropDownProtocol.swift */; };
 		75B86FBE2382E4DE00336AAF /* dropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B86FBD2382E4DE00336AAF /* dropDownView.swift */; };
@@ -68,6 +69,7 @@
 		7556FD2A2373012500AF5FF1 /* ProjetoBRQUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetoBRQUITests.swift; sourceTree = "<group>"; };
 		7556FD2C2373012500AF5FF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		756E30F12379E02000597987 /* CadastroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CadastroViewController.swift; path = ProjetoBRQ/CadastroViewController.swift; sourceTree = SOURCE_ROOT; };
+		75747ACE238D8B8600D996F3 /* CadastroService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroService.swift; sourceTree = "<group>"; };
 		75B86FB92382E23200336AAF /* dropDownBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dropDownBtn.swift; sourceTree = "<group>"; };
 		75B86FBB2382E28600336AAF /* dropDownProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dropDownProtocol.swift; sourceTree = "<group>"; };
 		75B86FBD2382E4DE00336AAF /* dropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dropDownView.swift; sourceTree = "<group>"; };
@@ -160,6 +162,14 @@
 			path = ProjetoBRQUITests;
 			sourceTree = "<group>";
 		};
+		75747ACD238D8B4F00D996F3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				75747ACE238D8B8600D996F3 /* CadastroService.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		75B86FB82382E1EB00336AAF /* DropDown */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +253,7 @@
 		BAFD3C0D237307A2006D4C72 /* Cadastro */ = {
 			isa = PBXGroup;
 			children = (
+				75747ACD238D8B4F00D996F3 /* Model */,
 				75B86FB82382E1EB00336AAF /* DropDown */,
 				BAFD3C0F237307B5006D4C72 /* View */,
 				BAFD3C0E237307AD006D4C72 /* Controller */,
@@ -401,6 +412,7 @@
 				BA0ED7662379E6E8004354FF /* Lancamento.swift in Sources */,
 				7556FD062373012300AF5FF1 /* AppDelegate.swift in Sources */,
 				BAFD3C13237307E2006D4C72 /* ListaContaViewController.swift in Sources */,
+				75747ACF238D8B8600D996F3 /* CadastroService.swift in Sources */,
 				BAFD3C15237307F0006D4C72 /* ExtratoViewController.swift in Sources */,
 				7556FD082373012300AF5FF1 /* SceneDelegate.swift in Sources */,
 				0A99B28F238405AE00BD1BBB /* Conta.swift in Sources */,
