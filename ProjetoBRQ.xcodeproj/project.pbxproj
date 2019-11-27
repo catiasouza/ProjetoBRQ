@@ -20,13 +20,16 @@
 		7556FD202373012500AF5FF1 /* ProjetoBRQTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD1F2373012500AF5FF1 /* ProjetoBRQTests.swift */; };
 		7556FD2B2373012500AF5FF1 /* ProjetoBRQUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD2A2373012500AF5FF1 /* ProjetoBRQUITests.swift */; };
 		756E30F22379E02000597987 /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756E30F12379E02000597987 /* CadastroViewController.swift */; };
+		75747ACF238D8B8600D996F3 /* CadastroService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75747ACE238D8B8600D996F3 /* CadastroService.swift */; };
 		75B86FBA2382E23200336AAF /* dropDownBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B86FB92382E23200336AAF /* dropDownBtn.swift */; };
 		75B86FBC2382E28600336AAF /* dropDownProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B86FBB2382E28600336AAF /* dropDownProtocol.swift */; };
 		75B86FBE2382E4DE00336AAF /* dropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B86FBD2382E4DE00336AAF /* dropDownView.swift */; };
 		75B86FEA2386BC4600336AAF /* NotificacoesCadastro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B86FE92386BC4600336AAF /* NotificacoesCadastro.swift */; };
 		BA0ED7662379E6E8004354FF /* Lancamento.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0ED7622379E6E8004354FF /* Lancamento.swift */; };
-		BA0ED7672379E6E8004354FF /* LancamentosDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0ED7632379E6E8004354FF /* LancamentosDAO.swift */; };
 		BA0ED7682379E6E8004354FF /* ExtratoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0ED7652379E6E8004354FF /* ExtratoTableViewCell.swift */; };
+		BA91AA50238D924300F012DB /* ExtratoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA91AA4F238D924300F012DB /* ExtratoService.swift */; };
+		BA91AA52238D927A00F012DB /* ConverterDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA91AA51238D927A00F012DB /* ConverterDatas.swift */; };
+		BA91AA54238D92B500F012DB /* Validacoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA91AA53238D92B500F012DB /* Validacoes.swift */; };
 		BAFD3C13237307E2006D4C72 /* ListaContaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD3C12237307E2006D4C72 /* ListaContaViewController.swift */; };
 		BAFD3C15237307F0006D4C72 /* ExtratoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD3C14237307F0006D4C72 /* ExtratoViewController.swift */; };
 /* End PBXBuildFile section */
@@ -68,13 +71,16 @@
 		7556FD2A2373012500AF5FF1 /* ProjetoBRQUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetoBRQUITests.swift; sourceTree = "<group>"; };
 		7556FD2C2373012500AF5FF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		756E30F12379E02000597987 /* CadastroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CadastroViewController.swift; path = ProjetoBRQ/CadastroViewController.swift; sourceTree = SOURCE_ROOT; };
+		75747ACE238D8B8600D996F3 /* CadastroService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroService.swift; sourceTree = "<group>"; };
 		75B86FB92382E23200336AAF /* dropDownBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dropDownBtn.swift; sourceTree = "<group>"; };
 		75B86FBB2382E28600336AAF /* dropDownProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dropDownProtocol.swift; sourceTree = "<group>"; };
 		75B86FBD2382E4DE00336AAF /* dropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dropDownView.swift; sourceTree = "<group>"; };
 		75B86FE92386BC4600336AAF /* NotificacoesCadastro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificacoesCadastro.swift; sourceTree = "<group>"; };
 		BA0ED7622379E6E8004354FF /* Lancamento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lancamento.swift; sourceTree = "<group>"; };
-		BA0ED7632379E6E8004354FF /* LancamentosDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LancamentosDAO.swift; sourceTree = "<group>"; };
 		BA0ED7652379E6E8004354FF /* ExtratoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtratoTableViewCell.swift; sourceTree = "<group>"; };
+		BA91AA4F238D924300F012DB /* ExtratoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtratoService.swift; sourceTree = "<group>"; };
+		BA91AA51238D927A00F012DB /* ConverterDatas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterDatas.swift; sourceTree = "<group>"; };
+		BA91AA53238D92B500F012DB /* Validacoes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validacoes.swift; sourceTree = "<group>"; };
 		BAFD3C12237307E2006D4C72 /* ListaContaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContaViewController.swift; sourceTree = "<group>"; };
 		BAFD3C14237307F0006D4C72 /* ExtratoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtratoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,6 +166,14 @@
 			path = ProjetoBRQUITests;
 			sourceTree = "<group>";
 		};
+		75747ACD238D8B4F00D996F3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				75747ACE238D8B8600D996F3 /* CadastroService.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		75B86FB82382E1EB00336AAF /* DropDown */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,7 +188,9 @@
 			isa = PBXGroup;
 			children = (
 				BA0ED7622379E6E8004354FF /* Lancamento.swift */,
-				BA0ED7632379E6E8004354FF /* LancamentosDAO.swift */,
+				BA91AA4F238D924300F012DB /* ExtratoService.swift */,
+				BA91AA51238D927A00F012DB /* ConverterDatas.swift */,
+				BA91AA53238D92B500F012DB /* Validacoes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -243,6 +259,7 @@
 		BAFD3C0D237307A2006D4C72 /* Cadastro */ = {
 			isa = PBXGroup;
 			children = (
+				75747ACD238D8B4F00D996F3 /* Model */,
 				75B86FB82382E1EB00336AAF /* DropDown */,
 				BAFD3C0F237307B5006D4C72 /* View */,
 				BAFD3C0E237307AD006D4C72 /* Controller */,
@@ -397,20 +414,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA0ED7672379E6E8004354FF /* LancamentosDAO.swift in Sources */,
 				BA0ED7662379E6E8004354FF /* Lancamento.swift in Sources */,
 				7556FD062373012300AF5FF1 /* AppDelegate.swift in Sources */,
 				BAFD3C13237307E2006D4C72 /* ListaContaViewController.swift in Sources */,
+				75747ACF238D8B8600D996F3 /* CadastroService.swift in Sources */,
 				BAFD3C15237307F0006D4C72 /* ExtratoViewController.swift in Sources */,
+				BA91AA50238D924300F012DB /* ExtratoService.swift in Sources */,
 				7556FD082373012300AF5FF1 /* SceneDelegate.swift in Sources */,
 				0A99B28F238405AE00BD1BBB /* Conta.swift in Sources */,
 				BA0ED7682379E6E8004354FF /* ExtratoTableViewCell.swift in Sources */,
 				7556FD102373012300AF5FF1 /* ProjetoBRQ.xcdatamodeld in Sources */,
+				BA91AA54238D92B500F012DB /* Validacoes.swift in Sources */,
 				75B86FBC2382E28600336AAF /* dropDownProtocol.swift in Sources */,
 				0AD1633323743FC600264748 /* AlertaRemoveConta.swift in Sources */,
 				0AEA1079237358120066B187 /* ContaCollectionViewCell.swift in Sources */,
 				75B86FEA2386BC4600336AAF /* NotificacoesCadastro.swift in Sources */,
 				756E30F22379E02000597987 /* CadastroViewController.swift in Sources */,
+				BA91AA52238D927A00F012DB /* ConverterDatas.swift in Sources */,
 				75B86FBE2382E4DE00336AAF /* dropDownView.swift in Sources */,
 				0A99B2912384074900BD1BBB /* ContaDelegate.swift in Sources */,
 				75B86FBA2382E23200336AAF /* dropDownBtn.swift in Sources */,
