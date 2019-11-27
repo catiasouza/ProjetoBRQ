@@ -10,10 +10,10 @@ import UIKit
 
 class AlertaRemoveConta {
     
-    var controller:UIViewController
+    var controle:UIViewController
     
     init (controller:UIViewController ) {
-        self.controller = controller
+        self.controle = controller
     }
     
     func alerta ( controller: UIViewController , handler : @escaping(UIAlertAction) -> Void ) {

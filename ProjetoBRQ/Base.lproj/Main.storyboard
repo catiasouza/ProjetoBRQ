@@ -237,6 +237,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionListaContas" destination="I5S-mA-vFi" id="8ct-r0-WF9"/>
+                        <outlet property="searchBar" destination="Vek-S4-Otm" id="w6a-P1-Pzd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
