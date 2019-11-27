@@ -79,11 +79,6 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         extratoTableView.delegate = self
         viewExtrato.layer.cornerRadius = 8
         labelExtratoApelido.text = apelidoRecebido
-        
-        for i in listaLancamentos {
-            let valorLista = i
-            saldoTotal += valorLista.valor
-        }
     }
     
     @objc func exibeDataInicio(sender: UIDatePicker) {
@@ -107,7 +102,12 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         guard let numeroId = id else { return }
         ExtratoService().retornaLancamentos(id: numeroId, dataInicio: dataComeco, dataFim: dataFinal) { (todosLancamentos) in
             self.listaLancamentos = todosLancamentos
+            self.extratoTableView.reloadData()
         }
+    }
+    
+    func draw(_ rect: CGRect) {
+        extratoTableView.reloadData()
     }
     
     //MARK: - TableView
