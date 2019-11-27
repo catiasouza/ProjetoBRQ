@@ -38,7 +38,9 @@ class ExtratoService: NSObject {
                                     }
                                 }
                             }
-                            sucesso(todosLancamentos)
+                            DispatchQueue.main.sync {
+                                sucesso(todosLancamentos)
+                            }
                         }
                     } catch{
                         print("erro ao formatar retorno")
