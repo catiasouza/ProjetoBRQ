@@ -48,10 +48,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func botaoVoltar(_ sender: Any) {
-        
-        
         dismiss(animated: true, completion: nil)
-        
     }
     
     
@@ -59,6 +56,9 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(fecharTeclado))
+//        view.addGestureRecognizer(tap)
         
         criarListaBancos()
         self.textApelidoConta.delegate = self
@@ -75,7 +75,6 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
         dropDown.topAnchor.constraint(equalTo: self.viewAmbienteCadastro.topAnchor, constant: 10).isActive = true
         dropDown.widthAnchor.constraint(equalToConstant: 255).isActive = true
         dropDown.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        //dropDown.dropView.dropDownOptions = ["Bradesco", "Santander", "Itau", "NuBank", "Caixa Economica"]
        
         NotificationCenter.default.addObserver(self, selector: #selector(scroll(notification: )), name: UIResponder.keyboardWillShowNotification ,object: nil)
         
@@ -90,13 +89,17 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     
     func criarListaBancos() {
         CadastroService().acessarApi{ (bancos) in
-            //print(bancos)
             self.dropDown.dropView.dropDownOptions = bancos
             self.dropDown.dropView.tableView.reloadData()
         }
     }
     
+    @objc func fecharTeclado () {
+        view.endEditing(true)
+    }
+    
     // MARK: - Scroll
+    
     @objc func scroll(notification: Notification){
         self.scrollView.contentSize = CGSize(width: self.scrollView.frame.width, height: self.scrollView.frame.height + 150)
     }
