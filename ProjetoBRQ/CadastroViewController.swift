@@ -48,10 +48,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func botaoVoltar(_ sender: Any) {
-        
-        
         dismiss(animated: true, completion: nil)
-        
     }
     
     
@@ -102,6 +99,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - Scroll
+    
     @objc func scroll(notification: Notification){
         self.scrollView.contentSize = CGSize(width: self.scrollView.frame.width, height: self.scrollView.frame.height + 150)
     }
