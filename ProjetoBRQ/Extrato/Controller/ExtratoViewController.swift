@@ -111,15 +111,18 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         formato.numberStyle = .decimal
         formato.locale = Locale(identifier: "pt_BR")
         if let valorFinal = formato.string(for: valor){
-            
-            if valorFinal.contains(",0"){
-                return valorFinal
-            }else if valorFinal.contains(","){
+            let valorInteiro = Int(valor)
+            var valorDecimal = valor - Double(valorInteiro)
+            valorDecimal = arredondaDouble(valor: valorDecimal)
+            valorDecimal = valorDecimal * 10
+            let valorDecimalInteiro = Int(valorDecimal)
+            if valor / Double(valorInteiro) == 1{
+                return "\(valorFinal),00"
+            }else if valorDecimal / Double(valorDecimalInteiro) == 1{
                 return "\(valorFinal)0"
             }else{
-                return "\(valorFinal),00"
+                return valorFinal
             }
-            
         }else {
             return "0,00"
         }
@@ -151,7 +154,11 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
             celulaExtrato.labelLancamentos.text = lancamentoAtual.nome
             celulaExtrato.labelDatas.text = ConverterDatas().formattedDateFromString(dateString: lancamentoAtual.dataOperacao, withFormat: "dd-MMM")
             let valorFinal = formatarValor(valor: arredondaDouble(valor: lancamentoAtual.valor))
-            celulaExtrato.labelValores.text = valorFinal
+            if lancamentoAtual.tipoOperacao == "C" || lancamentoAtual.tipoOperacao == "c"{
+                celulaExtrato.labelValores.text = valorFinal
+            }else{
+                celulaExtrato.labelValores.text = "-\(valorFinal)"
+            }
             self.somaSaldos.text = "R$ \(arredondaDouble(valor: saldoTotal))"
             return celulaExtrato
         }else{
