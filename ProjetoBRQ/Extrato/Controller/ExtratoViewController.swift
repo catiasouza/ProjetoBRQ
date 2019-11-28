@@ -106,6 +106,25 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    func formatarValor(valor: Double) -> String{
+        let formato = NumberFormatter()
+        formato.numberStyle = .decimal
+        formato.locale = Locale(identifier: "pt_BR")
+        if let valorFinal = formato.string(for: valor){
+            
+            if valorFinal.contains(",0"){
+                return valorFinal
+            }else if valorFinal.contains(","){
+                return "\(valorFinal)0"
+            }else{
+                return "\(valorFinal),00"
+            }
+            
+        }else {
+            return "0,00"
+        }
+    }
+    
     func draw(_ rect: CGRect) {
         extratoTableView.reloadData()
     }
@@ -131,7 +150,8 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         if validador{
             celulaExtrato.labelLancamentos.text = lancamentoAtual.nome
             celulaExtrato.labelDatas.text = ConverterDatas().formattedDateFromString(dateString: lancamentoAtual.dataOperacao, withFormat: "dd-MMM")
-            celulaExtrato.labelValores.text = "\(String(describing: lancamentoAtual.valor))"
+            let valorFinal = formatarValor(valor: arredondaDouble(valor: lancamentoAtual.valor))
+            celulaExtrato.labelValores.text = valorFinal
             self.somaSaldos.text = "R$ \(arredondaDouble(valor: saldoTotal))"
             return celulaExtrato
         }else{
@@ -154,4 +174,3 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         view.endEditing(true)
     }
 }
-
