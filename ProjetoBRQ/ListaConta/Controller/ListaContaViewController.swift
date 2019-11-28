@@ -38,6 +38,7 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
         collectionListaContas.reloadData()
         listaDeContas = contas
     }
@@ -52,7 +53,7 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
                 let row = indexPath.row
                  
                 AlertaRemoveConta(controller: self).alerta(controller: self) { (action) in
-                    self.contas.remove(at: row)
+                    self.listaDeContas.remove(at: row)
                     self.collectionListaContas.reloadData()
                 }
             }
@@ -66,7 +67,7 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     //MARK: - Delegate
     
     func adicionaConta(conta:Conta) {
-        self.listaDeContas.append(conta)
+        self.contas.append(conta)
     }
     
     
