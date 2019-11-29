@@ -52,12 +52,9 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
                 let row = indexPath.row
                  
                 AlertaRemoveConta(controller: self).alerta(controller: self) { (action) in
-<<<<<<< HEAD
-                    self.listaDeContas.remove(at: row)
-=======
+
                     self.contas.remove(at: row)
                     self.listaDeContas = self.contas
->>>>>>> desenvolvimento
                     self.collectionListaContas.reloadData()
                 }
             }
