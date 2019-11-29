@@ -31,4 +31,33 @@ class ContaCollectionViewCell: UICollectionViewCell {
         self.labelFixaSaldo.text = labelFixaSaldo
     }
     
+    func dadosDaConta (apelido:String, banco:String = "", agencia:String = "", conta:String = "", saldo:String = "") {
+        
+        self.labelApelidoConta.text = apelido
+        self.labelBanco.text = banco
+        self.labelAgencia.text = agencia
+        self.labelConta.text = conta
+        self.labelSaldo.text = saldo
+        
+    }
+    
+    func configuraExibicaoCelula (celula:ContaCollectionViewCell) {
+        
+        celula.layer.cornerRadius = 8
+        celula.celulaView.backgroundColor = UIColor.white
+        celula.celulaView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        
+        celula.contentView.layer.cornerRadius = 8
+        celula.contentView.layer.borderWidth = 1
+        celula.contentView.layer.borderColor = UIColor.clear.cgColor
+        celula.contentView.layer.masksToBounds = true
+        celula.layer.backgroundColor = UIColor.white.cgColor
+        celula.layer.shadowColor = UIColor.gray.cgColor
+        celula.layer.shadowOffset = CGSize(width: 0, height: 5)
+        celula.layer.shadowRadius = 8
+        celula.layer.shadowOpacity = 0.5
+        celula.layer.masksToBounds = false
+        
+    }
+    
 }

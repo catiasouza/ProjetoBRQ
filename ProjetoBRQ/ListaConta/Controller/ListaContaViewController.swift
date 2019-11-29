@@ -85,60 +85,30 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
             
             let celula = collectionView.dequeueReusableCell(withReuseIdentifier: "celulaPadrao", for: indexPath) as! ContaCollectionViewCell
             
-            celula.labelApelidoConta.text = "Nenhuma conta encontrada, cadastre uma nova conta"
-            celula.labelAgencia.text = ""
-            celula.labelBanco.text = ""
-            celula.labelConta.text = ""
-            celula.labelSaldo.text = ""
+            let mensagem = "Nenhuma conta encontrada, cadastre uma nova conta"
+            celula.dadosDaConta(apelido: mensagem)
             celula.fixaLabels(labelFixaBanco: "", labelFixaAgencia: "", labelFixaConta: "", labelFixaSaldo: "")
-            
-            celula.layer.cornerRadius = 8
-            celula.celulaView.backgroundColor = UIColor.white
-            celula.celulaView.heightAnchor.constraint(equalToConstant: 150).isActive = true
-            
-            //sombreamento da celula
-            celula.contentView.layer.cornerRadius = 8
-            celula.contentView.layer.borderWidth = 1
-            celula.contentView.layer.borderColor = UIColor.clear.cgColor
-            celula.contentView.layer.masksToBounds = true
-            celula.layer.backgroundColor = UIColor.white.cgColor
-            celula.layer.shadowColor = UIColor.gray.cgColor
-            celula.layer.shadowOffset = CGSize(width: 0, height: 5)
-            celula.layer.shadowRadius = 8
-            celula.layer.shadowOpacity = 0.5
-            celula.layer.masksToBounds = false
-            
+
+            celula.configuraExibicaoCelula(celula: celula)
+
             return celula
         }
         
         let celula = collectionView.dequeueReusableCell(withReuseIdentifier: "celulaPadrao", for: indexPath) as! ContaCollectionViewCell
         let contaSelecionada = listaDeContas[ indexPath.row ]
         
-        celula.labelApelidoConta.text = contaSelecionada.apelidoConta
-        celula.labelBanco.text = contaSelecionada.banco
-        celula.labelAgencia.text = contaSelecionada.agencia
-        celula.labelConta.text = contaSelecionada.contaNumero + "-" + contaSelecionada.contaDigito
-        celula.labelSaldo.text = "R$ 1.234,56"
+        let apelido = contaSelecionada.apelidoConta
+        let banco = contaSelecionada.banco
+        let agencia = contaSelecionada.agencia
+        let contaNumero = contaSelecionada.contaNumero + "-" + contaSelecionada.contaDigito
+        let saldo = "R$ 1.234,56"
+        celula.dadosDaConta(apelido: apelido, banco: banco, agencia: agencia, conta: contaNumero, saldo: saldo)
         celula.fixaLabels()
         
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector( exibeAlerta ) )
         celula.addGestureRecognizer(longPress)
         
-        celula.layer.cornerRadius = 8
-        celula.celulaView.backgroundColor = UIColor.white
-        celula.celulaView.heightAnchor.constraint(equalToConstant: 150).isActive = true
-        
-        //sombreamento da celula
-        celula.contentView.layer.cornerRadius = 8
-        celula.contentView.layer.borderWidth = 1
-        celula.contentView.layer.borderColor = UIColor.clear.cgColor
-        celula.contentView.layer.masksToBounds = true
-        celula.layer.backgroundColor = UIColor.white.cgColor
-        celula.layer.shadowColor = UIColor.gray.cgColor
-        celula.layer.shadowOffset = CGSize(width: 0, height: 5)
-        celula.layer.shadowRadius = 8
-        celula.layer.shadowOpacity = 0.5
-        celula.layer.masksToBounds = false
+        celula.configuraExibicaoCelula(celula: celula)
         
         return celula
     }
