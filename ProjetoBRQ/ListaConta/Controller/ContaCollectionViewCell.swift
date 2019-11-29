@@ -16,5 +16,19 @@ class ContaCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var labelBanco: UILabel!
     @IBOutlet weak var labelAgencia: UILabel!
     @IBOutlet weak var labelConta: UILabel!
+    @IBOutlet weak var labelSaldo: UILabel!
+    
+    @IBOutlet weak var labelFixaBanco: UILabel!
+    @IBOutlet weak var labelFixaAgencia: UILabel!
+    @IBOutlet weak var labelFixaConta: UILabel!
+    @IBOutlet weak var labelFixaSaldo: UILabel!
+    
+    
+    func fixaLabels (labelFixaBanco:String = "Banco", labelFixaAgencia:String = "Agencia", labelFixaConta:String = "Conta", labelFixaSaldo:String = "Saldo" ) {
+        self.labelFixaBanco.text = labelFixaBanco
+        self.labelFixaAgencia.text = labelFixaAgencia
+        self.labelFixaConta.text = labelFixaConta
+        self.labelFixaSaldo.text = labelFixaSaldo
+    }
     
 }
