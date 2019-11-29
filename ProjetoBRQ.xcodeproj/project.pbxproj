@@ -54,7 +54,7 @@
 /* Begin PBXFileReference section */
 		0A99B28E238405AE00BD1BBB /* Conta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Conta.swift; path = ProjetoBRQ/Conta.swift; sourceTree = SOURCE_ROOT; };
 		0A99B2902384074900BD1BBB /* ContaDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContaDelegate.swift; path = ProjetoBRQ/ContaDelegate.swift; sourceTree = SOURCE_ROOT; };
-		0AD1633223743FC600264748 /* AlertaRemoveConta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertaRemoveConta.swift; path = ProjetoBRQ/ListaConta/AlertaRemoveConta.swift; sourceTree = SOURCE_ROOT; };
+		0AD1633223743FC600264748 /* AlertaRemoveConta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertaRemoveConta.swift; path = ProjetoBRQ/ListaConta/Model/AlertaRemoveConta.swift; sourceTree = SOURCE_ROOT; };
 		0AEA1078237358120066B187 /* ContaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContaCollectionViewCell.swift; path = ProjetoBRQ/ListaConta/Controller/ContaCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		7556FD022373012300AF5FF1 /* ProjetoBRQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjetoBRQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7556FD052373012300AF5FF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +110,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0AA9E45D2391515B00EFD5F3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0AD1633223743FC600264748 /* AlertaRemoveConta.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7556FCF92373012300AF5FF1 = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +223,7 @@
 		BAFD3C0823730732006D4C72 /* ListaConta */ = {
 			isa = PBXGroup;
 			children = (
+				0AA9E45D2391515B00EFD5F3 /* Model */,
 				BAFD3C0A23730756006D4C72 /* View */,
 				BAFD3C092373074B006D4C72 /* Controller */,
 			);
@@ -233,7 +242,6 @@
 			isa = PBXGroup;
 			children = (
 				0AEA1078237358120066B187 /* ContaCollectionViewCell.swift */,
-				0AD1633223743FC600264748 /* AlertaRemoveConta.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
