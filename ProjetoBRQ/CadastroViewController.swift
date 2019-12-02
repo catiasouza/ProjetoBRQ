@@ -59,7 +59,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
         
 //        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(fecharTeclado))
 //        view.addGestureRecognizer(tap)
-        
+        acessoAPI()
         criarListaBancos()
         self.textApelidoConta.delegate = self
         self.textAgencia.delegate = self
@@ -91,6 +91,11 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
         CadastroService().acessarApi{ (bancos) in
             self.dropDown.dropView.dropDownOptions = bancos
             self.dropDown.dropView.tableView.reloadData()
+        }
+    }
+    func acessoAPI(){
+        CadastroService().criarArrayAPI { (array) in
+            print(array)
         }
     }
     
