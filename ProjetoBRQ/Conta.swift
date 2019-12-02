@@ -6,12 +6,12 @@ class Conta {
     
     let apelidoConta : String
     let banco: String
-    let agencia : String
-    let contaNumero: String
-    let contaDigito: String
+    let agencia : Int
+    let contaNumero: Int
+    let contaDigito: Int
     let id : Int
     
-    init (apelidoConta: String, banco:String, agencia:String, contaNumero:String, contaDigito:String, id:Int) {
+    init (apelidoConta: String, banco:String, agencia:Int, contaNumero:Int, contaDigito:Int, id:Int) {
         
         self.apelidoConta = apelidoConta
         self.banco = banco
