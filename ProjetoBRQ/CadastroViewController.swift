@@ -10,6 +10,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     var dropDown = dropDownBtn()
     var delegate : ContaDelegate?
     var arrayApi: Array<Any>?
+    
     // MARK: - Outlets
     
     @IBOutlet weak var textAgencia: UITextField!
@@ -28,7 +29,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
             self.toastMessage("Favor preencher todos campos!")
             return;
         }else{
-            print("Nao entrou")
+           
         }
         
         
@@ -38,10 +39,11 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
             guard let contaNumero = Int(textConta.text!) else { return }
             guard let banco = dropDown.titleLabel?.text else {return}
             
-            let validador = validarEntrada(bancoDigitado: banco, agenciaDigitada: agencia, contaDigitada: contaNumero)
-            if validador == true{
+            let id = validarEntrada(bancoDigitado: banco, agenciaDigitada: agencia, contaDigitada: contaNumero)
+            print(id)
+            if id != 0{
                 
-                let conta = Conta(apelidoConta: apelido, banco: banco, agencia: agencia, contaNumero: contaNumero, contaDigito: 1, id: 1)
+                let conta = Conta(apelidoConta: apelido, banco: banco, agencia: agencia, contaNumero: contaNumero, contaDigito: 1, id: id)
                 del.adicionaConta(conta: conta)
                 self.toastMessage("Conta adicionada com sucesso!")
                 dismiss(animated: true, completion: nil)
@@ -137,20 +139,20 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
         let updateApelidoConta = apelidoConta.replacingCharacters(in: stringApelido, with: string)
         return updateApelidoConta.count < 26
     }
-    func validarEntrada(bancoDigitado: String, agenciaDigitada: Int, contaDigitada: Int) -> Bool{
+    func validarEntrada(bancoDigitado: String, agenciaDigitada: Int, contaDigitada: Int) -> Int{
         let n = self.arrayApi?.count as! Int
         
         for i in (0...n-1) {
             let array = arrayApi?[i] as? Array<Any>
-            guard let bancoApi = array?[0] as? String else { return false}
-            guard let agenciaApi = array?[1]  as? Int else { return false}
-            guard let contaApi = array?[2] as? Int else { return false}
+            guard let bancoApi = array?[0] as? String else { return 0}
+            guard let agenciaApi = array?[1]  as? Int else { return 0}
+            guard let contaApi = array?[2] as? Int else { return 0}
             
             if bancoApi == bancoDigitado && agenciaApi == agenciaDigitada && contaApi == contaDigitada{
-                return true
+                return array![4] as! Int
             }
         }
-        return false
+        return 0
     }
     
 }
