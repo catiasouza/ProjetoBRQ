@@ -3,14 +3,14 @@
 import UIKit
 
 class CadastroViewController: UIViewController, UITextFieldDelegate {
-
     
-     // MARK: - Variaveis/Constantes
+    
+    // MARK: - Variaveis/Constantes
     var conta: [String] = []
     var dropDown = dropDownBtn()
     var delegate : ContaDelegate?
-    
-        // MARK: - Outlets
+    var arrayApi: Array<Any>?
+    // MARK: - Outlets
     
     @IBOutlet weak var textAgencia: UITextField!
     @IBOutlet weak var textConta: UITextField!
@@ -31,19 +31,26 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
             print("Nao entrou")
         }
         
-        //TOAST PARA CONTA ADICIONADA
-        self.toastMessage("Conta adicionada com sucesso!")
-       
         
         if let del = delegate {
             guard let apelido = textApelidoConta.text! as String? else { return }
-            guard let agencia = textAgencia.text! as String? else { return }
-            guard let contaNumero = textConta.text! as String? else { return }
+            guard let agencia = Int(textAgencia.text!) else { return }
+            guard let contaNumero = Int(textConta.text!) else { return }
             guard let banco = dropDown.titleLabel?.text else {return}
-            let conta = Conta(apelidoConta: apelido, banco: banco, agencia: agencia, contaNumero: contaNumero, contaDigito: "1", id: 1)
-            del.adicionaConta(conta: conta)
+            
+            let validador = validarEntrada(bancoDigitado: banco, agenciaDigitada: agencia, contaDigitada: contaNumero)
+            if validador == true{
+                
+                let conta = Conta(apelidoConta: apelido, banco: banco, agencia: agencia, contaNumero: contaNumero, contaDigito: 1, id: 1)
+                del.adicionaConta(conta: conta)
+                self.toastMessage("Conta adicionada com sucesso!")
+                dismiss(animated: true, completion: nil)
+            }else{
+                self.toastMessage("Conta inexistente!")
+            }
+            
         }
-        dismiss(animated: true, completion: nil)
+        
         
     }
     
@@ -57,14 +64,14 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(fecharTeclado))
-//        view.addGestureRecognizer(tap)
+        //        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(fecharTeclado))
+        //        view.addGestureRecognizer(tap)
         acessoAPI()
         criarListaBancos()
         self.textApelidoConta.delegate = self
         self.textAgencia.delegate = self
         self.textConta.delegate = self
-    
+        
         configuraBordas()
         viewCadastro.layer.masksToBounds = true
         dropDown = dropDownBtn.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
@@ -75,7 +82,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
         dropDown.topAnchor.constraint(equalTo: self.viewAmbienteCadastro.topAnchor, constant: 10).isActive = true
         dropDown.widthAnchor.constraint(equalToConstant: 255).isActive = true
         dropDown.heightAnchor.constraint(equalToConstant: 50).isActive = true
-       
+        
         NotificationCenter.default.addObserver(self, selector: #selector(scroll(notification: )), name: UIResponder.keyboardWillShowNotification ,object: nil)
         
     }
@@ -96,6 +103,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     func acessoAPI(){
         CadastroService().criarArrayAPI { (array) in
             print(array)
+            self.arrayApi = array
         }
     }
     
@@ -119,7 +127,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
-      // MARK: - Validacao TextField
+    // MARK: - Validacao TextField
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let apelidoConta = textField.text ?? ""
@@ -129,5 +137,22 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
         let updateApelidoConta = apelidoConta.replacingCharacters(in: stringApelido, with: string)
         return updateApelidoConta.count < 26
     }
+    func validarEntrada(bancoDigitado: String, agenciaDigitada: Int, contaDigitada: Int) -> Bool{
+        let n = self.arrayApi?.count as! Int
+        
+        for i in (0...n-1) {
+            let array = arrayApi?[i] as? Array<Any>
+            guard let bancoApi = array?[0] as? String else { return false}
+            guard let agenciaApi = array?[1]  as? Int else { return false}
+            guard let contaApi = array?[2] as? Int else { return false}
+            
+            if bancoApi == bancoDigitado && agenciaApi == agenciaDigitada && contaApi == contaDigitada{
+                return true
+            }
+        }
+        return false
+    }
+    
 }
+
 
