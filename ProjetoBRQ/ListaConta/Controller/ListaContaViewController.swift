@@ -19,9 +19,9 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     
     //MARK: - Variaveis
     
-    var contas = [ Conta(apelidoConta: "Conta Teste", banco: "BRQ", agencia: "0734", contaNumero: "0001", contaDigito: "1", id: 1),
-                   Conta(apelidoConta: "João da Silva", banco: "Itaú", agencia: "0312", contaNumero: "0203", contaDigito: "7", id: 6),
-                   Conta(apelidoConta: "Robson", banco: "Santander", agencia: "0001", contaNumero: "9631", contaDigito: "0", id: 11)
+    var contas = [ Conta(apelidoConta: "Conta Teste", banco: "BRQ", agencia: 0734, contaNumero: 0001, contaDigito: 1, id: 1),
+                   Conta(apelidoConta: "João da Silva", banco: "Itaú", agencia: 0312, contaNumero: 0203, contaDigito: 7, id: 6),
+                   Conta(apelidoConta: "Robson", banco: "Santander", agencia: 0001, contaNumero: 9631, contaDigito: 0, id: 11)
                     ]
     var listaDeContas : Array<Conta> = []
     
@@ -36,6 +36,7 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
         collectionListaContas.reloadData()
         listaDeContas = contas
     }
@@ -50,6 +51,7 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
                 let row = indexPath.row
                  
                 AlertaRemoveConta(controller: self).alerta(controller: self) { (action) in
+
                     self.contas.remove(at: row)
                     self.listaDeContas = self.contas
                     self.collectionListaContas.reloadData()
@@ -99,8 +101,8 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
         
         let apelido = contaSelecionada.apelidoConta
         let banco = contaSelecionada.banco
-        let agencia = contaSelecionada.agencia
-        let contaNumero = contaSelecionada.contaNumero + "-" + contaSelecionada.contaDigito
+        let agencia = String(contaSelecionada.agencia)
+        let contaNumero = "\(contaSelecionada.contaNumero)" + "-" + "\(contaSelecionada.contaDigito)"
         let saldo = "R$ 1.234,56"
         celula.dadosDaConta(apelido: apelido, banco: banco, agencia: agencia, conta: contaNumero, saldo: saldo)
         celula.fixaLabels()
