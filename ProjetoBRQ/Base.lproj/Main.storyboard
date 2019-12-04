@@ -316,7 +316,7 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Conta num 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Cq-9d-Ej4">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex: Conta do Itau" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Cq-9d-Ej4">
                                                                         <rect key="frame" x="0.0" y="30" width="355" height="35"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="35" id="2kG-BL-uid"/>
@@ -537,6 +537,8 @@
                     <connections>
                         <outlet property="backView" destination="K1L-xR-JXV" id="Pbc-kQ-B9E"/>
                         <outlet property="botaoAdicionar" destination="O7a-dP-BqK" id="Jia-F0-Mg3"/>
+                        <outlet property="botaoVoltar" destination="BdJ-al-HzS" id="J8F-Qt-1OV"/>
+                        <outlet property="logoBRQ" destination="Dot-oU-RwC" id="4h7-Me-OUI"/>
                         <outlet property="scrollView" destination="pgD-P4-YxN" id="a3p-U2-BlB"/>
                         <outlet property="textAgencia" destination="VW2-0y-slo" id="nri-dU-UxT"/>
                         <outlet property="textApelidoConta" destination="0Cq-9d-Ej4" id="XYp-45-crm"/>
