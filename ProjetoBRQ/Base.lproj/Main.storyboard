@@ -800,7 +800,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="AYl-EC-hyG"/>
                     <connections>
+                        <outlet property="botaoPesquisar" destination="XXo-zu-XLB" id="w7i-Ny-LuJ"/>
+                        <outlet property="botaoVoltar" destination="0eT-u6-yfd" id="pHc-Sk-iKC"/>
                         <outlet property="extratoTableView" destination="m8b-Sz-oXx" id="C9s-HC-7QY"/>
+                        <outlet property="iconeBRQ" destination="Nt0-JQ-XOO" id="V88-lV-YuR"/>
                         <outlet property="labelExtratoApelido" destination="TBi-jX-azB" id="nFe-TV-jBn"/>
                         <outlet property="somaSaldos" destination="Dsb-zo-pPc" id="MFH-an-z6p"/>
                         <outlet property="textDataFim" destination="4Ml-wN-JTN" id="O9Q-hc-Ewk"/>
