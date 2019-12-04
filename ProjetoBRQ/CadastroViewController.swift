@@ -45,38 +45,25 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
             let id = validarEntrada(bancoDigitado: banco, agenciaDigitada: agencia, contaDigitada: contaNumero)
             print(id)
             if id != 0{
-<<<<<<< HEAD
-=======
-                
->>>>>>> 061fab6e2a3a3b4573b09a034db94671edba6275
+
                 // Persistencia  De Dados
                 if contaCD == nil{
                     contaCD = ContaCD(context: context)
                 }
-<<<<<<< HEAD
 
-                contaCD.agencia = Int16(textAgencia.text!) ?? 0
-                contaCD.apelidoConta = textApelidoConta.text!
-                contaCD.banco = textConta.text!
-                contaCD.conta = Int16(textConta.text!) ?? 0
-=======
-                
                 contaCD.agencia = Int16(textAgencia.text!) ?? 0
                 contaCD.apelidoConta = textApelidoConta.text!
                 contaCD.banco = dropDown.titleLabel?.text
                 contaCD.conta = Int16(textConta.text!) ?? 0
                 contaCD.digito = Int16(1)
->>>>>>> 061fab6e2a3a3b4573b09a034db94671edba6275
+
                 do {
                     try context.save()
                     print("SALVOU")
                 } catch  {
                     print(error.localizedDescription)
                 }
-<<<<<<< HEAD
-=======
-                
->>>>>>> 061fab6e2a3a3b4573b09a034db94671edba6275
+
                 let conta = Conta(apelidoConta: apelido, banco: banco, agencia: agencia, contaNumero: contaNumero, contaDigito: 1, id: id)
                 del.adicionaConta(conta: conta)
                 self.toastMessage("Conta adicionada com sucesso!")
@@ -84,29 +71,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
             }else{
                 self.toastMessage("Conta inexistente!")
             }
-<<<<<<< HEAD
-            
-=======
-//            // Persistencia  De Dados
-//            if contaCD == nil{
-//                contaCD = ContaCD(context: context)
-//            }
-//
-//            contaCD.agencia = Int16(textAgencia.text!) ?? 0
-//            contaCD.apelidoConta = textApelidoConta.text!
-//            contaCD.banco = dropDown.titleLabel?.text
-//            contaCD.conta = Int16(textConta.text!) ?? 0
-//            contaCD.digito = Int16(1)
-//            do {
-//                try context.save()
-//                print("SALVOU")
-//            } catch  {
-//                print(error.localizedDescription)
-//            }
->>>>>>> 061fab6e2a3a3b4573b09a034db94671edba6275
         }
-        
-        
     }
     
     @IBAction func botaoVoltar(_ sender: Any) {
@@ -221,7 +186,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
         logoBRQ.isAccessibilityElement = true
         logoBRQ.accessibilityLabel = "Logo BRQ"
         logoBRQ.accessibilityTraits = .image
-        
+
         
     }
     
