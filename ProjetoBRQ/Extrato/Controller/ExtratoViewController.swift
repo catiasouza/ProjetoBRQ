@@ -82,6 +82,7 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         extratoTableView.delegate = self
         viewExtrato.layer.cornerRadius = 8
         labelExtratoApelido.text = apelidoRecebido
+        setupAccessibility()
     }
     
     private func setupAccessibility(){
