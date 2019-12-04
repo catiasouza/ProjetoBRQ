@@ -44,6 +44,23 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
             print(id)
             if id != 0{
                 
+                // Persistencia  De Dados
+                if contaCD == nil{
+                    contaCD = ContaCD(context: context)
+                }
+                
+                contaCD.agencia = Int16(textAgencia.text!) ?? 0
+                contaCD.apelidoConta = textApelidoConta.text!
+                contaCD.banco = dropDown.titleLabel?.text
+                contaCD.conta = Int16(textConta.text!) ?? 0
+                contaCD.digito = Int16(1)
+                do {
+                    try context.save()
+                    print("SALVOU")
+                } catch  {
+                    print(error.localizedDescription)
+                }
+                
                 let conta = Conta(apelidoConta: apelido, banco: banco, agencia: agencia, contaNumero: contaNumero, contaDigito: 1, id: id)
                 del.adicionaConta(conta: conta)
                 self.toastMessage("Conta adicionada com sucesso!")
@@ -51,21 +68,22 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
             }else{
                 self.toastMessage("Conta inexistente!")
             }
-            // Persistencia  De Dados
-            if contaCD == nil{
-                contaCD = ContaCD(context: context)
-            }
-
-            contaCD.agencia = Int16(textAgencia.text!) ?? 0
-            contaCD.apelidoConta = textApelidoConta.text!
-            contaCD.banco = textConta.text!
-            contaCD.conta = Int16(textConta.text!) ?? 0
-            do {
-                try context.save()
-                print("SALVOU")
-            } catch  {
-                print(error.localizedDescription)
-            }
+//            // Persistencia  De Dados
+//            if contaCD == nil{
+//                contaCD = ContaCD(context: context)
+//            }
+//
+//            contaCD.agencia = Int16(textAgencia.text!) ?? 0
+//            contaCD.apelidoConta = textApelidoConta.text!
+//            contaCD.banco = dropDown.titleLabel?.text
+//            contaCD.conta = Int16(textConta.text!) ?? 0
+//            contaCD.digito = Int16(1)
+//            do {
+//                try context.save()
+//                print("SALVOU")
+//            } catch  {
+//                print(error.localizedDescription)
+//            }
         }
         
         

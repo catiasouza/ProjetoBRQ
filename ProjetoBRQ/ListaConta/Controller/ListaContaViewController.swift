@@ -9,6 +9,7 @@
 // Projeto oficial que vai subir pro git
 
 import UIKit
+import CoreData
 
 class ListaContaViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchBarDelegate, ContaDelegate {
 
@@ -17,43 +18,43 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     @IBOutlet weak var collectionListaContas: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    @IBOutlet weak var imageLogoBRQ: UIImageView!
+    @IBOutlet weak var labelSaldoTotal: UILabel!
+    @IBOutlet weak var buttonAdicionar: UIButton!
+    
     //MARK: - Variaveis
     
-    var contas = [ Conta(apelidoConta: "Conta Teste", banco: "BRQ", agencia: 0734, contaNumero: 0001, contaDigito: 1, id: 1),
-                   Conta(apelidoConta: "João da Silva", banco: "Itaú", agencia: 0312, contaNumero: 0203, contaDigito: 7, id: 6),
-                   Conta(apelidoConta: "Robson", banco: "Santander", agencia: 0001, contaNumero: 9631, contaDigito: 0, id: 11)
-                    ]
-    var listaDeContas : Array<Conta> = []
+    var fetchResultController:NSFetchedResultsController<ContaCD>!
     
     //MARK: - Exibicao
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setAcessibility()
         collectionListaContas.dataSource = self
         collectionListaContas.delegate = self
-        listaDeContas = contas
+        recuperaContas()
         searchBar.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
         collectionListaContas.reloadData()
-        listaDeContas = contas
     }
     
     //MARK: - Métodos
 
     @objc func exibeAlerta(recognizer: UILongPressGestureRecognizer) {
-        
+
         if (recognizer.state == UIGestureRecognizer.State.began) {
-            let celula = recognizer.view  as! UICollectionViewCell
-            if let indexPath = collectionListaContas.indexPath(for: celula) {
+            let celula = recognizer.view as! UICollectionViewCell
+            if let indexPath = self.collectionListaContas.indexPath(for: celula) {
                 let row = indexPath.row
                  
                 AlertaRemoveConta(controller: self).alerta(controller: self) { (action) in
 
-                    self.contas.remove(at: row)
-                    self.listaDeContas = self.contas
+                    let conta = self.fetchResultController.fetchedObjects?[row]
+                    self.context.delete(conta!)
                     self.collectionListaContas.reloadData()
                 }
             }
@@ -64,18 +65,51 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
         view.endEditing(true)
     }
     
+    func recuperaContas(filtro: String = "") {
+        
+        let fetchRequest:NSFetchRequest<ContaCD>  = ContaCD.fetchRequest()
+        fetchRequest.sortDescriptors = []
+        
+        if filtro != ""{
+            let predicate = NSPredicate(format: "apelidoConta contains [c]%@", filtro)
+            fetchRequest.predicate = predicate
+        }
+        
+        fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchResultController.delegate = self
+        do {
+            try fetchResultController.performFetch()
+        } catch  {
+            print(error.localizedDescription)
+        }
+    }
+    
+    private func setAcessibility() {
+        
+        imageLogoBRQ.isAccessibilityElement = true
+        imageLogoBRQ.accessibilityLabel = "Logo da BRQ"
+        imageLogoBRQ.accessibilityTraits = .image
+
+        labelSaldoTotal.isAccessibilityElement = true
+        labelSaldoTotal.accessibilityLabel = "Soma do saldo das contas em Reais"
+        labelSaldoTotal.accessibilityTraits = .none
+        
+        buttonAdicionar.isAccessibilityElement = true
+        buttonAdicionar.accessibilityLabel = "Botão para adicionar nova conta"
+        buttonAdicionar.accessibilityTraits = .button
+    }
+    
     //MARK: - Delegate
     
     func adicionaConta(conta:Conta) {
-        self.contas.append(conta)
     }
     
     
     //MARK: - CollectionView
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if listaDeContas.count != 0 {
-            return listaDeContas.count
+        if fetchResultController.fetchedObjects?.count != 0 {
+            return fetchResultController.fetchedObjects!.count
         } else {
             return 1
         }
@@ -83,7 +117,7 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if listaDeContas.count == 0{
+        if fetchResultController.fetchedObjects?.count == 0 {
             
             let celula = collectionView.dequeueReusableCell(withReuseIdentifier: "celulaPadrao", for: indexPath) as! ContaCollectionViewCell
             
@@ -94,28 +128,30 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
             celula.configuraExibicaoCelula(celula: celula)
 
             return celula
+        } else {
+            
+            let celula = collectionView.dequeueReusableCell(withReuseIdentifier: "celulaPadrao", for: indexPath) as! ContaCollectionViewCell
+            
+            let contaSelecionada = fetchResultController.fetchedObjects?[indexPath.row]
+            
+            let apelido = contaSelecionada?.apelidoConta as! String
+            let banco = contaSelecionada?.banco as! String
+            let agencia = String(describing: contaSelecionada!.agencia)
+            let contaNumero = "\(String(describing: contaSelecionada!.conta))" + "-" + "\(String(describing: contaSelecionada!.digito))"
+            let saldo = "R$ 1.234,56"
+            celula.dadosDaConta(apelido: apelido, banco: banco, agencia: agencia, conta: contaNumero, saldo: saldo)
+            celula.fixaLabels()
+            celula.setAccessibility()
+            
+            let longPress = UILongPressGestureRecognizer(target: self, action: #selector( exibeAlerta ) )
+            celula.addGestureRecognizer(longPress)
+            
+            celula.configuraExibicaoCelula(celula: celula)
+            
+            return celula
         }
-        
-        let celula = collectionView.dequeueReusableCell(withReuseIdentifier: "celulaPadrao", for: indexPath) as! ContaCollectionViewCell
-        let contaSelecionada = listaDeContas[ indexPath.row ]
-        
-        let apelido = contaSelecionada.apelidoConta
-        let banco = contaSelecionada.banco
-        let agencia = String(contaSelecionada.agencia)
-        let contaNumero = "\(contaSelecionada.contaNumero)" + "-" + "\(contaSelecionada.contaDigito)"
-        let saldo = "R$ 1.234,56"
-        celula.dadosDaConta(apelido: apelido, banco: banco, agencia: agencia, conta: contaNumero, saldo: saldo)
-        celula.fixaLabels()
-        
-        let longPress = UILongPressGestureRecognizer(target: self, action: #selector( exibeAlerta ) )
-        celula.addGestureRecognizer(longPress)
-        
-        celula.configuraExibicaoCelula(celula: celula)
-        
-        return celula
     }
-    
-    //configura o tamanho da exibição de cada celula
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let largura = collectionView.bounds.width
@@ -125,12 +161,12 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if listaDeContas.count != 0 {
-            let contaSelecionada = listaDeContas[ indexPath.row ]
+        if fetchResultController.fetchedObjects?.count != 0 {
+            let contaSelecionada = fetchResultController.fetchedObjects?[indexPath.row]
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "extratoID") as! ExtratoViewController
-            controller.apelidoRecebido = contaSelecionada.apelidoConta
-            controller.id = contaSelecionada.id
+            controller.apelidoRecebido = contaSelecionada?.apelidoConta
+            controller.id = Int(contaSelecionada!.id)
             present(controller, animated: true, completion: nil)
         } else {
             return
@@ -150,20 +186,27 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     //MARK: - Search Bar
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        listaDeContas = contas
-        if searchText != "" {
-            let listaFiltrada = contas.filter { (conta) -> Bool in
-                conta.apelidoConta.lowercased().contains(searchText.lowercased() )
-            }
-            listaDeContas = listaFiltrada
-        }
+        
+        recuperaContas(filtro: searchText )
         collectionListaContas.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.searchBar.endEditing(true)
     }
-    
 }
 
+//MARK: - Extensoes
 
+extension ListaContaViewController: NSFetchedResultsControllerDelegate {
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        switch type {
+        case .delete:
+            break
+        default:
+            collectionListaContas.reloadData()
+        }
+    }
+}
