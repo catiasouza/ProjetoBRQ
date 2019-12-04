@@ -10,6 +10,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     var dropDown = dropDownBtn()
     var delegate : ContaDelegate?
     var arrayApi: Array<Any>?
+    var contaCD: ContaCD!
     
     // MARK: - Outlets
     
@@ -25,7 +26,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func botaoAdicionarAcao(_ sender: UIButton) {
         
-        if textConta .text?.isEmpty ?? true {
+        if textApelidoConta .text?.isEmpty ?? true {
             self.toastMessage("Favor preencher todos campos!")
             return;
         }else{
@@ -50,7 +51,21 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
             }else{
                 self.toastMessage("Conta inexistente!")
             }
-            
+            // Persistencia  De Dados
+            if contaCD == nil{
+                contaCD = ContaCD(context: context)
+            }
+
+            contaCD.agencia = Int16(textAgencia.text!) ?? 0
+            contaCD.apelidoConta = textApelidoConta.text!
+            contaCD.banco = textConta.text!
+            contaCD.conta = Int16(textConta.text!) ?? 0
+            do {
+                try context.save()
+                print("SALVOU")
+            } catch  {
+                print(error.localizedDescription)
+            }
         }
         
         
@@ -140,7 +155,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
         return updateApelidoConta.count < 26
     }
     func validarEntrada(bancoDigitado: String, agenciaDigitada: Int, contaDigitada: Int) -> Int{
-        let n = self.arrayApi?.count as! Int
+        guard let n = self.arrayApi?.count else {return 0}
         
         for i in (0...n-1) {
             let array = arrayApi?[i] as? Array<Any>
@@ -154,6 +169,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
         }
         return 0
     }
+    
     
 }
 
