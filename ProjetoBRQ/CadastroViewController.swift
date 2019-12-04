@@ -6,6 +6,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     
     
     // MARK: - Variaveis/Constantes
+    
     var conta: [String] = []
     var dropDown = dropDownBtn()
     var delegate : ContaDelegate?
@@ -22,8 +23,9 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var viewAmbienteCadastro: UIView!
     @IBOutlet weak var botaoAdicionar: UIButton!
     @IBOutlet weak var viewCadastro: UIView!
+    @IBOutlet weak var botaoVoltar: UIButton!
     
-    
+    @IBOutlet weak var logoBRQ: UIImageView!
     @IBAction func botaoAdicionarAcao(_ sender: UIButton) {
         
         if textApelidoConta .text?.isEmpty ?? true {
@@ -43,7 +45,25 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
             let id = validarEntrada(bancoDigitado: banco, agenciaDigitada: agencia, contaDigitada: contaNumero)
             print(id)
             if id != 0{
-                
+
+                // Persistencia  De Dados
+                if contaCD == nil{
+                    contaCD = ContaCD(context: context)
+                }
+
+                contaCD.agencia = Int16(textAgencia.text!) ?? 0
+                contaCD.apelidoConta = textApelidoConta.text!
+                contaCD.banco = dropDown.titleLabel?.text
+                contaCD.conta = Int16(textConta.text!) ?? 0
+                contaCD.digito = Int16(1)
+
+                do {
+                    try context.save()
+                    print("SALVOU")
+                } catch  {
+                    print(error.localizedDescription)
+                }
+
                 let conta = Conta(apelidoConta: apelido, banco: banco, agencia: agencia, contaNumero: contaNumero, contaDigito: 1, id: id)
                 del.adicionaConta(conta: conta)
                 self.toastMessage("Conta adicionada com sucesso!")
@@ -51,24 +71,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
             }else{
                 self.toastMessage("Conta inexistente!")
             }
-            // Persistencia  De Dados
-            if contaCD == nil{
-                contaCD = ContaCD(context: context)
-            }
-
-            contaCD.agencia = Int16(textAgencia.text!) ?? 0
-            contaCD.apelidoConta = textApelidoConta.text!
-            contaCD.banco = textConta.text!
-            contaCD.conta = Int16(textConta.text!) ?? 0
-            do {
-                try context.save()
-                print("SALVOU")
-            } catch  {
-                print(error.localizedDescription)
-            }
         }
-        
-        
     }
     
     @IBAction func botaoVoltar(_ sender: Any) {
@@ -81,8 +84,9 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(fecharTeclado))
-        //        view.addGestureRecognizer(tap)
+        // let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(fecharTeclado))
+        // view.addGestureRecognizer(tap)
+        accessibilidadeCadastro()
         acessoAPI()
         criarListaBancos()
         self.textApelidoConta.delegate = self
@@ -169,7 +173,22 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
         }
         return 0
     }
-    
+    func accessibilidadeCadastro(){
+        
+        botaoAdicionar.isAccessibilityElement = true
+        botaoAdicionar.accessibilityLabel = "Adicione sua conta"
+        botaoAdicionar.accessibilityTraits = .button
+        
+        botaoVoltar.isAccessibilityElement = true
+        botaoVoltar.accessibilityLabel = "Voltar para a tela lista conta"
+        botaoVoltar.accessibilityTraits = .button
+        
+        logoBRQ.isAccessibilityElement = true
+        logoBRQ.accessibilityLabel = "Logo BRQ"
+        logoBRQ.accessibilityTraits = .image
+        
+        
+    }
     
 }
 
