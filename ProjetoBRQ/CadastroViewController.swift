@@ -53,7 +53,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
                 contaCD.apelidoConta = textApelidoConta.text!
                 contaCD.banco = dropDown.titleLabel?.text
                 contaCD.conta = Int16(textConta.text!) ?? 0
-                contaCD.digito = Int16(1)
+                contaCD.digito = Int16(9)
                 do {
                     try context.save()
                     print("SALVOU")
