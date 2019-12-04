@@ -55,16 +55,8 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
                 contaCD.apelidoConta = textApelidoConta.text!
                 contaCD.banco = dropDown.titleLabel?.text
                 contaCD.conta = Int16(textConta.text!) ?? 0
-<<<<<<< HEAD
-                contaCD.digito = Int16(9)
-=======
                 contaCD.digito = Int16(1)
-<<<<<<< HEAD
->>>>>>> 061fab6e2a3a3b4573b09a034db94671edba6275
->>>>>>> 8ae367d63a68096bfc022b8b30a7d6ab32b161f7
-=======
 
->>>>>>> 01d5d3208d4f487fcba19d63d163e5cea201ff18
                 do {
                     try context.save()
                     print("SALVOU")
