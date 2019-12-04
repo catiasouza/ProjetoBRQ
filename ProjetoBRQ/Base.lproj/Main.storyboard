@@ -241,7 +241,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="buttonAdicionar" destination="6SS-ZR-ccL" id="TL7-iQ-P9X"/>
                         <outlet property="collectionListaContas" destination="I5S-mA-vFi" id="8ct-r0-WF9"/>
+                        <outlet property="imageLogoBRQ" destination="XYU-YW-oG9" id="d4U-yt-AzG"/>
+                        <outlet property="labelSaldoTotal" destination="Mqo-hI-UcT" id="tcr-Yt-Zus"/>
                         <outlet property="searchBar" destination="Vek-S4-Otm" id="w6a-P1-Pzd"/>
                     </connections>
                 </viewController>
