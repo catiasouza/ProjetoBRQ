@@ -26,12 +26,15 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //MARK: - Outlets
     
+    @IBOutlet weak var iconeBRQ: UIImageView!
+    @IBOutlet weak var botaoVoltar: UIButton!
     @IBOutlet weak var viewExtrato: UIView!
     @IBOutlet weak var somaSaldos: UILabel!
     @IBOutlet weak var labelExtratoApelido: UILabel!
     @IBOutlet weak var extratoTableView: UITableView!
     @IBOutlet weak var textDataInicio: UITextField!
     @IBOutlet weak var textDataFim: UITextField!
+    @IBOutlet weak var botaoPesquisar: UIButton!
     
     
     //MARK: - Actions
@@ -79,6 +82,36 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         extratoTableView.delegate = self
         viewExtrato.layer.cornerRadius = 8
         labelExtratoApelido.text = apelidoRecebido
+    }
+    
+    private func setupAccessibility(){
+        iconeBRQ.isAccessibilityElement = true
+        iconeBRQ.accessibilityLabel = "Logo da BRQ"
+        iconeBRQ.accessibilityTraits = .image
+        
+        labelExtratoApelido.isAccessibilityElement = true
+        labelExtratoApelido.accessibilityLabel = "Apelido da conta clicada"
+        labelExtratoApelido.accessibilityTraits = .none
+        
+        textDataInicio.isAccessibilityElement = true
+        textDataInicio.accessibilityLabel = "Data de inicio da busca"
+        textDataInicio.accessibilityTraits = .staticText
+        
+        textDataFim.isAccessibilityElement = true
+        textDataFim.accessibilityLabel = "Data de fim da busca"
+        textDataFim.accessibilityTraits = .staticText
+        
+        botaoVoltar.isAccessibilityElement = true
+        botaoVoltar.accessibilityLabel = "Botão de voltar para tela de lista de contas"
+        botaoVoltar.accessibilityTraits = .staticText
+        
+        botaoPesquisar.isAccessibilityElement = true
+        botaoPesquisar.accessibilityLabel = "Botão de busca pelas datas selecionadas"
+        botaoPesquisar.accessibilityTraits = .staticText
+        
+        somaSaldos.isAccessibilityElement = true
+        somaSaldos.accessibilityLabel = "Saldo atual da conta em reais"
+        somaSaldos.accessibilityTraits = .none
     }
     
     @objc func exibeDataInicio(sender: UIDatePicker) {
@@ -149,6 +182,16 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let celulaExtrato = tableView.dequeueReusableCell(withIdentifier: "celulaExtrato", for: indexPath) as! ExtratoTableViewCell
         let lancamentoAtual = listaLancamentos[indexPath.row]
+        
+        celulaExtrato.labelDatas.isAccessibilityElement = true
+        celulaExtrato.labelDatas.accessibilityLabel = "Data do lançamento"
+        celulaExtrato.labelDatas.accessibilityTraits = .none
+        celulaExtrato.labelLancamentos.isAccessibilityElement = true
+        celulaExtrato.labelLancamentos.accessibilityLabel = "Descrição do lançamento"
+        celulaExtrato.labelLancamentos.accessibilityTraits = .none
+        celulaExtrato.labelValores.isAccessibilityElement = true
+        celulaExtrato.labelValores.accessibilityLabel = "Valor do lançamento"
+        celulaExtrato.labelValores.accessibilityTraits = .none
         
         if validador{
             celulaExtrato.labelLancamentos.text = lancamentoAtual.nome
