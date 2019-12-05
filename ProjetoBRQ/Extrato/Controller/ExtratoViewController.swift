@@ -62,6 +62,7 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.dataComeco = dataIni
             self.dataFinal = dataFin
             setaDados()
+            recuperaSaldo()
             validador = true
             self.extratoTableView.reloadData()
             view.endEditing(true)
@@ -139,6 +140,12 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.extratoTableView.reloadData()
         }
     }
+    func recuperaSaldo(){
+        guard let numeroId = id else { return }
+        ExtratoService().getSaldo(id: numeroId) { (saldo) in
+            self.saldoTotal = saldo
+        }
+    }
     
     func formatarValor(valor: Double) -> String{
         let formato = NumberFormatter()
@@ -150,6 +157,9 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
             valorDecimal = arredondaDouble(valor: valorDecimal)
             valorDecimal = valorDecimal * 10
             let valorDecimalInteiro = Int(valorDecimal)
+            if valor == 0{
+                return "0,00"
+            }
             if valor / Double(valorInteiro) == 1{
                 return "\(valorFinal),00"
             }else if valorDecimal / Double(valorDecimalInteiro) == 1{
@@ -202,7 +212,7 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
                 celulaExtrato.labelValores.accessibilityLabel = "Valor do lançamento" + "R$" + valorFinal + "negativos"
                 celulaExtrato.labelValores.accessibilityTraits = .none
             }
-            self.somaSaldos.text = "R$ \(arredondaDouble(valor: saldoTotal))"
+            self.somaSaldos.text = "R$" + formatarValor(valor: arredondaDouble(valor: saldoTotal))
             
             celulaExtrato.labelDatas.isAccessibilityElement = true
             celulaExtrato.labelDatas.accessibilityLabel = "Data do lançamento" + celulaExtrato.labelDatas.text!
