@@ -280,8 +280,8 @@
 		BAFD3C0E237307AD006D4C72 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				75B86FE92386BC4600336AAF /* NotificacoesCadastro.swift */,
 				756E30F12379E02000597987 /* CadastroViewController.swift */,
+				75B86FE92386BC4600336AAF /* NotificacoesCadastro.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
