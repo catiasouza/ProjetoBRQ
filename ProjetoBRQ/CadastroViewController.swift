@@ -26,6 +26,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var botaoVoltar: UIButton!
     
     @IBOutlet weak var logoBRQ: UIImageView!
+    
     @IBAction func botaoAdicionarAcao(_ sender: UIButton) {
         
         if textApelidoConta .text?.isEmpty ?? true {
@@ -34,7 +35,6 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
         }else{
            
         }
-        
         
         if let del = delegate {
             guard let apelido = textApelidoConta.text! as String? else { return }
@@ -56,6 +56,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
                 contaCD.banco = dropDown.titleLabel?.text
                 contaCD.conta = Int16(textConta.text!) ?? 0
                 contaCD.digito = Int16(1)
+                contaCD.id = Int16(id)
 
                 do {
                     try context.save()
@@ -180,14 +181,16 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
         botaoAdicionar.accessibilityTraits = .button
         
         botaoVoltar.isAccessibilityElement = true
-        botaoVoltar.accessibilityLabel = "Voltar para a tela lista conta"
+        botaoVoltar.accessibilityLabel = "Voltar para a tela lista de contas"
         botaoVoltar.accessibilityTraits = .button
         
         logoBRQ.isAccessibilityElement = true
-        logoBRQ.accessibilityLabel = "Logo BRQ"
+        logoBRQ.accessibilityLabel = "Logo da BRQ"
         logoBRQ.accessibilityTraits = .image
 
-        
+        textApelidoConta.isAccessibilityElement = true
+        textApelidoConta.accessibilityLabel = "Digite um apelido para sua conta"
+        textApelidoConta.accessibilityTraits = .none
     }
     
 }
