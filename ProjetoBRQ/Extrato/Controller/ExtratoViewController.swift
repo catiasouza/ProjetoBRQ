@@ -173,7 +173,7 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if validador{
             celulaExtrato.labelLancamentos.text = lancamentoAtual.nome
-            celulaExtrato.labelDatas.text = ConverterDatas().formattedDateFromString(dateString: lancamentoAtual.dataOperacao, withFormat: "dd-MMM")
+            celulaExtrato.labelDatas.text = SetupModel().formattedDateFromString(dateString: lancamentoAtual.dataOperacao, withFormat: "dd-MMM")
             let valorFinal = SetupModel().formatarValor(valor: SetupModel().arredondaDouble(valor: lancamentoAtual.valor))
             if lancamentoAtual.tipoOperacao == "C" || lancamentoAtual.tipoOperacao == "c"{
                 celulaExtrato.labelValores.text = valorFinal
