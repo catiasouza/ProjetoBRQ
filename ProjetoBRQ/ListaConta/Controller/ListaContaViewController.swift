@@ -26,6 +26,8 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     
     var fetchResultController:NSFetchedResultsController<ContaCD>!
     
+    var somaSaldos:Double = 0
+    
     //MARK: - Exibicao
     
     override func viewDidLoad() {
@@ -38,7 +40,7 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        somaSaldos = 0
         collectionListaContas.reloadData()
     }
     
@@ -55,6 +57,7 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
 
                     let conta = self.fetchResultController.fetchedObjects?[row]
                     self.context.delete(conta!)
+                    self.somaSaldos = 0
                     self.collectionListaContas.reloadData()
                 }
             }
@@ -122,7 +125,7 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
             let celula = collectionView.dequeueReusableCell(withReuseIdentifier: "celulaPadrao", for: indexPath) as! ContaCollectionViewCell
             
             let mensagem = "Nenhuma conta encontrada, cadastre uma nova conta"
-            celula.dadosDaConta(apelido: mensagem)
+            celula.dadosDaConta(apelido: mensagem, saldo: nil)
             celula.fixaLabels(labelFixaBanco: "", labelFixaAgencia: "", labelFixaConta: "", labelFixaSaldo: "")
 
             celula.configuraExibicaoCelula(celula: celula)
@@ -138,7 +141,11 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
             let banco = contaSelecionada?.banco as! String
             let agencia = String(describing: contaSelecionada!.agencia)
             let contaNumero = "\(String(describing: contaSelecionada!.conta))" + "-" + "\(String(describing: contaSelecionada!.digito))"
-            let saldo = "R$ 1.234,56"
+            let saldo = 1234.56
+            
+            self.somaSaldos += saldo
+            labelSaldoTotal.text = "R$ \(somaSaldos)"
+            
             celula.dadosDaConta(apelido: apelido, banco: banco, agencia: agencia, conta: contaNumero, saldo: saldo)
             celula.fixaLabels()
             celula.setAccessibility()
@@ -204,7 +211,11 @@ extension ListaContaViewController: NSFetchedResultsControllerDelegate {
         
         switch type {
         case .delete:
-            break
+            do {
+                try context.save()
+            } catch  {
+                print(error.localizedDescription)
+            }
         default:
             collectionListaContas.reloadData()
         }
