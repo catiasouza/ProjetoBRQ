@@ -32,21 +32,24 @@ class ContaCollectionViewCell: UICollectionViewCell {
     }
     
     
-    func fixaLabels (labelFixaBanco:String = "Banco", labelFixaAgencia:String = "Agencia", labelFixaConta:String = "Conta", labelFixaSaldo:String = "Saldo" ) {
+    func fixaLabels (labelFixaBanco:String = "Banco", labelFixaAgencia:String = "Agência", labelFixaConta:String = "Conta", labelFixaSaldo:String = "Saldo" ) {
         self.labelFixaBanco.text = labelFixaBanco
         self.labelFixaAgencia.text = labelFixaAgencia
         self.labelFixaConta.text = labelFixaConta
         self.labelFixaSaldo.text = labelFixaSaldo
     }
     
-    func dadosDaConta (apelido:String, banco:String = "", agencia:String = "", conta:String = "", saldo:String = "") {
+    func dadosDaConta (apelido:String, banco:String = "", agencia:String = "", conta:String = "", saldo:Double?) {
         
         self.labelApelidoConta.text = apelido
         self.labelBanco.text = banco
         self.labelAgencia.text = agencia
         self.labelConta.text = conta
-        self.labelSaldo.text = saldo
-        
+        if saldo == nil {
+            self.labelSaldo.text = ""
+        } else {
+            self.labelSaldo.text = "R$ \(saldo!)"
+        }
     }
     
     func configuraExibicaoCelula (celula:ContaCollectionViewCell) {
