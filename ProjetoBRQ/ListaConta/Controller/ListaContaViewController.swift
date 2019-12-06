@@ -69,7 +69,7 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func recuperaContas(filtro: String = "") {
-        
+        self.somaSaldos = 0
         let fetchRequest:NSFetchRequest<ContaCD>  = ContaCD.fetchRequest()
         fetchRequest.sortDescriptors = []
         
@@ -121,7 +121,8 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if fetchResultController.fetchedObjects?.count == 0 {
-            
+            self.somaSaldos = 0
+            labelSaldoTotal.text = "R$ \(somaSaldos)"
             let celula = collectionView.dequeueReusableCell(withReuseIdentifier: "celulaPadrao", for: indexPath) as! ContaCollectionViewCell
             
             let mensagem = "Nenhuma conta encontrada, cadastre uma nova conta"
@@ -141,7 +142,7 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
             let banco = contaSelecionada?.banco as! String
             let agencia = String(describing: contaSelecionada!.agencia)
             let contaNumero = "\(String(describing: contaSelecionada!.conta))" + "-" + "\(String(describing: contaSelecionada!.digito))"
-            let saldo = 1234.56
+            let saldo = 1234.00
             
             self.somaSaldos += saldo
             labelSaldoTotal.text = "R$ \(somaSaldos)"
