@@ -62,6 +62,7 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.dataComeco = dataIni
             self.dataFinal = dataFin
             setaDados()
+            recuperaSaldo()
             validador = true
             self.extratoTableView.reloadData()
             view.endEditing(true)
@@ -91,11 +92,11 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         iconeBRQ.accessibilityTraits = .image
         
         labelExtratoApelido.isAccessibilityElement = true
-        labelExtratoApelido.accessibilityLabel = "Apelido da conta clicada"
+        labelExtratoApelido.accessibilityLabel = "Apelido da conta" + labelExtratoApelido.text!
         labelExtratoApelido.accessibilityTraits = .none
         
         textDataInicio.isAccessibilityElement = true
-        textDataInicio.accessibilityLabel = "Data de inicio da busca"
+        textDataInicio.accessibilityLabel = "Data de início da busca"
         textDataInicio.accessibilityTraits = .staticText
         
         textDataFim.isAccessibilityElement = true
@@ -111,7 +112,7 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         botaoPesquisar.accessibilityTraits = .staticText
         
         somaSaldos.isAccessibilityElement = true
-        somaSaldos.accessibilityLabel = "Saldo atual da conta em reais"
+        somaSaldos.accessibilityLabel = "Saldo atual da conta " + somaSaldos.text!
         somaSaldos.accessibilityTraits = .none
     }
     
@@ -139,6 +140,12 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.extratoTableView.reloadData()
         }
     }
+    func recuperaSaldo(){
+        guard let numeroId = id else { return }
+        ExtratoService().getSaldo(id: numeroId) { (saldo) in
+            self.saldoTotal = saldo
+        }
+    }
     
     func formatarValor(valor: Double) -> String{
         let formato = NumberFormatter()
@@ -150,6 +157,9 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
             valorDecimal = arredondaDouble(valor: valorDecimal)
             valorDecimal = valorDecimal * 10
             let valorDecimalInteiro = Int(valorDecimal)
+            if valor == 0{
+                return "0,00"
+            }
             if valor / Double(valorInteiro) == 1{
                 return "\(valorFinal),00"
             }else if valorDecimal / Double(valorDecimalInteiro) == 1{
@@ -184,15 +194,6 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         let celulaExtrato = tableView.dequeueReusableCell(withIdentifier: "celulaExtrato", for: indexPath) as! ExtratoTableViewCell
         let lancamentoAtual = listaLancamentos[indexPath.row]
         
-        celulaExtrato.labelDatas.isAccessibilityElement = true
-        celulaExtrato.labelDatas.accessibilityLabel = "Data do lançamento"
-        celulaExtrato.labelDatas.accessibilityTraits = .none
-        celulaExtrato.labelLancamentos.isAccessibilityElement = true
-        celulaExtrato.labelLancamentos.accessibilityLabel = "Descrição do lançamento"
-        celulaExtrato.labelLancamentos.accessibilityTraits = .none
-        celulaExtrato.labelValores.isAccessibilityElement = true
-        celulaExtrato.labelValores.accessibilityLabel = "Valor do lançamento"
-        celulaExtrato.labelValores.accessibilityTraits = .none
         
         if validador{
             celulaExtrato.labelLancamentos.text = lancamentoAtual.nome
@@ -200,10 +201,27 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
             let valorFinal = formatarValor(valor: arredondaDouble(valor: lancamentoAtual.valor))
             if lancamentoAtual.tipoOperacao == "C" || lancamentoAtual.tipoOperacao == "c"{
                 celulaExtrato.labelValores.text = valorFinal
+                
+                celulaExtrato.labelValores.isAccessibilityElement = true
+                celulaExtrato.labelValores.accessibilityLabel = "Valor do lançamento" + "R$" + valorFinal
+                celulaExtrato.labelValores.accessibilityTraits = .none
             }else{
                 celulaExtrato.labelValores.text = "-\(valorFinal)"
+                
+                celulaExtrato.labelValores.isAccessibilityElement = true
+                celulaExtrato.labelValores.accessibilityLabel = "Valor do lançamento" + "R$" + valorFinal + "negativos"
+                celulaExtrato.labelValores.accessibilityTraits = .none
             }
-            self.somaSaldos.text = "R$ \(arredondaDouble(valor: saldoTotal))"
+            self.somaSaldos.text = "R$" + formatarValor(valor: arredondaDouble(valor: saldoTotal))
+            
+            celulaExtrato.labelDatas.isAccessibilityElement = true
+            celulaExtrato.labelDatas.accessibilityLabel = "Data do lançamento" + celulaExtrato.labelDatas.text!
+            celulaExtrato.labelDatas.accessibilityTraits = .none
+            celulaExtrato.labelLancamentos.isAccessibilityElement = true
+            celulaExtrato.labelLancamentos.accessibilityLabel = "Descrição do lançamento" + celulaExtrato.labelLancamentos.text!
+            celulaExtrato.labelLancamentos.accessibilityTraits = .none
+            
+            
             return celulaExtrato
         }else{
             celulaExtrato.labelLancamentos.text = ""

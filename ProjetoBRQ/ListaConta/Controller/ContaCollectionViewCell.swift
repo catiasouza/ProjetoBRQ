@@ -27,7 +27,7 @@ class ContaCollectionViewCell: UICollectionViewCell {
     func setAccessibility() {
         
         labelSaldo.isAccessibilityElement = true
-        labelSaldo.accessibilityLabel = "Saldo total da conta"
+        labelSaldo.accessibilityLabel = "Saldo total da conta" + labelSaldo.text!
         labelSaldo.accessibilityTraits = .none
     }
     
