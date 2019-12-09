@@ -46,12 +46,16 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         let datePickerView = UIDatePicker()
         datePickerView.datePickerMode = .date
         sender.inputView = datePickerView
+        toolbarPicker(picker: datePickerView)
+        datePickerView.locale = Locale(identifier: "pt-BR")
         datePickerView.addTarget(self, action: #selector(exibeDataInicio), for: .valueChanged)
     }
     @IBAction func dataFimEntrouFoco(_ sender: UITextField) {
         let datePickerView = UIDatePicker()
         datePickerView.datePickerMode = .date
         sender.inputView = datePickerView
+        toolbarPicker(picker: datePickerView)
+        datePickerView.locale = Locale(identifier: "pt-BR")
         datePickerView.addTarget(self, action: #selector(exibeDataFim), for: .valueChanged)
     }
     @IBAction func buscarExtrato(_ sender: UIButton) {
@@ -133,7 +137,20 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         formatador.dateFormat = "dd/MM/yyyy"
         self.textDataFim.text = formatador.string(from: sender.date)
     }
-    
+    @objc func cancel(){
+        textDataInicio.resignFirstResponder()
+        textDataFim.resignFirstResponder()
+    }
+    func toolbarPicker(picker: UIDatePicker){
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 44))
+        toolbar.tintColor = UIColor(named: "main")
+        let botaoCancelar = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector( cancel ))
+        toolbar.items = [botaoCancelar]
+        textDataInicio.inputView = picker
+        textDataInicio.inputAccessoryView = toolbar
+        textDataFim.inputView = picker
+        textDataFim.inputAccessoryView = toolbar
+    }
     func setaDados(){
         guard let numeroId = id else { return }
         ExtratoService().retornaLancamentos(id: numeroId, dataInicio: dataComeco, dataFim: dataFinal) { (todosLancamentos) in
