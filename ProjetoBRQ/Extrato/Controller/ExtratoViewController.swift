@@ -46,26 +46,36 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         let datePickerView = UIDatePicker()
         datePickerView.datePickerMode = .date
         sender.inputView = datePickerView
+        toolbarPicker(picker: datePickerView)
+        datePickerView.locale = Locale(identifier: "pt-BR")
         datePickerView.addTarget(self, action: #selector(exibeDataInicio), for: .valueChanged)
     }
     @IBAction func dataFimEntrouFoco(_ sender: UITextField) {
         let datePickerView = UIDatePicker()
         datePickerView.datePickerMode = .date
         sender.inputView = datePickerView
+        toolbarPicker(picker: datePickerView)
+        datePickerView.locale = Locale(identifier: "pt-BR")
         datePickerView.addTarget(self, action: #selector(exibeDataFim), for: .valueChanged)
     }
     @IBAction func buscarExtrato(_ sender: UIButton) {
-        if Validacoes().validaRangeDatas(de: textDataInicio.text, ate: textDataFim.text){
-            
-            guard let dataIni = textDataInicio.text else {return}
-            guard let dataFin = textDataFim.text else {return}
-            self.dataComeco = dataIni
-            self.dataFinal = dataFin
-            setaDados()
-            recuperaSaldo()
-            validador = true
-            self.extratoTableView.reloadData()
-            view.endEditing(true)
+        if SetupModel().validaRangeDatas(de: textDataInicio.text, ate: textDataFim.text){
+            if listaLancamentos.count > 0{
+                guard let dataIni = textDataInicio.text else {return}
+                guard let dataFin = textDataFim.text else {return}
+                self.dataComeco = dataIni
+                self.dataFinal = dataFin
+                setaDados()
+                recuperaSaldo()
+                validador = true
+                self.extratoTableView.reloadData()
+                view.endEditing(true)
+            }else{
+                toastMessage("Nenhum lançamento encontrado")
+                validador = false
+                self.extratoTableView.reloadData()
+                view.endEditing(true)
+            }
         }else{
             toastMessage("Digite uma data valida")
             validador = false
@@ -127,12 +137,20 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         formatador.dateFormat = "dd/MM/yyyy"
         self.textDataFim.text = formatador.string(from: sender.date)
     }
-    
-    func arredondaDouble(valor: Double)-> Double{
-        let formato = String(2)+"f"
-        return Double(String(format: "%."+formato, valor))!
+    @objc func cancel(){
+        textDataInicio.resignFirstResponder()
+        textDataFim.resignFirstResponder()
     }
-    
+    func toolbarPicker(picker: UIDatePicker){
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 44))
+        toolbar.tintColor = UIColor(named: "main")
+        let botaoCancelar = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector( cancel ))
+        toolbar.items = [botaoCancelar]
+        textDataInicio.inputView = picker
+        textDataInicio.inputAccessoryView = toolbar
+        textDataFim.inputView = picker
+        textDataFim.inputAccessoryView = toolbar
+    }
     func setaDados(){
         guard let numeroId = id else { return }
         ExtratoService().retornaLancamentos(id: numeroId, dataInicio: dataComeco, dataFim: dataFinal) { (todosLancamentos) in
@@ -144,31 +162,6 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         guard let numeroId = id else { return }
         ExtratoService().getSaldo(id: numeroId) { (saldo) in
             self.saldoTotal = saldo
-        }
-    }
-    
-    func formatarValor(valor: Double) -> String{
-        let formato = NumberFormatter()
-        formato.numberStyle = .decimal
-        formato.locale = Locale(identifier: "pt_BR")
-        if let valorFinal = formato.string(for: valor){
-            let valorInteiro = Int(valor)
-            var valorDecimal = valor - Double(valorInteiro)
-            valorDecimal = arredondaDouble(valor: valorDecimal)
-            valorDecimal = valorDecimal * 10
-            let valorDecimalInteiro = Int(valorDecimal)
-            if valor == 0{
-                return "0,00"
-            }
-            if valor / Double(valorInteiro) == 1{
-                return "\(valorFinal),00"
-            }else if valorDecimal / Double(valorDecimalInteiro) == 1{
-                return "\(valorFinal)0"
-            }else{
-                return valorFinal
-            }
-        }else {
-            return "0,00"
         }
     }
     
@@ -197,8 +190,8 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if validador{
             celulaExtrato.labelLancamentos.text = lancamentoAtual.nome
-            celulaExtrato.labelDatas.text = ConverterDatas().formattedDateFromString(dateString: lancamentoAtual.dataOperacao, withFormat: "dd-MMM")
-            let valorFinal = formatarValor(valor: arredondaDouble(valor: lancamentoAtual.valor))
+            celulaExtrato.labelDatas.text = SetupModel().formattedDateFromString(dateString: lancamentoAtual.dataOperacao, withFormat: "dd-MMM")
+            let valorFinal = SetupModel().formatarValor(valor: SetupModel().arredondaDouble(valor: lancamentoAtual.valor))
             if lancamentoAtual.tipoOperacao == "C" || lancamentoAtual.tipoOperacao == "c"{
                 celulaExtrato.labelValores.text = valorFinal
                 
@@ -212,7 +205,7 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
                 celulaExtrato.labelValores.accessibilityLabel = "Valor do lançamento" + "R$" + valorFinal + "negativos"
                 celulaExtrato.labelValores.accessibilityTraits = .none
             }
-            self.somaSaldos.text = "R$" + formatarValor(valor: arredondaDouble(valor: saldoTotal))
+            self.somaSaldos.text = "R$" + SetupModel().formatarValor(valor: SetupModel().arredondaDouble(valor: saldoTotal))
             
             celulaExtrato.labelDatas.isAccessibilityElement = true
             celulaExtrato.labelDatas.accessibilityLabel = "Data do lançamento" + celulaExtrato.labelDatas.text!
