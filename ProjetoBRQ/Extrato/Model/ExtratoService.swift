@@ -12,8 +12,8 @@ class ExtratoService: NSObject {
     
     func retornaLancamentos(id: Int, dataInicio: String, dataFim: String, sucesso:@escaping(_ lanca: Array<Lancamento>) -> Void){
         
-        let dataComecoOpt = ConverterDatas().formattedDateFromString(dateString: dataInicio, withFormat: "yyyyMMdd")
-        let dataFinalOpt = ConverterDatas().formattedDateFromString(dateString: dataFim, withFormat: "yyyyMMdd")
+        let dataComecoOpt = SetupModel().formattedDateFromString(dateString: dataInicio, withFormat: "yyyyMMdd")
+        let dataFinalOpt = SetupModel().formattedDateFromString(dateString: dataFim, withFormat: "yyyyMMdd")
         guard let dataComeco = dataComecoOpt else { return }
         guard let dataFinal = dataFinalOpt else { return }
         var todosLancamentos: Array<Lancamento> = []
