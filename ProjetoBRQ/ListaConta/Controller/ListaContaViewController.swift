@@ -27,6 +27,7 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     var fetchResultController:NSFetchedResultsController<ContaCD>!
     
     var somaSaldos:Double = 0
+    var arraySaldos: [Double] = []
     
     //MARK: - Exibicao
     
@@ -35,12 +36,14 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
         setAcessibility()
         collectionListaContas.dataSource = self
         collectionListaContas.delegate = self
-        recuperaContas()
         searchBar.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        recuperaContas()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
-        somaSaldos = 0
         collectionListaContas.reloadData()
     }
     
@@ -57,7 +60,8 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
 
                     let conta = self.fetchResultController.fetchedObjects?[row]
                     self.context.delete(conta!)
-                    self.somaSaldos = 0
+
+                    self.recuperaContas()
                     self.collectionListaContas.reloadData()
                 }
             }
@@ -69,7 +73,6 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func recuperaContas(filtro: String = "") {
-        self.somaSaldos = 0
         let fetchRequest:NSFetchRequest<ContaCD>  = ContaCD.fetchRequest()
         fetchRequest.sortDescriptors = []
         
@@ -82,8 +85,27 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
         fetchResultController.delegate = self
         do {
             try fetchResultController.performFetch()
+            arraySaldos = recuperaSaldo()
+            labelSaldoTotal.text = "R$ \( SetupModel().formatarValor(valor: somaSaldos) )"
         } catch  {
             print(error.localizedDescription)
+        }
+    }
+    
+    func recuperaSaldo() -> [Double] {
+        somaSaldos = 0
+        var saldos:[Double] = []
+        let n = fetchResultController.fetchedObjects?.count as! Int
+        if n != 0 {
+            for i in (0..<n) {
+                // pegar saldo
+                let saldo = 1234.00
+                saldos.append(saldo)
+                somaSaldos += saldo
+            }
+            return saldos
+        } else {
+            return []
         }
     }
     
@@ -122,7 +144,7 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
         
         if fetchResultController.fetchedObjects?.count == 0 {
             self.somaSaldos = 0
-            labelSaldoTotal.text = "R$ \(somaSaldos)"
+            labelSaldoTotal.text = "R$ \( SetupModel().formatarValor(valor: somaSaldos) )"
             let celula = collectionView.dequeueReusableCell(withReuseIdentifier: "celulaPadrao", for: indexPath) as! ContaCollectionViewCell
             
             let mensagem = "Nenhuma conta encontrada, cadastre uma nova conta"
@@ -142,10 +164,7 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
             let banco = contaSelecionada?.banco as! String
             let agencia = String(describing: contaSelecionada!.agencia)
             let contaNumero = "\(String(describing: contaSelecionada!.conta))" + "-" + "\(String(describing: contaSelecionada!.digito))"
-            let saldo = 1234.00
-            
-            self.somaSaldos += saldo
-            labelSaldoTotal.text = "R$ \(somaSaldos)"
+            let saldo = arraySaldos[ indexPath.row ]
             
             celula.dadosDaConta(apelido: apelido, banco: banco, agencia: agencia, conta: contaNumero, saldo: saldo)
             celula.fixaLabels()
@@ -194,7 +213,6 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     //MARK: - Search Bar
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
         recuperaContas(filtro: searchText )
         collectionListaContas.reloadData()
     }
