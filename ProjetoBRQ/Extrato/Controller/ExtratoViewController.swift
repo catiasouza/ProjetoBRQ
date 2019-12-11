@@ -60,13 +60,13 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     @IBAction func buscarExtrato(_ sender: UIButton) {
         if SetupModel().validaRangeDatas(de: textDataInicio.text, ate: textDataFim.text){
+            guard let dataIni = textDataInicio.text else {return}
+            guard let dataFin = textDataFim.text else {return}
+            self.dataComeco = dataIni
+            self.dataFinal = dataFin
+            setaDados()
+            recuperaSaldo()
             if listaLancamentos.count > 0{
-                guard let dataIni = textDataInicio.text else {return}
-                guard let dataFin = textDataFim.text else {return}
-                self.dataComeco = dataIni
-                self.dataFinal = dataFin
-                setaDados()
-                recuperaSaldo()
                 validador = true
                 self.extratoTableView.reloadData()
                 view.endEditing(true)
@@ -94,6 +94,8 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         viewExtrato.layer.cornerRadius = 8
         labelExtratoApelido.text = apelidoRecebido
         setupAccessibility()
+        setaDados()
+        recuperaSaldo()
     }
     
     private func setupAccessibility(){
@@ -190,7 +192,7 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if validador{
             celulaExtrato.labelLancamentos.text = lancamentoAtual.nome
-            celulaExtrato.labelDatas.text = SetupModel().formattedDateFromString(dateString: lancamentoAtual.dataOperacao, withFormat: "dd-MMM")
+            celulaExtrato.labelDatas.text = SetupModel().formattedDateFromString(dateString: lancamentoAtual.dataOperacao, withFormat: "dd-MMM")?.uppercased()
             let valorFinal = SetupModel().formatarValor(valor: SetupModel().arredondaDouble(valor: lancamentoAtual.valor))
             if lancamentoAtual.tipoOperacao == "C" || lancamentoAtual.tipoOperacao == "c"{
                 celulaExtrato.labelValores.text = valorFinal
