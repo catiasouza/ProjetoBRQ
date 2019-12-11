@@ -48,7 +48,7 @@ class ContaCollectionViewCell: UICollectionViewCell {
         if saldo == nil {
             self.labelSaldo.text = ""
         } else {
-            self.labelSaldo.text = "R$ \(saldo!)"
+            self.labelSaldo.text = "R$ \(SetupModel().formatarValor(valor: saldo!))"
         }
     }
     
