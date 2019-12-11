@@ -100,10 +100,13 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
         dropDown.setTitle("Selecione banco", for: .normal)
         dropDown.translatesAutoresizingMaskIntoConstraints = false
         self.viewAmbienteCadastro.addSubview(dropDown)
-        dropDown.centerXAnchor.constraint(equalTo: self.viewAmbienteCadastro.centerXAnchor).isActive = true
+        dropDown.centerXAnchor.constraint(equalTo: self.viewAmbienteCadastro.centerXAnchor, constant: 6).isActive = true
         dropDown.topAnchor.constraint(equalTo: self.viewAmbienteCadastro.topAnchor, constant: 10).isActive = true
-        dropDown.widthAnchor.constraint(equalToConstant: 255).isActive = true
-        dropDown.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        dropDown.widthAnchor.constraint(equalTo: self.textConta.widthAnchor).isActive = true
+        dropDown.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        dropDown.layer.cornerRadius = 8
+        dropDown.layer.borderWidth = 0.5
+        dropDown.layer.masksToBounds = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(scroll(notification: )), name: UIResponder.keyboardWillShowNotification ,object: nil)
         
