@@ -24,17 +24,16 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var botaoAdicionar: UIButton!
     @IBOutlet weak var viewCadastro: UIView!
     @IBOutlet weak var botaoVoltar: UIButton!
-    
+    @IBOutlet weak var textDig: UITextField!
     @IBOutlet weak var logoBRQ: UIImageView!
     
     @IBAction func botaoAdicionarAcao(_ sender: UIButton) {
         
-        if textApelidoConta .text?.isEmpty ?? true {
+        if textApelidoConta.text!.isEmpty || textAgencia.text!.isEmpty || textConta.text!.isEmpty || textDig.text!.isEmpty{
             self.toastMessage("Favor preencher todos campos!")
             return;
-        }else{
-           
         }
+           
         
         if let del = delegate {
             guard let apelido = textApelidoConta.text! as String? else { return }
@@ -60,7 +59,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
 
                 do {
                     try context.save()
-                    print("SALVOU")
+        
                 } catch  {
                     print(error.localizedDescription)
                 }
@@ -85,8 +84,6 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(fecharTeclado))
-        // view.addGestureRecognizer(tap)
         accessibilidadeCadastro()
         acessoAPI()
         criarListaBancos()
@@ -102,7 +99,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
         self.viewAmbienteCadastro.addSubview(dropDown)
         dropDown.centerXAnchor.constraint(equalTo: self.viewAmbienteCadastro.centerXAnchor, constant: 6).isActive = true
         dropDown.topAnchor.constraint(equalTo: self.viewAmbienteCadastro.topAnchor, constant: 10).isActive = true
-        dropDown.widthAnchor.constraint(equalTo: self.textConta.widthAnchor).isActive = true
+        dropDown.widthAnchor.constraint(equalTo: self.textAgencia.widthAnchor).isActive = true
         dropDown.heightAnchor.constraint(equalToConstant: 40).isActive = true
         dropDown.layer.cornerRadius = 8
         dropDown.layer.borderWidth = 0.5

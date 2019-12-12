@@ -64,13 +64,13 @@
                                                                                     <color key="textColor" red="0.1355253458" green="0.21741086239999999" blue="0.30981531740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agência" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gr-Rn-Itx">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agência" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gr-Rn-Itx">
                                                                                     <rect key="frame" x="112.33333333333334" y="0.0" width="112.33333333333334" height="35"/>
                                                                                     <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                                                                     <color key="textColor" red="0.1355253458" green="0.21741086239999999" blue="0.30981531740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1l-Xa-BbH">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conta" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1l-Xa-BbH">
                                                                                     <rect key="frame" x="224.66666666666666" y="0.0" width="112.33333333333334" height="35"/>
                                                                                     <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                                                                     <color key="textColor" red="0.1355253458" green="0.21741086239999999" blue="0.30981531740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -87,13 +87,13 @@
                                                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxxx" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63i-j5-CHJ">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxxx" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63i-j5-CHJ">
                                                                                     <rect key="frame" x="112.33333333333334" y="0.0" width="112.33333333333334" height="35.333333333333336"/>
                                                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="yyyy-y" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ruy-2n-kO9">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="yyyy-y" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ruy-2n-kO9">
                                                                                     <rect key="frame" x="224.66666666666666" y="0.0" width="112.33333333333334" height="35.333333333333336"/>
                                                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -110,7 +110,7 @@
                                                                                     <color key="textColor" red="0.1355253458" green="0.21741086239999999" blue="0.30981531740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 1234,56" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGm-Ng-DN6">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 1234,56" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGm-Ng-DN6">
                                                                                     <rect key="frame" x="168.66666666666663" y="0.0" width="168.33333333333337" height="35"/>
                                                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -352,19 +352,29 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sps-DF-6s6">
                                                                         <rect key="frame" x="10" y="140" width="345" height="40"/>
                                                                         <subviews>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Conta" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IF1-h5-oDI" userLabel="Text Conta">
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Mh9-yj-M1N">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="40"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                                            </textField>
+                                                                                <subviews>
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Conta" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IF1-h5-oDI" userLabel="Text Conta">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="274" height="40"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                    </textField>
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Dígito" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fnV-Xb-oXf">
+                                                                                        <rect key="frame" x="279" y="0.0" width="66" height="40"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <textInputTraits key="textInputTraits"/>
+                                                                                    </textField>
+                                                                                </subviews>
+                                                                            </stackView>
                                                                         </subviews>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                         <constraints>
-                                                                            <constraint firstItem="IF1-h5-oDI" firstAttribute="top" secondItem="sps-DF-6s6" secondAttribute="top" id="60G-Br-FBH"/>
-                                                                            <constraint firstAttribute="trailing" secondItem="IF1-h5-oDI" secondAttribute="trailing" id="9Rf-OU-HMC"/>
-                                                                            <constraint firstAttribute="bottom" secondItem="IF1-h5-oDI" secondAttribute="bottom" id="SpI-ZR-IhG"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="Mh9-yj-M1N" secondAttribute="trailing" id="0XW-s8-WCI"/>
+                                                                            <constraint firstItem="Mh9-yj-M1N" firstAttribute="top" secondItem="sps-DF-6s6" secondAttribute="top" id="4u3-re-Dyq"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="Mh9-yj-M1N" secondAttribute="bottom" id="diG-Ij-R5d"/>
+                                                                            <constraint firstItem="Mh9-yj-M1N" firstAttribute="leading" secondItem="sps-DF-6s6" secondAttribute="leading" id="nEF-8w-LvN"/>
                                                                             <constraint firstAttribute="height" constant="40" id="sUx-1P-081"/>
-                                                                            <constraint firstItem="IF1-h5-oDI" firstAttribute="leading" secondItem="sps-DF-6s6" secondAttribute="leading" id="v1o-xw-cWz"/>
                                                                         </constraints>
                                                                     </view>
                                                                 </subviews>
@@ -457,6 +467,7 @@
                         <outlet property="textAgencia" destination="VW2-0y-slo" id="nri-dU-UxT"/>
                         <outlet property="textApelidoConta" destination="0Cq-9d-Ej4" id="XYp-45-crm"/>
                         <outlet property="textConta" destination="IF1-h5-oDI" id="42d-nV-X8c"/>
+                        <outlet property="textDig" destination="fnV-Xb-oXf" id="jrH-gG-O12"/>
                         <outlet property="viewAmbienteCadastro" destination="psK-Ro-DpN" id="GiD-XD-hW3"/>
                         <outlet property="viewCadastro" destination="PEu-cL-9Oi" id="RDW-ga-K08"/>
                     </connections>
