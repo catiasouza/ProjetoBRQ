@@ -43,9 +43,14 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
         searchBar.delegate = self
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         recuperaContas()
     }
+//    
+//    override func viewWillAppear(_ animated: Bool) {
+//        recuperaContas()
+//    }
     
 //    override func viewDidAppear(_ animated: Bool) {
 //        collectionListaContas.reloadData()

@@ -40,8 +40,9 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
             guard let agencia = Int(textAgencia.text!) else { return }
             guard let contaNumero = Int(textConta.text!) else { return }
             guard let banco = dropDown.titleLabel?.text else {return}
+            guard let digito  = Int(textDig.text!) else { return }
             
-            let id = validarEntrada(bancoDigitado: banco, agenciaDigitada: agencia, contaDigitada: contaNumero)
+            let id = validarEntrada(bancoDigitado: banco, agenciaDigitada: agencia, contaDigitada: contaNumero, digitoDigitado: digito)
             print(id)
             if id != 0{
 
@@ -50,11 +51,11 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
                     contaCD = ContaCD(context: context)
                 }
 
-                contaCD.agencia = Int16(textAgencia.text!) ?? 0
-                contaCD.apelidoConta = textApelidoConta.text!
-                contaCD.banco = dropDown.titleLabel?.text
-                contaCD.conta = Int16(textConta.text!) ?? 0
-                contaCD.digito = Int16(1)
+                contaCD.agencia = Int16(agencia)
+                contaCD.apelidoConta = apelido
+                contaCD.banco = banco
+                contaCD.conta = Int16(contaNumero)
+                contaCD.digito = Int16(digito)
                 contaCD.id = Int16(id)
 
                 do {
@@ -64,8 +65,8 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
                     print(error.localizedDescription)
                 }
 
-                let conta = Conta(apelidoConta: apelido, banco: banco, agencia: agencia, contaNumero: contaNumero, contaDigito: 1, id: id)
-                del.adicionaConta(conta: conta)
+//                let conta = Conta(apelidoConta: apelido, banco: banco, agencia: agencia, contaNumero: contaNumero, contaDigito: 1, id: id)
+//                del.adicionaConta(conta: conta)
                 self.toastMessage("Conta adicionada com sucesso!")
                 dismiss(animated: true, completion: nil)
             }else{
@@ -159,7 +160,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
         let updateApelidoConta = apelidoConta.replacingCharacters(in: stringApelido, with: string)
         return updateApelidoConta.count < 26
     }
-    func validarEntrada(bancoDigitado: String, agenciaDigitada: Int, contaDigitada: Int) -> Int{
+    func validarEntrada(bancoDigitado: String, agenciaDigitada: Int, contaDigitada: Int, digitoDigitado:Int) -> Int{
         guard let n = self.arrayApi?.count else {return 0}
         
         for i in (0...n-1) {
@@ -167,8 +168,9 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
             guard let bancoApi = array?[0] as? String else { return 0}
             guard let agenciaApi = array?[1]  as? Int else { return 0}
             guard let contaApi = array?[2] as? Int else { return 0}
+            guard let digitoApi = array?[3] as? Int else { return 0 }
             
-            if bancoApi == bancoDigitado && agenciaApi == agenciaDigitada && contaApi == contaDigitada{
+            if bancoApi == bancoDigitado && agenciaApi == agenciaDigitada && contaApi == contaDigitada && digitoApi == digitoDigitado {
                 return array![4] as! Int
             }
         }
