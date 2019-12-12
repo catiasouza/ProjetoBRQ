@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,7 @@
 		0A99B2912384074900BD1BBB /* ContaDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A99B2902384074900BD1BBB /* ContaDelegate.swift */; };
 		0AD1633323743FC600264748 /* AlertaRemoveConta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD1633223743FC600264748 /* AlertaRemoveConta.swift */; };
 		0AEA1079237358120066B187 /* ContaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEA1078237358120066B187 /* ContaCollectionViewCell.swift */; };
+		1AE002162CD1EBB2F63A32C0 /* Pods_ProjetoBRQTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A3153CC1A10CED8749767A7 /* Pods_ProjetoBRQTests.framework */; };
 		7556FD062373012300AF5FF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD052373012300AF5FF1 /* AppDelegate.swift */; };
 		7556FD082373012300AF5FF1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556FD072373012300AF5FF1 /* SceneDelegate.swift */; };
 		7556FD0D2373012300AF5FF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7556FD0B2373012300AF5FF1 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		BAE5DC8D239AE1B10080B819 /* SetupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE5DC8C239AE1B10080B819 /* SetupModel.swift */; };
 		BAFD3C13237307E2006D4C72 /* ListaContaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD3C12237307E2006D4C72 /* ListaContaViewController.swift */; };
 		BAFD3C15237307F0006D4C72 /* ExtratoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD3C14237307F0006D4C72 /* ExtratoViewController.swift */; };
+		F8F73817873040D9788AAD6E /* Pods_ProjetoBRQ_ProjetoBRQUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E75818E34902C6DBBF65FE38 /* Pods_ProjetoBRQ_ProjetoBRQUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		0A99B2902384074900BD1BBB /* ContaDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContaDelegate.swift; path = ProjetoBRQ/ContaDelegate.swift; sourceTree = SOURCE_ROOT; };
 		0AD1633223743FC600264748 /* AlertaRemoveConta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertaRemoveConta.swift; path = ProjetoBRQ/ListaConta/Model/AlertaRemoveConta.swift; sourceTree = SOURCE_ROOT; };
 		0AEA1078237358120066B187 /* ContaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContaCollectionViewCell.swift; path = ProjetoBRQ/ListaConta/Controller/ContaCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		2A3153CC1A10CED8749767A7 /* Pods_ProjetoBRQTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjetoBRQTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		642777DBDAE44D98B8B7EEE0 /* Pods_ProjetoBRQ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjetoBRQ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7556FD022373012300AF5FF1 /* ProjetoBRQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjetoBRQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7556FD052373012300AF5FF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7556FD072373012300AF5FF1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,20 +87,15 @@
 		BAE5DC8C239AE1B10080B819 /* SetupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupModel.swift; sourceTree = "<group>"; };
 		BAFD3C12237307E2006D4C72 /* ListaContaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContaViewController.swift; sourceTree = "<group>"; };
 		BAFD3C14237307F0006D4C72 /* ExtratoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtratoViewController.swift; sourceTree = "<group>"; };
+		E75818E34902C6DBBF65FE38 /* Pods_ProjetoBRQ_ProjetoBRQUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjetoBRQ_ProjetoBRQUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7556FCFF2373012300AF5FF1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7556FD182373012500AF5FF1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AE002162CD1EBB2F63A32C0 /* Pods_ProjetoBRQTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8F73817873040D9788AAD6E /* Pods_ProjetoBRQ_ProjetoBRQUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +125,7 @@
 				7556FD1E2373012500AF5FF1 /* ProjetoBRQTests */,
 				7556FD292373012500AF5FF1 /* ProjetoBRQUITests */,
 				7556FD032373012300AF5FF1 /* Products */,
+				B960B2C98B8C128451B7ADBA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -190,6 +191,16 @@
 				75B86FBD2382E4DE00336AAF /* dropDownView.swift */,
 			);
 			path = DropDown;
+			sourceTree = "<group>";
+		};
+		B960B2C98B8C128451B7ADBA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				642777DBDAE44D98B8B7EEE0 /* Pods_ProjetoBRQ.framework */,
+				E75818E34902C6DBBF65FE38 /* Pods_ProjetoBRQ_ProjetoBRQUITests.framework */,
+				2A3153CC1A10CED8749767A7 /* Pods_ProjetoBRQTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		BA0ED7612379E6E8004354FF /* Model */ = {
@@ -299,7 +310,6 @@
 			buildConfigurationList = 7556FD2F2373012500AF5FF1 /* Build configuration list for PBXNativeTarget "ProjetoBRQ" */;
 			buildPhases = (
 				7556FCFE2373012300AF5FF1 /* Sources */,
-				7556FCFF2373012300AF5FF1 /* Frameworks */,
 				7556FD002373012300AF5FF1 /* Resources */,
 			);
 			buildRules = (
@@ -315,6 +325,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7556FD322373012500AF5FF1 /* Build configuration list for PBXNativeTarget "ProjetoBRQTests" */;
 			buildPhases = (
+				0E78F9887A55DE282114861D /* [CP] Check Pods Manifest.lock */,
 				7556FD172373012500AF5FF1 /* Sources */,
 				7556FD182373012500AF5FF1 /* Frameworks */,
 				7556FD192373012500AF5FF1 /* Resources */,
@@ -333,9 +344,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7556FD352373012500AF5FF1 /* Build configuration list for PBXNativeTarget "ProjetoBRQUITests" */;
 			buildPhases = (
+				0E8AE9CAC0BE844A811509FC /* [CP] Check Pods Manifest.lock */,
 				7556FD222373012500AF5FF1 /* Sources */,
 				7556FD232373012500AF5FF1 /* Frameworks */,
 				7556FD242373012500AF5FF1 /* Resources */,
+				61F683130E7398FE9C379345 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -416,6 +429,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E78F9887A55DE282114861D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ProjetoBRQTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0E8AE9CAC0BE844A811509FC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ProjetoBRQ-ProjetoBRQUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61F683130E7398FE9C379345 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProjetoBRQ-ProjetoBRQUITests/Pods-ProjetoBRQ-ProjetoBRQUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProjetoBRQ-ProjetoBRQUITests/Pods-ProjetoBRQ-ProjetoBRQUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ProjetoBRQ-ProjetoBRQUITests/Pods-ProjetoBRQ-ProjetoBRQUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7556FCFE2373012300AF5FF1 /* Sources */ = {
