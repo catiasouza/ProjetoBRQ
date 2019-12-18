@@ -15,11 +15,7 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
 
     //MARK: - Outlets
     
-    @IBOutlet weak var collectionListaContas: UICollectionView!{
-        didSet{
-            collectionListaContas.keyboardDismissMode = .onDrag
-        }
-    }
+    @IBOutlet weak var collectionListaContas: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet weak var imageLogoBRQ: UIImageView!
@@ -41,20 +37,16 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
         collectionListaContas.dataSource = self
         collectionListaContas.delegate = self
         searchBar.delegate = self
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        recuperaContas()
+        self.collectionListaContas.keyboardDismissMode = .onDrag
     }
     
     override func viewWillAppear(_ animated: Bool) {
         recuperaContas()
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
 //        collectionListaContas.reloadData()
-//    }
+    }
     
     //MARK: - Métodos
 
