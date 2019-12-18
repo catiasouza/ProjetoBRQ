@@ -47,10 +47,10 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
         super.viewDidLayoutSubviews()
         recuperaContas()
     }
-//    
-//    override func viewWillAppear(_ animated: Bool) {
-//        recuperaContas()
-//    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        recuperaContas()
+    }
     
 //    override func viewDidAppear(_ animated: Bool) {
 //        collectionListaContas.reloadData()
