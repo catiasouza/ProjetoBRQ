@@ -58,17 +58,19 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
                 contaCD.digito = Int16(digito)
                 contaCD.id = Int16(id)
 
-                do {
-                    try context.save()
-        
-                } catch  {
-                    print(error.localizedDescription)
+                ExtratoService().getSaldo(id: Int(contaCD.id)) { (saldoApi) in
+                    self.contaCD.saldo = saldoApi
+                    do {
+                        try self.context.save()
+                        self.toastMessage("Conta adicionada com sucesso!")
+                        self.dismiss(animated: true, completion: nil)
+                        
+                    } catch  {
+                        print(error.localizedDescription)
+                    }
                 }
-
 //                let conta = Conta(apelidoConta: apelido, banco: banco, agencia: agencia, contaNumero: contaNumero, contaDigito: 1, id: id)
 //                del.adicionaConta(conta: conta)
-                self.toastMessage("Conta adicionada com sucesso!")
-                dismiss(animated: true, completion: nil)
             }else{
                 self.toastMessage("Conta inexistente!")
             }
