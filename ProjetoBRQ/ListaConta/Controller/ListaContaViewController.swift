@@ -45,7 +45,8 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        collectionListaContas.reloadData()
+        somaSaldos = somaSaldosMetodo(saldosArray: arraySaldos)
+        labelSaldoTotal.text = "R$ \( SetupModel().formatarValor(valor: somaSaldos) )"
     }
     
     //MARK: - Métodos
@@ -87,6 +88,7 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
         do {
             try fetchResultController.performFetch()
             arraySaldos = recuperaSaldo()
+            somaSaldos = somaSaldosMetodo(saldosArray: arraySaldos)
             labelSaldoTotal.text = "R$ \( SetupModel().formatarValor(valor: somaSaldos) )"
         } catch  {
             print(error.localizedDescription)
@@ -96,13 +98,13 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
     func recuperaSaldo() -> [Double] {
         somaSaldos = 0
         var saldos:[Double] = []
-        let n = fetchResultController.fetchedObjects?.count as! Int
+        let n = fetchResultController.fetchedObjects!.count
         if n != 0 {
             for i in (0..<n) {
                 // pegar saldo
-                let saldo = 1234.00
+                guard let conta = fetchResultController.fetchedObjects?[i] else {return []}
+                let saldo = conta.saldo
                 saldos.append(saldo)
-                somaSaldos += saldo
             }
             return saldos
         } else {
@@ -123,6 +125,14 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
         buttonAdicionar.isAccessibilityElement = true
         buttonAdicionar.accessibilityLabel = "Botão para adicionar nova conta"
         buttonAdicionar.accessibilityTraits = .button
+    }
+    
+    func somaSaldosMetodo(saldosArray:[Double]) -> Double{
+        var saldoTotal:Double = 0
+        for saldo in saldosArray {
+            saldoTotal += saldo
+        }
+        return saldoTotal
     }
     
     //MARK: - Delegate
@@ -165,7 +175,7 @@ class ListaContaViewController: UIViewController, UICollectionViewDataSource, UI
             let banco = contaSelecionada?.banco as! String
             let agencia = String(describing: contaSelecionada!.agencia)
             let contaNumero = "\(String(describing: contaSelecionada!.conta))" + "-" + "\(String(describing: contaSelecionada!.digito))"
-            let saldo = arraySaldos[ indexPath.row ]
+            let saldo = SetupModel().arredondaDouble(valor: contaSelecionada!.saldo)
             
             celula.dadosDaConta(apelido: apelido, banco: banco, agencia: agencia, conta: contaNumero, saldo: saldo)
             celula.fixaLabels()
