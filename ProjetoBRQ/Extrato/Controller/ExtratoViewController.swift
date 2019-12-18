@@ -66,6 +66,8 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.dataFinal = dataFin
             setaDados()
             recuperaSaldo()
+            setaDados()
+            recuperaSaldo()
             if listaLancamentos.count > 0{
                 validador = true
                 self.extratoTableView.reloadData()
@@ -94,6 +96,14 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         viewExtrato.layer.cornerRadius = 8
         labelExtratoApelido.text = apelidoRecebido
         setupAccessibility()
+        let dataAtual = Date()
+        let dataMes = Date(timeIntervalSinceNow: -(60 * 60 * 24 * 30))
+        let formatador = DateFormatter()
+        formatador.dateFormat = "dd/MM/yyyy"
+        textDataInicio.text = formatador.string(from: dataMes)
+        textDataFim.text = formatador.string(from: dataAtual)
+        dataComeco = formatador.string(from: dataMes)
+        dataFinal = formatador.string(from: dataAtual)
         setaDados()
         recuperaSaldo()
     }
@@ -164,10 +174,13 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         guard let numeroId = id else { return }
         ExtratoService().getSaldo(id: numeroId) { (saldo) in
             self.saldoTotal = saldo
+            self.somaSaldos.text = "R$" + SetupModel().formatarValor(valor: SetupModel().arredondaDouble(valor: self.saldoTotal))
         }
     }
     
     func draw(_ rect: CGRect) {
+        setaDados()
+        recuperaSaldo()
         extratoTableView.reloadData()
     }
     
@@ -207,7 +220,6 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
                 celulaExtrato.labelValores.accessibilityLabel = "Valor do lançamento" + "R$" + valorFinal + "negativos"
                 celulaExtrato.labelValores.accessibilityTraits = .none
             }
-            self.somaSaldos.text = "R$" + SetupModel().formatarValor(valor: SetupModel().arredondaDouble(valor: saldoTotal))
             
             celulaExtrato.labelDatas.isAccessibilityElement = true
             celulaExtrato.labelDatas.accessibilityLabel = "Data do lançamento" + celulaExtrato.labelDatas.text!
@@ -222,7 +234,6 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
             celulaExtrato.labelLancamentos.text = ""
             celulaExtrato.labelDatas.text = ""
             celulaExtrato.labelValores.text = ""
-            self.somaSaldos.text = "R$ 0.00"
             return celulaExtrato
         }
     }
