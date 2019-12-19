@@ -26,7 +26,6 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var botaoVoltar: UIButton!
     @IBOutlet weak var textDig: UITextField!
     @IBOutlet weak var logoBRQ: UIImageView!
-    
     @IBAction func botaoAdicionarAcao(_ sender: UIButton) {
         
         if textApelidoConta.text!.isEmpty || textAgencia.text!.isEmpty || textConta.text!.isEmpty || textDig.text!.isEmpty{
@@ -58,17 +57,18 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
                 contaCD.digito = Int16(digito)
                 contaCD.id = Int16(id)
 
-                do {
-                    try context.save()
-        
-                } catch  {
-                    print(error.localizedDescription)
+                ExtratoService().getSaldo(id: Int(contaCD.id)) { (saldoApi) in
+                    self.contaCD.saldo = saldoApi
+                    do {
+                        try self.context.save()
+                        self.toastMessage("Conta adicionada com sucesso!")
+                        self.dismiss(animated: true, completion: nil)
+                        
+                    } catch  {
+                        print(error.localizedDescription)
+                    }
                 }
 
-//                let conta = Conta(apelidoConta: apelido, banco: banco, agencia: agencia, contaNumero: contaNumero, contaDigito: 1, id: id)
-//                del.adicionaConta(conta: conta)
-                self.toastMessage("Conta adicionada com sucesso!")
-                dismiss(animated: true, completion: nil)
             }else{
                 self.toastMessage("Conta inexistente!")
             }
@@ -93,6 +93,10 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
         self.textConta.delegate = self
         
         configuraBordas()
+        configuraDropDown()
+        
+    }
+    func configuraDropDown(){
         viewCadastro.layer.masksToBounds = true
         dropDown = dropDownBtn.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         dropDown.setTitle("Selecione banco", for: .normal)
@@ -109,7 +113,6 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(scroll(notification: )), name: UIResponder.keyboardWillShowNotification ,object: nil)
         
     }
-    
     func configuraBordas(){
         botaoAdicionar.layer.cornerRadius = 8
         botaoAdicionar.layer.masksToBounds = true

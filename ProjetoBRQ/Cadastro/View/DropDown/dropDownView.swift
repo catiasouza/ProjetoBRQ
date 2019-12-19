@@ -15,7 +15,6 @@ class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource{
     var tableView = UITableView()
     var delegate: dropDownProtocol!
     
-    //    var bancoSelecionado:String?
     
     //MARK: - Inicializadores
     override init(frame: CGRect) {
@@ -60,11 +59,6 @@ class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.delegate.dropDownPressed(string: dropDownOptions[indexPath.row])
         
-        //            self.bancoSelecionado = dropDownOptions[ indexPath.row ]
-        //            print(self.bancoSelecionado)
-        
-        //codigo para não permanecer selecionado
-        //self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func draw(_ rect: CGRect) {

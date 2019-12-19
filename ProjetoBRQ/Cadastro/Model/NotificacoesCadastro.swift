@@ -16,6 +16,7 @@ class NotificacoesCadastro{
         init (controller:UIViewController ) {
             self.controller = controller
         }
+    
     }
     extension UIViewController {
       func toastMessage(_ message: String){
