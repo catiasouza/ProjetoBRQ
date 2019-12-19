@@ -15,7 +15,6 @@ class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource{
     var tableView = UITableView()
     var delegate: dropDownProtocol!
     
-    //    var bancoSelecionado:String?
     
     //MARK: - Inicializadores
     override init(frame: CGRect) {
@@ -39,7 +38,6 @@ class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     //MARK: - TableView
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -53,20 +51,12 @@ class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource{
         
         cell.backgroundColor = UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 1)
         cell.textLabel?.textColor = UIColor.black
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.delegate.dropDownPressed(string: dropDownOptions[indexPath.row])
-        
-        //            self.bancoSelecionado = dropDownOptions[ indexPath.row ]
-        //            print(self.bancoSelecionado)
-        
-        //codigo para não permanecer selecionado
-        //self.tableView.deselectRow(at: indexPath, animated: true)
     }
-    
     override func draw(_ rect: CGRect) {
         tableView.reloadData()
     }

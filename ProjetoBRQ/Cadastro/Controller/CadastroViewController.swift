@@ -27,37 +27,41 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textDig: UITextField!
     @IBOutlet weak var logoBRQ: UIImageView!
     
+    
+    // MARK: - Adicionar
     @IBAction func botaoAdicionarAcao(_ sender: UIButton) {
         
+        //Validacao espaco em branco
+        let espaco = textApelidoConta.text?.trimmingCharacters(in: .whitespaces)
+        textApelidoConta.text = espaco
+        
+        //Validacao campo em branco
         if textApelidoConta.text!.isEmpty || textAgencia.text!.isEmpty || textConta.text!.isEmpty || textDig.text!.isEmpty{
             self.toastMessage("Favor preencher todos campos!")
             return;
         }
-           
         
-        if let del = delegate {
-            guard let apelido = textApelidoConta.text! as String? else { return }
-            guard let agencia = Int(textAgencia.text!) else { return }
-            guard let contaNumero = Int(textConta.text!) else { return }
-            guard let banco = dropDown.titleLabel?.text else {return}
-            guard let digito  = Int(textDig.text!) else { return }
+        guard let apelido = textApelidoConta.text! as String?,
+            let agencia = Int(textAgencia.text!),
+            let contaNumero = Int(textConta.text!),
+            let banco = dropDown.titleLabel?.text,
+            let digito  = Int(textDig.text!) else { return }
             
             let id = validarEntrada(bancoDigitado: banco, agenciaDigitada: agencia, contaDigitada: contaNumero, digitoDigitado: digito)
             print(id)
             if id != 0{
-
+                
                 // Persistencia  De Dados
                 if contaCD == nil{
                     contaCD = ContaCD(context: context)
                 }
-
                 contaCD.agencia = Int16(agencia)
                 contaCD.apelidoConta = apelido
                 contaCD.banco = banco
                 contaCD.conta = Int16(contaNumero)
                 contaCD.digito = Int16(digito)
                 contaCD.id = Int16(id)
-
+                
                 ExtratoService().getSaldo(id: Int(contaCD.id)) { (saldoApi) in
                     self.contaCD.saldo = saldoApi
                     do {
@@ -69,25 +73,18 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
                         print(error.localizedDescription)
                     }
                 }
-//                let conta = Conta(apelidoConta: apelido, banco: banco, agencia: agencia, contaNumero: contaNumero, contaDigito: 1, id: id)
-//                del.adicionaConta(conta: conta)
             }else{
                 self.toastMessage("Conta inexistente!")
-            }
         }
     }
-    
     @IBAction func botaoVoltar(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
-    
     // MARK: - Metodos
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        accessibilidadeCadastro()
+        NotificacoesCadastro(controller: self).accessibilidadeCadastro(botaoAdicionar: botaoAdicionar, botaoVoltar: botaoVoltar, logoBRQ: logoBRQ, textApelidoConta: textApelidoConta)
         acessoAPI()
         criarListaBancos()
         self.textApelidoConta.delegate = self
@@ -95,6 +92,9 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
         self.textConta.delegate = self
         
         configuraBordas()
+        configuraDropDown()  
+    }
+    func configuraDropDown(){
         viewCadastro.layer.masksToBounds = true
         dropDown = dropDownBtn.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         dropDown.setTitle("Selecione banco", for: .normal)
@@ -109,16 +109,13 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
         dropDown.layer.masksToBounds = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(scroll(notification: )), name: UIResponder.keyboardWillShowNotification ,object: nil)
-        
     }
-    
     func configuraBordas(){
         botaoAdicionar.layer.cornerRadius = 8
         botaoAdicionar.layer.masksToBounds = true
         viewCadastro.layer.cornerRadius = 8
         backView.layer.cornerRadius = 8
     }
-    
     func criarListaBancos() {
         CadastroService().acessarApi{ (bancos) in
             self.dropDown.dropView.dropDownOptions = bancos
@@ -131,18 +128,14 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
             self.arrayApi = array
         }
     }
-    
     @objc func fecharTeclado () {
         view.endEditing(true)
     }
-    
     // MARK: - Scroll
-    
     @objc func scroll(notification: Notification){
         self.scrollView.contentSize = CGSize(width: self.scrollView.frame.width, height: self.scrollView.frame.height + 150)
     }
     // MARK: - Teclado
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textConta.resignFirstResponder()
         textAgencia.resignFirstResponder()
@@ -155,6 +148,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Validacao TextField
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
         let apelidoConta = textField.text ?? ""
         guard let stringApelido = Range(range, in: apelidoConta)else{
             return false
@@ -167,10 +161,10 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
         
         for i in (0...n-1) {
             let array = arrayApi?[i] as? Array<Any>
-            guard let bancoApi = array?[0] as? String else { return 0}
-            guard let agenciaApi = array?[1]  as? Int else { return 0}
-            guard let contaApi = array?[2] as? Int else { return 0}
-            guard let digitoApi = array?[3] as? Int else { return 0 }
+            guard let bancoApi = array?[0] as? String,
+                let agenciaApi = array?[1]  as? Int,
+                let contaApi = array?[2] as? Int,
+                let digitoApi = array?[3] as? Int else { return 0 }
             
             if bancoApi == bancoDigitado && agenciaApi == agenciaDigitada && contaApi == contaDigitada && digitoApi == digitoDigitado {
                 return array![4] as! Int
@@ -178,25 +172,6 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
         }
         return 0
     }
-    func accessibilidadeCadastro(){
-        
-        botaoAdicionar.isAccessibilityElement = true
-        botaoAdicionar.accessibilityLabel = "Adicione sua conta"
-        botaoAdicionar.accessibilityTraits = .button
-        
-        botaoVoltar.isAccessibilityElement = true
-        botaoVoltar.accessibilityLabel = "Voltar para a tela lista de contas"
-        botaoVoltar.accessibilityTraits = .button
-        
-        logoBRQ.isAccessibilityElement = true
-        logoBRQ.accessibilityLabel = "Logo da BRQ"
-        logoBRQ.accessibilityTraits = .image
-
-        textApelidoConta.isAccessibilityElement = true
-        textApelidoConta.accessibilityLabel = "Digite um apelido para sua conta"
-        textApelidoConta.accessibilityTraits = .none
-    }
-    
 }
 
 

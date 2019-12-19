@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15508" systemVersion="19C57" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15508" systemVersion="19B88" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="ContaCD" representedClassName="ContaCD" syncable="YES" codeGenerationType="class">
         <attribute name="agencia" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="apelidoConta" optional="YES" attributeType="String" minValueString="5" maxValueString="25"/>
+        <attribute name="apelidoConta" optional="YES" attributeType="String" maxValueString="25"/>
         <attribute name="banco" optional="YES" attributeType="String"/>
         <attribute name="conta" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="digito" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
