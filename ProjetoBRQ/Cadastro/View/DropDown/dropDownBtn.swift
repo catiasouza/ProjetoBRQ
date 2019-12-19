@@ -15,8 +15,7 @@ class  dropDownBtn: UIButton, dropDownProtocol{
     var height = NSLayoutConstraint()
     var isOpen = false
     var bancoSelecionado:String?
-    
-    
+  
     //MARK: - Inicializadores
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,16 +30,12 @@ class  dropDownBtn: UIButton, dropDownProtocol{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
+        
     func dropDownPressed(string: String) {
         self.setTitle(string, for: .normal)
         self.dismissDropDown()
-        
     }
-    
     override func didMoveToSuperview(){
-        
     }
     
     override func draw(_ rect: CGRect) {
@@ -75,7 +70,6 @@ class  dropDownBtn: UIButton, dropDownProtocol{
             UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 0.1, initialSpringVelocity: 0.1, options: .curveEaseInOut, animations: {}, completion: nil)
         }
     }
-    
     func dismissDropDown(){
         isOpen = false
         NSLayoutConstraint.deactivate([self.height])
@@ -84,8 +78,6 @@ class  dropDownBtn: UIButton, dropDownProtocol{
         
         UIView.animate(withDuration: 0.1, delay: 0.1, usingSpringWithDamping: 0.1, initialSpringVelocity: 0.1, options: .curveEaseInOut, animations: {}, completion: nil)
     }
-    
-    
 }
 
 
