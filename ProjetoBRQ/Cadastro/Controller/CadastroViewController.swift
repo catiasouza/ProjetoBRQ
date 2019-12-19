@@ -4,12 +4,10 @@ import UIKit
 
 class CadastroViewController: UIViewController, UITextFieldDelegate {
     
-    
     // MARK: - Variaveis/Constantes
     
     var conta: [String] = []
     var dropDown = dropDownBtn()
-    var delegate : ContaDelegate?
     var arrayApi: Array<Any>?
     var contaCD: ContaCD!
     
@@ -27,7 +25,6 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textDig: UITextField!
     @IBOutlet weak var logoBRQ: UIImageView!
     
-    
     // MARK: - Adicionar
     @IBAction func botaoAdicionarAcao(_ sender: UIButton) {
         
@@ -38,7 +35,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
         //Validacao campo em branco
         if textApelidoConta.text!.isEmpty || textAgencia.text!.isEmpty || textConta.text!.isEmpty || textDig.text!.isEmpty{
             self.toastMessage("Favor preencher todos campos!")
-            return;
+            return
         }
         
         guard let apelido = textApelidoConta.text! as String?,
@@ -61,6 +58,7 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
                 contaCD.conta = Int16(contaNumero)
                 contaCD.digito = Int16(digito)
                 contaCD.id = Int16(id)
+                contaCD.data = Date()
                 
                 ExtratoService().getSaldo(id: Int(contaCD.id)) { (saldoApi) in
                     self.contaCD.saldo = saldoApi
@@ -173,5 +171,3 @@ class CadastroViewController: UIViewController, UITextFieldDelegate {
         return 0
     }
 }
-
-
