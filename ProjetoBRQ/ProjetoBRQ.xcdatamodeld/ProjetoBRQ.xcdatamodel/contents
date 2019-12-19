@@ -5,11 +5,12 @@
         <attribute name="apelidoConta" optional="YES" attributeType="String" maxValueString="25"/>
         <attribute name="banco" optional="YES" attributeType="String"/>
         <attribute name="conta" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="data" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="digito" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="saldo" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="ContaCD" positionX="-45" positionY="0" width="128" height="148"/>
+        <element name="ContaCD" positionX="-45" positionY="0" width="128" height="163"/>
     </elements>
 </model>
