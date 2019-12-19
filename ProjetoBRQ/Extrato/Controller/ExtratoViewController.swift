@@ -13,14 +13,10 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
     //MARK: - Variaveis/Constantes
     
     var saldoTotal: Double = 0
-    // dados recebidos da listaConta
     var apelidoRecebido: String?
     var id:Int?
-    
     var listaLancamentos: [Lancamento] = []
-    
     var validador = false
-    
     var dataComeco = ""
     var dataFinal = ""
     
@@ -95,7 +91,7 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         extratoTableView.delegate = self
         viewExtrato.layer.cornerRadius = 8
         labelExtratoApelido.text = apelidoRecebido
-        setupAccessibility()
+        SetupModel().setupAccessibility(icone: iconeBRQ, labelApelido: labelExtratoApelido, dataInicio: textDataInicio, dataFim: textDataFim, buttonVoltar: botaoVoltar, buttonPesquisar: botaoPesquisar, saldo: somaSaldos)
         let dataAtual = Date()
         let dataMes = Date(timeIntervalSinceNow: -(60 * 60 * 24 * 30))
         let formatador = DateFormatter()
@@ -106,36 +102,6 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
         dataFinal = formatador.string(from: dataAtual)
         setaDados()
         recuperaSaldo()
-    }
-    
-    private func setupAccessibility(){
-        iconeBRQ.isAccessibilityElement = true
-        iconeBRQ.accessibilityLabel = "Logo da BRQ"
-        iconeBRQ.accessibilityTraits = .image
-        
-        labelExtratoApelido.isAccessibilityElement = true
-        labelExtratoApelido.accessibilityLabel = "Apelido da conta" + labelExtratoApelido.text!
-        labelExtratoApelido.accessibilityTraits = .none
-        
-        textDataInicio.isAccessibilityElement = true
-        textDataInicio.accessibilityLabel = "Data de início da busca"
-        textDataInicio.accessibilityTraits = .staticText
-        
-        textDataFim.isAccessibilityElement = true
-        textDataFim.accessibilityLabel = "Data de fim da busca"
-        textDataFim.accessibilityTraits = .staticText
-        
-        botaoVoltar.isAccessibilityElement = true
-        botaoVoltar.accessibilityLabel = "Botão de voltar para tela de lista de contas"
-        botaoVoltar.accessibilityTraits = .staticText
-        
-        botaoPesquisar.isAccessibilityElement = true
-        botaoPesquisar.accessibilityLabel = "Botão de busca pelas datas selecionadas"
-        botaoPesquisar.accessibilityTraits = .staticText
-        
-        somaSaldos.isAccessibilityElement = true
-        somaSaldos.accessibilityLabel = "Saldo atual da conta " + somaSaldos.text!
-        somaSaldos.accessibilityTraits = .none
     }
     
     @objc func exibeDataInicio(sender: UIDatePicker) {
@@ -201,41 +167,7 @@ class ExtratoViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let celulaExtrato = tableView.dequeueReusableCell(withIdentifier: "celulaExtrato", for: indexPath) as! ExtratoTableViewCell
         let lancamentoAtual = listaLancamentos[indexPath.row]
-        
-        
-        if validador{
-            celulaExtrato.labelLancamentos.text = lancamentoAtual.nome
-            celulaExtrato.labelDatas.text = SetupModel().formattedDateFromString(dateString: lancamentoAtual.dataOperacao, withFormat: "dd-MMM")?.uppercased()
-            let valorFinal = SetupModel().formatarValor(valor: SetupModel().arredondaDouble(valor: lancamentoAtual.valor))
-            if lancamentoAtual.tipoOperacao == "C" || lancamentoAtual.tipoOperacao == "c"{
-                celulaExtrato.labelValores.text = valorFinal
-                
-                celulaExtrato.labelValores.isAccessibilityElement = true
-                celulaExtrato.labelValores.accessibilityLabel = "Valor do lançamento" + "R$" + valorFinal
-                celulaExtrato.labelValores.accessibilityTraits = .none
-            }else{
-                celulaExtrato.labelValores.text = "-\(valorFinal)"
-                
-                celulaExtrato.labelValores.isAccessibilityElement = true
-                celulaExtrato.labelValores.accessibilityLabel = "Valor do lançamento" + "R$" + valorFinal + "negativos"
-                celulaExtrato.labelValores.accessibilityTraits = .none
-            }
-            
-            celulaExtrato.labelDatas.isAccessibilityElement = true
-            celulaExtrato.labelDatas.accessibilityLabel = "Data do lançamento" + celulaExtrato.labelDatas.text!
-            celulaExtrato.labelDatas.accessibilityTraits = .none
-            celulaExtrato.labelLancamentos.isAccessibilityElement = true
-            celulaExtrato.labelLancamentos.accessibilityLabel = "Descrição do lançamento" + celulaExtrato.labelLancamentos.text!
-            celulaExtrato.labelLancamentos.accessibilityTraits = .none
-            
-            
-            return celulaExtrato
-        }else{
-            celulaExtrato.labelLancamentos.text = ""
-            celulaExtrato.labelDatas.text = ""
-            celulaExtrato.labelValores.text = ""
-            return celulaExtrato
-        }
+        return SetupModel().popularTableView(celula: celulaExtrato, lancamento: lancamentoAtual, validador: validador)
     }
     
     // MARK: - Teclado
