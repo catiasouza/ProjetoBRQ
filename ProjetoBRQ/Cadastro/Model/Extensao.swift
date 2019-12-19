@@ -17,3 +17,20 @@ extension UIViewController{
         return appDelegate.persistentContainer.viewContext
     }
 }
+
+extension ListaContaViewController: NSFetchedResultsControllerDelegate {
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        switch type {
+        case .delete:
+            do {
+                try context.save()
+            } catch  {
+                print(error.localizedDescription)
+            }
+        default:
+            collectionListaContas.reloadData()
+        }
+    }
+}

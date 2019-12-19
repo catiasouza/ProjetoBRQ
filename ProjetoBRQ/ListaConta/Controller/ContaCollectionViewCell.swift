@@ -31,7 +31,6 @@ class ContaCollectionViewCell: UICollectionViewCell {
         labelSaldo.accessibilityTraits = .none
     }
     
-    
     func fixaLabels (labelFixaBanco:String = "Banco", labelFixaAgencia:String = "Agência", labelFixaConta:String = "Conta", labelFixaSaldo:String = "Saldo" ) {
         self.labelFixaBanco.text = labelFixaBanco
         self.labelFixaAgencia.text = labelFixaAgencia
